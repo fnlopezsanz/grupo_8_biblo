@@ -4,6 +4,18 @@ Nuestro e-commerce es un sitio de venta de e-books.
 
 El público objetivo es todo aquel lector que consuma libros en formato eléctronico, ya sean niños, adolescentes o adultos. Al tratarse de un desarrollo escalable, se podrán sumar constantemente nuevos títulos a nuestra base de datos.
 
+
+*Integrantes del equipo:
+
+- Emiliana Baglioni:
+
+- Matías Ferramondo:
+
+- Facundo López Sanz: Tengo 35 años. Vivo en CABA. Soy técnico de sonido y padre de Jade.
+
+- Ezequiel Salomón:
+
+
 *Listado de los 5 sitios que tomamos como referencia:
 
 - netflix.com: Elegimos a Netflix como un referente porque es un formato familiar para todo el mundo, amigable para el usuario y con un diseño que nos resulta atractivo.
@@ -15,13 +27,3 @@ El público objetivo es todo aquel lector que consuma libros en formato eléctro
 - 
 
 - 
-
-*Integrantes del equipo:
-
-- Emiliana Baglioni:
-
-- Matías Ferramondo:
-
-- Facundo López Sanz: Tengo 35 años. Vivo en CABA. Soy técnico de sonido y padre de Jade.
-
-- Ezequiel Salomón:
