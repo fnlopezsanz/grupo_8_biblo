@@ -20,10 +20,10 @@ El público objetivo es todo aquel lector que consuma libros en formato eléctro
 
 - netflix.com: Elegimos a Netflix como un referente porque es un formato familiar para todo el mundo, amigable para el usuario y con un diseño que nos resulta atractivo.
 
-- kobo.com: Kobo es un portal de venta de e-books y nos sirve como referencia a la hora de pensar dónde y cómo disponer de los elementos dentro de las páginas.
+- kobo.com: Kobo es un portal de venta de e-books y nos sirve como referencia a la hora de pensar dónde y cómo disponer los elementos dentro de las páginas.
 
 - perlego.com: Perlego es una referencia también porque su diseño está pensado para que encajen perfectamente todos los elementos a medida que el usuario va scrolleando la pantalla.
 
-- 
+- planetadelibros.com.ar/libros-ebooks: notamos que es una página de referencia simple, práctica y que al mismo cumple con los requisitos básicos que para un proyecto
 
 - 
