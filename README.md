@@ -13,7 +13,7 @@ El público objetivo es todo aquel lector que consuma libros en formato eléctro
 
 - Facundo López Sanz: Tengo 35 años. Vivo en CABA. Soy técnico de sonido y padre de Jade.
 
-- Ezequiel Salomón:
+- Ezequiel Salomón: Tengo 27 años, soy de Cordoba Capital, no tengo conocimientos previos en programacion
 
 
 *Listado de los 5 sitios que tomamos como referencia:
