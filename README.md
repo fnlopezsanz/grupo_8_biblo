@@ -7,7 +7,7 @@ El público objetivo es todo aquel lector que consuma libros en formato eléctro
 
 *Integrantes del equipo:
 
-- Emiliana Baglioni:
+- Emiliana Abril Baglioni: Tengo 24 años. Actualmente vivo en Córdoba Capital pero soy de Concordia - Entre Ríos. Además del curso estudio en el ISPC la Tecnicatura de Desarrollo Web y Aplicaciones Digitales.
 
 - Matías Ferramondo:
 
