@@ -1,6 +1,6 @@
 *Temática del sitio y público objetivo:
 
-Nuestro e-commerce es un sitio de venta de e-books.
+Nuestro e-commerce es un sitio de venta de e-books y audiolibros.
 
 El público objetivo es todo aquel lector que consuma libros en formato eléctronico, ya sean niños, adolescentes o adultos. Al tratarse de un desarrollo escalable, se podrán sumar constantemente nuevos títulos a nuestra base de datos.
 
@@ -24,6 +24,6 @@ El público objetivo es todo aquel lector que consuma libros en formato eléctro
 
 - perlego.com: Perlego es una referencia también porque su diseño está pensado para que encajen perfectamente todos los elementos a medida que el usuario va scrolleando la pantalla.
 
-- planetadelibros.com.ar/libros-ebooks: notamos que es una página de referencia simple, práctica y que al mismo cumple con los requisitos básicos que para un proyecto
+- planetadelibros.com.ar/libros-ebooks: Notamos que es una página de referencia simple, práctica y que al mismo tiempo cumple con los requisitos básicos para que un proyecto como el nuestro pueda tomar esos conceptos como ideas a ser aplicadas.
 
-- 
+- dexter.com.ar: Este e-commerce posee la simpleza de los elementos indispensables para que un sitio sea funcional, por lo que nos pareció apropiado tomarlo como modelo en ese sentido.
