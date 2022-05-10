@@ -12,4 +12,7 @@ app.listen(PORT, () => {
     console.log(`Servidor funcionando en puerto ${PORT}`)
 });
 
-
+app.get("/", (req, res) => {
+    const home = path.join(__dirname, "/views/home.html");
+    res.sendFile(home);
+});
