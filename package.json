@@ -1,0 +1,22 @@
+{
+  "name": "grupo_8_biblo",
+  "version": "1.0.0",
+  "description": "*Temática del sitio y público objetivo:",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fnlopezsanz/grupo_8_biblo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fnlopezsanz/grupo_8_biblo/issues"
+  },
+  "homepage": "https://github.com/fnlopezsanz/grupo_8_biblo#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
