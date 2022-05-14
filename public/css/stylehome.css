@@ -1,0 +1,27 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Be Vietnam Pro', sans-serif;
+}
+.fa-bars {
+    font-size: 24px;
+    margin: 10px;
+    color: white;
+}
+
+.logo {
+    width: 35%;
+}
+
+.serch i {
+    margin: -26px;
+    color: #527083;
+}
+
+.box-header {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #08344f;
+}
