@@ -14,7 +14,7 @@
 
 .serch i {
     margin: -26px;
-    color: #527083;
+    color: #08344f;
 }
 
 .box-header {
@@ -24,4 +24,34 @@
     justify-content: space-around;
     align-items: center;
     background-color: #08344f;
+}
+
+header nav a {
+    text-decoration: none;
+}
+
+header nav li {
+    color: black;
+}
+
+header nav {
+    list-style-type: none;
+    font-size: 14px;
+    display: flex;
+    justify-content: right;
+    width: 100%;
+    padding: 15px;
+    background-color: #cdd6db ;
+    border-bottom: solid 1px #9cadb8;
+}
+.fa-book {
+    margin-right: 5px;
+    color: #08344f;
+}
+.space-list {
+    padding: 0 5px;
+}
+
+body {
+    background-color: #e6eaed;
 }
