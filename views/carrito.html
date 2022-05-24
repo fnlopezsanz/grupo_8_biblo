@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/4df4c071ac.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../public/css/normalize.css">
+  <link rel="stylesheet" href="../public/css/style_carrito.css">
+  <title>Biblo</title>
+</head>
+
+<body>
+  <main>
+    <div class="linea-uno-main">
+      <div class="tit-cant-prod">
+        <h3 class="mi-carrito">Mi Carrito</h3>
+        <p class="cant-prod">1 producto</p>
+      </div>
+      <a href="./home.html" class="seguir-comprando">Seguir comprando</a>
+    </div>
+    
+    <div id="section-main">
+      <section class="articulos">
+        <article class="producto">
+          <div class="nombre-tacho">
+            <h3 class="nombre">El Ajedrez de Torneo - Zürich 1953</h3>
+            <a href="#"><i class="fa-solid fa-trash-can"></i></a>
+          </div>
+          <div class="cont-prod">
+            <img src="../public/img/ajedrez_de_torneo.jpg" alt="" class="img-prod">
+            <div class="desc-cant-tot">
+              <p class="desc-prod">El libro de un torneo tan fuerte como éste es más que una colección de partidas. Cuando sus participantes son los mejores del mundo, el torneo es como un todo, representa un paso adelante en el
+              desarrollo de la creatividad del ajedrez.</p>
+              <div class="cant-tot">
+                <div class="cant">
+                  <p class="cantidad-prod">Cantidad
+                    <select name="combo">
+                      <!-- Opciones de la lista -->
+                      <option value="1" selected>1</option> <!-- Opción por defecto -->
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
+                  </p>
+
+                </div>
+                <div class="total-prod">
+                  <p class="p-total-prod">Total</p>
+                  <p class="monto-total-prod"><strong>$3.260</strong></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="resumen-comprar">
+        <div class="resumen">
+          <h4>Resumen del Pedido</h4>
+          <div class="subtotal">
+            <p>Subtotal</p>
+            <p>$ 3.260</p>
+          </div>
+          <div class="envio">
+            <p>Envío</p>
+            <p>$ 500</p>
+          </div>
+          <div class="total">
+            <p><strong>Total</strong></p>
+            <p><strong>$ 3.760</strong></p>
+          </div>
+        </div>
+        <a href="#"><input type="button" value="Comprar" class="boton-comprar"></a>
+      </section>
+    </div>
+  </main>
+
+</body>
+
+</html>
