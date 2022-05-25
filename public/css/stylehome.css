@@ -67,6 +67,7 @@
 
 .top-nav ul {
     list-style-type: none;
+    display: flex;
 }
 
 .top-nav li {
@@ -81,8 +82,6 @@
 }
 
 .logo {
-    margin-right: 3%;
-    width: 50%;
     max-width: 150px;
     max-height: 150px;
 }
@@ -122,11 +121,6 @@
 
 /*SECTION Y ARTICLES*/
 
-section {
-    background-color: white;
-    margin: 10px;
-}
-
 .roulette {
     font-size: 12px;
     font-weight: bold;
@@ -150,7 +144,115 @@ section {
     background-color: lightblue;
 }
 
+hr {
+    margin-top: 15px;
+    width: 100%;
+    color: #5d676e;
+}
 
+/*FOOTER*/
+
+footer {
+    margin-top: 15px;
+    padding: 0 5%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.f-left {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.f-left p {
+    width: 50%;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    padding: 0px 0px 0 40px;
+    color: #5d676e;
+}
+
+.f-left ul {
+    width: 50%;
+    padding: 0;
+    margin: 0;
+}
+
+.f-left ul li {
+    list-style-type: none;
+}
+
+.f-left ul a {
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+    color: #5d676e;
+}
+
+.f-left ul a i {
+    color: #5d676e;
+    font-size: 14px;
+    margin: 8px 10px;
+}
+
+.f-right {
+    font-size: 12px;
+    text-align: center;
+    color: #5d676e;
+}
+
+.f-right p {
+    margin-top: 30px;
+}
+
+.f-right ul {
+    margin: 0;
+    padding: 0;
+}
+
+.f-right ul li {
+    list-style-type: none;
+    font-size: 11px;
+}
+
+.f-right ul a {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 11px;
+}
+
+.img-pay {
+    max-width:90px;
+    max-height: 40px;
+}
+
+.copyright {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    font-size: 12px;
+    color: #5d676e;
+}
+
+.copyright p {
+    width: 90%;
+    text-align: left;
+}
+
+.copyright form {
+    width: 10%;
+}
+
+.copyright form button {
+    padding: 0;
+    border: none;
+    background-color: white;
+}
 
 @media (min-width: 481px) {
     .search-top {
@@ -205,5 +307,42 @@ section {
         color: #204860;
         background-color: white;
         border: none;
+    }
+
+    footer {
+        display: flex;
+        flex-direction: row;
+        justify-content: stretch;
+    }
+
+    .f-left {
+        width: 30%;
+    }
+
+    .f-left p {
+        padding: 0;
+    }
+
+    .f-right {
+        width: 70%;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .f-right p {
+        margin: 0;
+        margin-bottom: 5px;
+    }
+
+    .f-right div {
+        padding: 0 15px;
+    }
+
+    .copyright p {
+        padding-left: 10px;
+    }
+
+    .copyright form {
+        text-align: center;
     }
 }
