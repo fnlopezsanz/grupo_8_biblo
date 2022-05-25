@@ -3,14 +3,16 @@
     font-family: 'Be Vietnam Pro', sans-serif;
 }
 
-.box-header {
+/*HEADER*/
+
+.top-header {
     width: 100%;
     padding: 5px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    background-color:#08344F ;
+    background-color: #08344F;
 }
 
 .burger {
@@ -26,20 +28,24 @@
     background-color: #08344F;
 }
 
-.search {
+.search-top {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     position: relative;
-    width: 30%;
+    width: 40%;
 }
 
-.search input {
-    width: 80%;
+.search-top input {
+    width: 90%;
+    padding: 3px;
+    padding-left: 5px;
+    font-size: 12px;
+    border-radius: 5px;
 }
 
-.search button {
+.search-top button {
     position: absolute;
     right: 10%;
     color: #204860;
@@ -47,11 +53,157 @@
     border: none;
 }
 
-.logo {
-    width: 60%;
-    max-width: 190px;
-    max-height: 190px;
+.top-nav {
+    display: none;
 }
 
-@media (max-widht: 480px){
+.top-nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.top-nav ul {
+    list-style-type: none;
+}
+
+.top-nav li {
+    margin: 0 5px;
+}
+
+.top-nav a {
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.logo {
+    margin-right: 3%;
+    width: 50%;
+    max-width: 150px;
+    max-height: 150px;
+}
+
+.search-bottom {
+    display: none;
+}
+
+.bottom-nav {
+    padding: 10px;
+    background-color: #8399a7;
+}
+
+.bottom-nav ul {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.bottom-nav ul li {
+    color: white;
+    margin: 0 10px;
+    list-style-type: none;
+}
+
+.bottom-nav ul li a {
+    color: white;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.fa-book {
+    color: #204860;
+    margin-right: 5px;
+}
+
+/*SECTION Y ARTICLES*/
+
+section {
+    background-color: white;
+    margin: 10px;
+}
+
+.roulette {
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.roulette button {
+    width: 200px;
+    background-color: white;
+    border-radius: 5px;
+    border: solid 1px #cdd6db;
+    transition: all 400ms;
+}
+
+.roulette button:hover {
+    font-weight: bold;
+    color: white;
+    padding: 3px;
+    border-radius: 5px;
+    border: solid 1px white;
+    background-color: lightblue;
+}
+
+
+
+@media (min-width: 481px) {
+    .search-top {
+        display: none;
+    }
+
+    .top-nav {
+        display: block;
+    }
+
+    .bottom-header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        background-color: #8399a7;
+    }
+
+    .bottom-nav {
+        width: 50%;
+    }
+
+    .bottom-nav ul {
+        margin-right: 5%;
+        justify-content: flex-end;
+    }
+
+    .search-bottom {
+        display: block;
+    }
+
+    .search-bottom {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: center;
+        position: relative;
+        width: 50%;
+    }
+
+    .search-bottom input {
+        margin-left: 15%;
+        width: 55%;
+        border-radius: 5px;
+        padding: 5px 0 0 10px;
+        font-size: 14px;
+    }
+
+    .search-bottom button {
+        position: absolute;
+        right: 31%;
+        bottom: 13%;
+        color: #204860;
+        background-color: white;
+        border: none;
+    }
 }
