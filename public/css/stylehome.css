@@ -34,10 +34,10 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    width: 40%;
+    width: 35%;
 }
 
-.search-top input {
+.search-top form input {
     width: 90%;
     padding: 3px;
     padding-left: 5px;
@@ -45,12 +45,13 @@
     border-radius: 5px;
 }
 
-.search-top button {
+.search-top form button {
     position: absolute;
-    right: 10%;
+    right: 5%;
     color: #204860;
     background-color: white;
     border: none;
+    margin: 3px 10px;
 }
 
 .top-nav {
@@ -177,7 +178,6 @@ footer {
 }
 
 .f-left ul {
-    width: 50%;
     padding: 0;
     margin: 0;
 }
@@ -233,7 +233,6 @@ footer {
 .copyright {
     width: 100%;
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     font-size: 12px;
     color: #5d676e;
@@ -241,15 +240,14 @@ footer {
 
 .copyright p {
     width: 90%;
-    text-align: left;
 }
 
 .copyright form {
     width: 10%;
+    text-align: end;
 }
 
 .copyright form button {
-    padding: 0;
     border: none;
     background-color: white;
 }
@@ -292,17 +290,21 @@ footer {
         width: 50%;
     }
 
-    .search-bottom input {
+    .search-bottom form {
+        align-items: center;
+        width: 65%;
+    }
+    .search-bottom form input {
+        width: 100%;
         margin-left: 15%;
-        width: 55%;
         border-radius: 5px;
         padding: 5px 0 0 10px;
         font-size: 14px;
     }
 
-    .search-bottom button {
+    .search-bottom form button {
         position: absolute;
-        right: 31%;
+        right: 27%;
         bottom: 13%;
         color: #204860;
         background-color: white;
@@ -340,9 +342,5 @@ footer {
 
     .copyright p {
         padding-left: 10px;
-    }
-
-    .copyright form {
-        text-align: center;
     }
 }
