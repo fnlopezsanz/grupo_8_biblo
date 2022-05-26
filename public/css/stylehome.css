@@ -47,7 +47,7 @@
 
 .search-top form button {
     position: absolute;
-    right: 5%;
+    right: 7%;
     color: #204860;
     background-color: white;
     border: none;
@@ -145,6 +145,95 @@
     background-color: lightblue;
 }
 
+#destacado {
+    margin-top: 20px;
+    padding: 0 5px;
+    width: 100%;
+}
+
+#destacado hr {
+    width: 100%;
+}
+
+h4 {
+    font-family: sans-serif;
+    text-align: center;
+    font-weight: bold;
+    color: #5d676e;
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+main {
+    padding: 0 5%;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.destacado,
+.box-book {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+section article .title {
+    width: 145px;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+}
+
+.description {
+    margin: 0;
+    font-size: 12px;
+    text-align: center;
+    width: 125px;
+}
+
+section article img {
+    max-height: 220px;
+    margin: 10px;
+}
+
+h3 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+h3 a {
+    font-family: sans-serif;
+    text-decoration: none;
+    font-weight: bold;
+    color: #5d676e;
+}
+
+.price {
+    font-size: 12px;
+    text-align: center;
+}
+
+.book-description {
+    display: none;
+}
+
+.top-section,
+.bottom-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+article a img:hover {
+    border-radius: 10px;
+    transition-duration: 450ms;
+}
+
 hr {
     margin-top: 15px;
     width: 100%;
@@ -226,7 +315,7 @@ footer {
 }
 
 .img-pay {
-    max-width:90px;
+    max-width: 90px;
     max-height: 40px;
 }
 
@@ -294,6 +383,7 @@ footer {
         align-items: center;
         width: 65%;
     }
+
     .search-bottom form input {
         width: 100%;
         margin-left: 15%;
@@ -342,5 +432,67 @@ footer {
 
     .copyright p {
         padding-left: 10px;
+    }
+
+    #destacado hr {
+        display: none;
+    }
+
+    .book-description {
+        display: block;
+        margin: 0;
+        width: 130px;
+        text-align: start;
+        font-size: 12px;
+    } 
+}
+
+@media (min-width: 870px) {
+    main {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    article {
+        margin: 0 10px;
+    }
+    
+    #destacado {
+        width: 30%;
+        justify-content: center;
+        margin: 0;
+    }
+
+    .box-top {
+        width: 70%;
+        padding: 10px;
+    }
+
+    .box-bottom {
+        width: 100%;
+    }
+
+    .top-section {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    
+    h3 {
+        margin-top: 20px;
+        text-align: start;
+        width: 100%;
+    }
+
+    .bottom-section {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
     }
 }
