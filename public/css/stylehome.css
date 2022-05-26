@@ -126,6 +126,7 @@
     font-size: 12px;
     font-weight: bold;
     text-align: center;
+    margin-top: 20px;
 }
 
 .roulette button {
@@ -165,7 +166,7 @@ h4 {
 }
 
 main {
-    padding: 0 5%;
+    padding: 0 2%;
     width: 100%;
     margin: 20px 0;
 }
@@ -235,9 +236,51 @@ article a img:hover {
 }
 
 hr {
-    margin-top: 15px;
+    margin: 15px 0;
     width: 100%;
     color: #5d676e;
+}
+
+.news {
+    margin: 0 5%;
+}
+
+.novedades {
+    margin: 10px 0;
+    font-weight: bold;
+    text-align: right;
+    margin-left: 20%;
+}
+
+.send-email {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    padding: 10px 0;
+}
+
+.send-email input
+{
+    padding: 5px 0 5px 5px;
+}
+.send-email .name {
+    width: 20%;
+    margin-right: 5px;
+}
+
+.send-email .email {
+    width: 40%;
+}
+
+.send-email button {
+    position: absolute;
+    right: 20%;
+    border: none;
+    background-color: white;
+    border-radius: 5px;
 }
 
 /*FOOTER*/
@@ -445,9 +488,7 @@ footer {
         text-align: start;
         font-size: 12px;
     } 
-}
 
-@media (min-width: 870px) {
     main {
         display: flex;
         flex-wrap: wrap;
@@ -456,12 +497,11 @@ footer {
     }
 
     article {
-        margin: 0 10px;
+        margin: 0;
     }
     
     #destacado {
         width: 30%;
-        justify-content: center;
         margin: 0;
     }
 
