@@ -105,7 +105,7 @@
 
 .bottom-nav ul li {
     color: white;
-    margin: 0 10px;
+    margin: 0 5px;
     list-style-type: none;
 }
 
@@ -159,6 +159,7 @@
 h4 {
     font-family: sans-serif;
     text-align: center;
+    font-size: 14px;
     font-weight: bold;
     color: #5d676e;
     margin: 0;
@@ -203,7 +204,6 @@ section article img {
 
 h3 {
     text-align: center;
-    margin: 20px 0;
 }
 
 h3 a {
@@ -497,12 +497,13 @@ footer {
     }
 
     article {
-        margin: 0;
+        margin: 10 10px;
     }
     
     #destacado {
         width: 30%;
-        margin: 0;
+        margin-top: 55px;
+        align-self: flex-start;
     }
 
     .box-top {
@@ -511,7 +512,7 @@ footer {
     }
 
     .box-bottom {
-        width: 100%;
+        margin-left: 5%;
     }
 
     .top-section {

@@ -21,3 +21,13 @@ app.get("/carrito", (req, res) => {
     const carrito = path.join(__dirname, "/views/carrito.html");
     res.sendFile(carrito);
 });
+
+app.get("/register", (req, res) => {
+    const register = path.join(__dirname, "/views/register.html");
+    res.sendFile(register);
+});
+
+app.get("/login", (req, res) => {
+    const login = path.join(__dirname, "/views/login.html");
+    res.sendFile(login);
+});
