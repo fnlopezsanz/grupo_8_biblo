@@ -17,6 +17,11 @@ app.get("/", (req, res) => {
     res.sendFile(home);
 });
 
+app.get("/producto", (req, res) => {
+    const home = path.join(__dirname, "/views/producto.html");
+    res.sendFile(home);
+});
+
 app.get("/carrito", (req, res) => {
     const carrito = path.join(__dirname, "/views/carrito.html");
     res.sendFile(carrito);

@@ -2,84 +2,138 @@
     box-sizing: border-box;
     font-family: 'Be Vietnam Pro', sans-serif;
 }
-
-.container-producto {
-    width: 1000px;
-    height: 600px;
-    margin: 10px auto 0px auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #8399a7;
-    border-radius: 15px;
-    flex-wrap: wrap;
-
+p {
+  margin: 0;
 }
 
-img {
-    width: 400px;
-    height: 450px;
+.hr-rou {
+  margin-bottom: 0px;
+}
+
+main {
+  width: 100%;
+  padding: 15px 0;
+  background-color: #e6eaed;
+  margin: 0;
+}
+
+main section {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.container-producto {
+  width: 90%;
+  padding: 10px 0;
+  margin: 15px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #8399a7;
+  border-radius: 15px;
+  flex-wrap: wrap;
+}
+
+.container-producto img {
+  width: 40%;
+  margin: 15px 0px;
+    /* width: 400px; */
+    /* height: 450px; */
+}
+
+.info-y-link {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
 }
 
 .informacion-producto {
-    width: 500px;
-    height: 450px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding: 0px 10px;
-    background-color: #08344fac;
-    margin-left: 20px;
-    border-radius: 20px;
-    color:white;
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 15px 15px;
+  background-color: #08344fac;
+  border-radius: 20px;
+  color:#e6eaed;
+}
+
+.titulo {
+  width: 100%;
+  text-align: center;
+  font-size: 22px;
+  margin: 0;
+  padding-bottom: 15px;
+  font-weight: 900;
+}
+
+.desc {
+  text-align: justify;
+  padding: 0 10px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.data-prod {
+  width: 100%;
+  font-size: 14px;
+  font-weight: 600;
+  padding-bottom: 8px;
+  padding-left: 10px;
+}
+
+.price {
+  width: 100%;
+  padding: 7px 0 14px 0;
+  font-size: 16px;
+  font-weight: bolder;
+  justify-content: center;
 
 }
 
-p{
-    font-size: 18px;
-    padding: 10px;
-    line-height: 26px;
+#otros-libros {
+  margin: 15px 0;
 }
 
-h3{
-    font-size: 24px;
-    padding-left: 15px;
-    margin: 20px auto 0px auto;
-
+.ver-otros {
+  justify-self: center;
+  text-decoration: none;
+  font-size: 14px;
+  color: #e6eaed;
+  cursor: pointer;
+  border: 1px solid none;
+  border-radius: 20px;
+  padding: 7px 10px;
+  width: 200px;
+  text-align: center;
+  background-color: #08344fac;
+  margin: 50px 0px;
+  transition: all 350ms;
+  font-weight: 600;
 }
 
-span{
-    padding-left: 15px;
-    margin-top: 10px;
-    font-size: 16px;
+.ver-otros:hover {
+  background-color: #e6eaed;
+  color: #08344fac;
 }
 
-.price{
-    font-size: 24px;
+@media (min-width: 481px) {
+  .info-y-link {
+  width: 60%;
+  flex-wrap: wrap;
 }
 
-a{
-    text-decoration: none;
-    font-size: 20px;
-    color: white;
-    cursor: pointer;
-    border: 1px solid none;
-    border-radius: 20px;
-    padding: 5px;
-    width: 300px;
-    text-align: center;
-    background-color: #08344fac;
-
+  .container-producto img {
+  width: 35%;
+  margin: 15px 0px;
+  align-self: flex-start;
+}
 }
 
-a:hover{
-    background-color: white;
-    color: #08344fac;
-}
 
+/*
 @media (max-width: 400px) {
-    .container-producto{
+    .container-producto {
     flex-direction: column;
     flex-wrap: nowrap;
     width: 100%;
@@ -99,6 +153,7 @@ a:hover{
     .informacion-producto {
         width: 100%;
         height: 600px;
+      
         padding: 0px 10px;
         margin: 30px 0px;
         border-radius: 0px;
@@ -106,3 +161,4 @@ a:hover{
     
     }
 }
+*/

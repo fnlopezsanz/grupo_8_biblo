@@ -3,6 +3,9 @@
     font-family: 'Be Vietnam Pro', sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
 /*HEADER*/
 
 .top-header {
