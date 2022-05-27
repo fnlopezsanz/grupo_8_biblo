@@ -19,6 +19,7 @@ h3 {
   align-items: baseline;
   margin-top: 5px;
   margin-bottom: 5px;
+  width: 100%;
 }
 
 .tit-cant-prod {
@@ -36,6 +37,11 @@ h3 {
   font-size: 0.7rem;
   text-decoration: none;
   color: #204860;
+  transition: all 200ms;
+}
+
+.seguir-comprando:hover {
+  color: #527083;
 }
 
 p {
@@ -140,6 +146,7 @@ main {
 
 .resumen {
   font-size: 0.85rem;
+  
 }
 
 

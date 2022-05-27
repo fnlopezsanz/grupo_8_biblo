@@ -9,21 +9,71 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../public/css/normalize.css">
-  <link rel="stylesheet" href="../public/css/style_carrito.css">
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/stylehome.css">
+  <link rel="stylesheet" href="/css/style_carrito.css">
   <title>Biblo</title>
 </head>
 
 <body>
+
+  <header>
+    <div class="top-header">
+      <div class="burger">
+        <form action="" method="">
+          <button type="menu"><i class="fas fa-bars"></i></button>
+        </form>
+      </div>
+      <div class="search-top">
+        <form action="" method="">
+          <input type="text" placeholder="Buscar...">
+          <button type="submit"><i class="fas fa-search"></i></button>
+        </form>
+      </div>
+      <nav class="top-nav">
+        <ul>
+          <li><a href="#">Novedades</a></li>
+          <li><a href="#">Más vendidos</a></li>
+          <li><a href="#">Editoriales</a></li>
+        </ul>
+      </nav>
+      <a href="/"><img src="/img/logo.jpg" alt="logo" class="logo"></a>
+    </div>
+    <div class="bottom-header">
+      <div class="search-bottom">
+        <form action="" method="">
+          <input type="text" placeholder="Buscar..." size="15">
+          <button type="submit"><i class="fas fa-search"></i></button>
+        </form>
+      </div>
+      <nav class="bottom-nav">
+        <ul>
+          <li><a href="/register">Crear Cuenta</a></li>
+          <li>|</li>
+          <li><a href="/login">Ingresar</a></li>
+          <li>|</li>
+          <li><i class="fas fa-book"></i><a href="/carrito">MI CARRITO</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <section class="roulette">
+    <form action="" method="">
+      <p>¿No sabés que elegir? ¡Dejanos eso a nosotros! </p>
+      <button type="submit">Click aquí</button>
+      <hr>
+    </form>
+  </section>
+
   <main>
     <div class="linea-uno-main">
       <div class="tit-cant-prod">
         <h3 class="mi-carrito">Mi Carrito</h3>
         <p class="cant-prod">1 producto</p>
       </div>
-      <a href="./home.html" class="seguir-comprando">Seguir comprando</a>
+      <a href="/" class="seguir-comprando">Seguir comprando</a>
     </div>
-    
+
     <div id="section-main">
       <section class="articulos">
         <article class="producto">
@@ -32,10 +82,12 @@
             <a href="#"><i class="fa-solid fa-trash-can"></i></a>
           </div>
           <div class="cont-prod">
-            <img src="../public/img/ajedrez_de_torneo.jpg" alt="" class="img-prod">
+            <img src="/img/ajedrez_de_torneo.jpg" alt="" class="img-prod">
             <div class="desc-cant-tot">
-              <p class="desc-prod">El libro de un torneo tan fuerte como éste es más que una colección de partidas. Cuando sus participantes son los mejores del mundo, el torneo es como un todo, representa un paso adelante en el
-              desarrollo de la creatividad del ajedrez.</p>
+              <p class="desc-prod">El libro de un torneo tan fuerte como éste es más que una colección de partidas.
+                Cuando sus participantes son los mejores del mundo, el torneo es como un todo, representa un paso
+                adelante en el
+                desarrollo de la creatividad del ajedrez.</p>
               <div class="cant-tot">
                 <div class="cant">
                   <p class="cantidad-prod">Cantidad
@@ -80,6 +132,47 @@
       </section>
     </div>
   </main>
+
+  <footer>
+    <section class="f-left">
+      <p>R e d e s</p>
+      <ul>
+        <li><a href="#"><i class="fab fa-facebook-f"></i>Facebook</a></li>
+        <li><a href="#"><i class="fab fa-twitter"></i>Twitter</a></li>
+        <li><a href="#"><i class="fab fa-instagram"></i>Instagram</a></li>
+      </ul>
+    </section>
+    <section class="f-right">
+      <div class="contact">
+        <p>CONTACTOS</p>
+        <ul>
+          <li>+54 351 2978876</li>
+          <li>biblo@outlook.com</li>
+          <li><a href="#">MAPS</a></li>
+        </ul>
+      </div>
+      <div class="atenttion">
+        <p>ATENCION AL CLIENTE</p>
+        <ul>
+          <li><a href="#">Quiénes somos</a></li>
+          <li><a href="#">Centro de ayuda</a></li>
+        </ul>
+      </div>
+      <div class="pay">
+        <p>MEDIOS DE PAGO</p>
+        <ul>
+          <li><img src="/img/mp-visa-master.png" alt="mp-vm" class="img-pay"></li>
+        </ul>
+      </div>
+    </section>
+    <hr>
+    <section class="copyright">
+      <p>Copyright © 2022 Biblo</p>
+      <form action="/carrito" method="get">
+        <button type="submit"><i class="fas fa-arrow-up"></i></button>
+      </form>
+    </section>
+  </footer>
 
 </body>
 

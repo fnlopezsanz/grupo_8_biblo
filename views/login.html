@@ -9,105 +9,108 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../public/css/normalize.css">
-  <link rel="stylesheet" href="../public/css/stylehome.css">
-  <link rel="stylesheet" href="../public/css/style_login_register.css">
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/stylehome.css">
+  <link rel="stylesheet" href="/css/style_login_register.css">
   <title>Biblo</title>
 </head>
 
 <body>
-    <header>
-        <div class="top-header">
-            <div class="burger">
-                <form action="" method="">
-                    <button type="menu"><i class="fas fa-bars"></i></button>
-                </form>
-            </div>
-            <div class="search-top">
-                <form action="" method="">
-                    <input type="text" placeholder="Buscar...">
-                    <button type="submit"><i class="fas fa-search"></i></button>
-                </form>
-            </div>
-            <nav class="top-nav">
-                <ul>
-                    <li><a href="#">Novedades</a></li>
-                    <li><a href="#">Más vendidos</a></li>
-                    <li><a href="#">Editoriales</a></li>
-                </ul>
-            </nav>
-            <img src="/images/logo.jpg" alt="logo" class="logo">
-        </div>
-        <div class="bottom-header">
-            <div class="search-bottom">
-                <form action="" method="">
-                    <input type="text" placeholder="Buscar..." size="15">
-                    <button type="submit"><i class="fas fa-search"></i></button>
-                </form>
-            </div>
-            <nav class="bottom-nav">
-                <ul>
-                    <li><a href="#">Crear Cuenta</a></li>
-                    <li>|</li>
-                    <li><a href="#">Ingresar</a></li>
-                    <li>|</li>
-                    <li><i class="fas fa-book"></i><a href="/carrito">MI CARRITO</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+  <header>
+    <div class="top-header">
+      <div class="burger">
+        <form action="" method="">
+          <button type="menu"><i class="fas fa-bars"></i></button>
+        </form>
+      </div>
+      <div class="search-top">
+        <form action="" method="">
+          <input type="text" placeholder="Buscar...">
+          <button type="submit"><i class="fas fa-search"></i></button>
+        </form>
+      </div>
+      <nav class="top-nav">
+        <ul>
+          <li><a href="#">Novedades</a></li>
+          <li><a href="#">Más vendidos</a></li>
+          <li><a href="#">Editoriales</a></li>
+        </ul>
+      </nav>
+      <a href="/"><img src="/img/logo.jpg" alt="logo" class="logo"></a>
+    </div>
+    <div class="bottom-header">
+      <div class="search-bottom">
+        <form action="" method="">
+          <input type="text" placeholder="Buscar..." size="15">
+          <button type="submit"><i class="fas fa-search"></i></button>
+        </form>
+      </div>
+      <nav class="bottom-nav">
+        <ul>
+          <li><a href="/register">Crear Cuenta</a></li>
+          <li>|</li>
+          <li><a href="/login">Ingresar</a></li>
+          <li>|</li>
+          <li><i class="fas fa-book"></i><a href="/carrito">MI CARRITO</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <main>
-        <section class="form-login">
-            <h5>Ingresá</h5>
-            <input class="completar" type="text" name="Email" value="" placeholder="Email">
-            <input class="completar" type="password" name="Contraseña" value="" placeholder="Contraseña">
-            <input class="botones" type="submit" name="" value="Ingresar">
-            <p><a class="links" href="#">Recuperar Contraseña</a></p>
-            <p><a class="links" href="#">¿No tenes cuenta? Registrate</a></p>
-        </section>
-    </main>
+  <main>
+    <section class="form-login">
+      <form action="/" method="get">
+        <h5>Ingresá</h5>
+        <input class="completar" type="text" name="Email" value="" placeholder="Email">
+        <input class="completar" type="password" name="Contraseña" value="" placeholder="Contraseña">
+        <input class="botones" type="submit" name="" value="Ingresar">
+        <p><a class="links" href="#">Recuperar Contraseña</a></p>
+        <p><a class="links" href="/register">¿No tenés cuenta? Registrate</a></p>
+      </form>
+    </section>
+  </main>
+  <hr>
+  <footer>
+    <section class="f-left">
+      <p>R e d e s</p>
+      <ul>
+        <li><a href="#"><i class="fab fa-facebook-f"></i>Facebook</a></li>
+        <li><a href="#"><i class="fab fa-twitter"></i>Twitter</a></li>
+        <li><a href="#"><i class="fab fa-instagram"></i>Instagram</a></li>
+      </ul>
+    </section>
+    <section class="f-right">
+      <div class="contact">
+        <p>CONTACTOS</p>
+        <ul>
+          <li>+54 351 2978876</li>
+          <li>biblo@outlook.com</li>
+          <li><a href="#">MAPS</a></li>
+        </ul>
+      </div>
+      <div class="atenttion">
+        <p>ATENCION AL CLIENTE</p>
+        <ul>
+          <li><a href="#">Quiénes somos</a></li>
+          <li><a href="#">Centro de ayuda</a></li>
+        </ul>
+      </div>
+      <div class="pay">
+        <p>MEDIOS DE PAGO</p>
+        <ul>
+          <li><img src="/img/mp-visa-master.png" alt="mp-vm" class="img-pay"></li>
+        </ul>
+      </div>
+    </section>
     <hr>
-    <footer>
-        <section class="f-left">
-            <p>R e d e s</p>
-            <ul>
-                <li><a href="#"><i class="fab fa-facebook-f"></i>Facebook</a></li>
-                <li><a href="#"><i class="fab fa-twitter"></i>Twitter</a></li>
-                <li><a href="#"><i class="fab fa-instagram"></i>Instagram</a></li>
-            </ul>
-        </section>
-        <section class="f-right">
-            <div class="contact">
-                <p>CONTACTOS</p>
-                <ul>
-                    <li>+54 351 2978876</li>
-                    <li>biblo@outlook.com</li>
-                    <li><a href="#">MAPS</a></li>
-                </ul>
-            </div>
-            <div class="atenttion">
-                <p>ATENCION AL CLIENTE</p>
-                <ul>
-                    <li><a href="#">Quienes somos</a></li>
-                    <li><a href="#">Centro de ayuda</a></li>
-                </ul>
-            </div>
-            <div class="pay">
-                <p>MEDIOS DE PAGO</p>
-                <ul>
-                    <li><img src="/img/mp-visa-master.png" alt="mp-vm" class="img-pay"></li>
-                </ul>
-            </div>
-        </section>
-        <hr>
-        <section class="copyright">
-            <p>Copyright © 2022 Biblo</p>
-            <form action="/" method="get">
-                <button type="submit"><i class="fas fa-arrow-up"></i></button>
-            </form>
-        </section>
-    </footer>
-    
+    <section class="copyright">
+      <p>Copyright © 2022 Biblo</p>
+      <form action="/login" method="get">
+        <button type="submit"><i class="fas fa-arrow-up"></i></button>
+      </form>
+    </section>
+  </footer>
+
 </body>
+
 </html>
