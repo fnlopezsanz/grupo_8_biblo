@@ -377,14 +377,11 @@ footer {
     width: 90%;
 }
 
-.copyright form {
+.copyright a {
     width: 10%;
     text-align: end;
-}
-
-.copyright form button {
     border: none;
-    background-color: white;
+    margin-right: 20px;
 }
 
 @media (min-width: 481px) {
