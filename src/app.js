@@ -1,18 +1,24 @@
 const express = require("express");
-const path = require("path")
-
 const app = express();
-
+const path = require("path")
 const PORT = process.env.PORT || 3000
 
-const publicPath = path.join(__dirname, "/public");
-app.use(express.static(publicPath));
+const mainRoutes = require("./routes/mainRoutes");
+const mainController = require("./controllers/mainController")
 
-app.listen(PORT, () => {
-    console.log(`Servidor funcionando en puerto ${PORT}`)
-});
 
-app.get("/", (req, res) => {
+app.use(express.static(path.join(__dirname, "./public")));
+
+
+app.set("view engine", "ejs");
+
+app.set("views", path.join(__dirname, "views"));
+
+
+app.use("/", mainRoutes);
+
+
+/* app.get("/", (req, res) => {
     const home = path.join(__dirname, "/views/home.html");
     res.sendFile(home);
 });
@@ -36,3 +42,9 @@ app.get("/login", (req, res) => {
     const login = path.join(__dirname, "/views/login.html");
     res.sendFile(login);
 });
+
+*/
+
+app.listen(PORT, () => {
+    console.log(`Servidor funcionando en puerto ${PORT}`)
+}); 
