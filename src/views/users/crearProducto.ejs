@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("../parcials/head.ejs", {stylesheet: ["stylehome", "style_crearProducto" ]}); %>
+
+<body>
+  
+<form action="/crearProducto" method="POST" class="form">
+  <div>
+    <h4>Cargá un Producto</h4>
+  </div>
+  <div>
+    <input type="text" name="nombre" id="nombre" placeholder="Nombre producto" minlength="3" required
+      class="input-text">
+  </div>
+  <div>
+    <input type="text" name="descripcion" id="descripcion" placeholder="Descripción" class="input-text" required>
+  </div>
+  <div>
+    <input type="text" name="genero" id="genero" placeholder="Género" class="input-text">
+  </div>
+  <div>
+    <input type="text" name="paginas" id="paginas" placeholder="Páginas" class="input-text">
+  </div>
+  <div>
+    <input type="text" name="precio" id="precio" placeholder="Precio" class="input-text" required>
+  </div>
+  <div class="div-foto">
+    <label for="" class="nombre-reg">Ingresá una imagen del producto:</label>
+    <input type="file" name="imagen" id="imagen" accept=".jpg, .png">
+  </div>
+
+  <div class="div-bot">
+    <input type="submit" value="Crear producto" class="but-submit botones">
+
+    <input type="reset" value="Restablecer" class="but-rest botones">
+  </div>
+</form>
+
+</body>
+
+</html>
