@@ -4,8 +4,9 @@
 }
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
+
 /*HEADER*/
 
 .top-header {
@@ -151,13 +152,11 @@ html {
 }
 
 #destacado {
-    margin-top: 20px;
-    padding: 0 5px;
+    padding: 10px 0;
     width: 100%;
-}
-
-#destacado hr {
-    width: 100%;
+    margin-bottom: 10px;
+    background-color: #cdd6db;
+    border-radius: 10px;
 }
 
 h4 {
@@ -203,11 +202,12 @@ section article .title {
 
 section article .destacado img {
     max-height: 250px;
+    margin-bottom: 5px;
 }
 
 .box-top img,
 .box-bottom img {
-    max-height: 220px;
+    max-height: 210px;
     margin: 10px;
 }
 
@@ -271,10 +271,10 @@ hr {
     padding: 10px 0;
 }
 
-.send-email input
-{
+.send-email input {
     padding: 5px 0 5px 5px;
 }
+
 .send-email .name {
     width: 20%;
     margin-right: 5px;
@@ -483,17 +483,13 @@ footer {
         padding-left: 10px;
     }
 
-    #destacado hr {
-        display: none;
-    }
-
     .book-description {
         display: block;
         margin: 0;
         width: 130px;
         text-align: start;
         font-size: 12px;
-    } 
+    }
 
     main {
         display: flex;
@@ -503,17 +499,19 @@ footer {
     }
 
     article {
-        margin: 0px 5px;
+        margin: 0px 10px;
     }
-    
+
     #destacado {
-        width: 30%;
+        width: 250px;
         margin-top: 55px;
         align-self: flex-start;
+        margin-right: 5%;
+        box-shadow: -2px 10px 30px #000;
     }
 
     .box-top {
-        width: 70%;
+        width: 50%;
         padding: 10px;
     }
 
@@ -528,7 +526,7 @@ footer {
         justify-content: flex-start;
         align-items: center;
     }
-    
+
     h3 {
         margin-top: 20px;
         text-align: start;
@@ -541,5 +539,12 @@ footer {
         flex-direction: row;
         justify-content: flex-start;
         align-items: center;
+    }
+}
+
+@media (min-width: 1104px) {
+    .box-bottom {
+        margin-left: 317px;
+        padding: 10px;
     }
 }
