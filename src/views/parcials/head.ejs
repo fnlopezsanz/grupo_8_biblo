@@ -7,6 +7,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/normalize.css">
-    <link rel="stylesheet" href="/css/stylehome.css">
+    <% for(let i = 0; i < stylesheet.length; i++){ %>
+    <link rel="stylesheet" href="/css/<%= stylesheet[i] %>.css">
+    <% } %>
     <title>BIBLO</title>
   </head>

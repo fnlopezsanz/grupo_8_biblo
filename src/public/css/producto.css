@@ -76,7 +76,7 @@ main section {
 
 .data-prod {
   width: 100%;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
   padding-bottom: 8px;
   padding-left: 10px;
@@ -96,15 +96,12 @@ main section {
 }
 
 .ver-otros {
-  justify-self: center;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 12px;
   color: #e6eaed;
   cursor: pointer;
-  border: 1px solid none;
   border-radius: 20px;
   padding: 7px 10px;
-  width: 200px;
   text-align: center;
   background-color: #08344fac;
   margin: 50px 0px;
@@ -121,12 +118,14 @@ main section {
   .info-y-link {
   width: 60%;
   flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
   .container-producto img {
-  width: 35%;
-  margin: 15px 0px;
+  width: 200px;
+  height: 300px;
   align-self: flex-start;
+  margin: 20px 0;
 }
 }
 

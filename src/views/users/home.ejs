@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
-     <%- include("./parcials/head") %>
+<%- include("../parcials/head", {stylesheet: ["stylehome"]}) %>
 
   <body>
-
-    <%- include("./parcials/header") %>
-
-    <%- include("./parcials/roulette") %>
-
+    <%- include("../parcials/header"); %>
+      <%- include("../parcials/roulette"); %>
         <main>
           <section id="destacado">
             <article>
@@ -106,9 +103,7 @@
           </form>
         </section>
         <hr>
-
-    <%- include("./parcials/footer") %>
-
+        <%- include("../parcials/footer"); %>
   </body>
 
 </html>

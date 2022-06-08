@@ -128,6 +128,7 @@ html {
 .roulette {
     font-size: 12px;
     font-weight: bold;
+    color: black;
     text-align: center;
     margin-top: 20px;
 }
@@ -200,7 +201,12 @@ section article .title {
     width: 125px;
 }
 
-section article img {
+section article .destacado img {
+    max-height: 250px;
+}
+
+.box-top img,
+.box-bottom img {
     max-height: 220px;
     margin: 10px;
 }
@@ -235,7 +241,7 @@ h3 a {
 
 article a img:hover {
     border-radius: 10px;
-    transition-duration: 450ms;
+    transition-duration: 800ms;
 }
 
 hr {
@@ -497,7 +503,7 @@ footer {
     }
 
     article {
-        margin: 10 10px;
+        margin: 0px 5px;
     }
     
     #destacado {
