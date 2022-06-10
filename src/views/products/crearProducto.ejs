@@ -3,41 +3,43 @@
 
 <%- include("../parcials/head.ejs", {stylesheet: ["stylehome", "style_crear_editarProducto" ]}); %>
 
-<body>
+  <body>
 
-  <%- include("../parcials/headerAdmin.ejs"); %>
-  
-<form action="/crearProducto" method="POST" class="form">
-  <div>
-    <h4>Crear producto</h4>
-  </div>
-  <div>
-    <input type="text" name="nombre" id="nombre" placeholder="Nombre producto" minlength="3" required
-      class="input-text">
-  </div>
-  <div class="descripcion">
-    <label for="descripcion">Descripción</label>
-    <textarea name="descripcion" id="descripcion" cols="100" rows="6"></textarea>
-  </div>
-  <div>
-    <input type="text" name="genero" id="genero" placeholder="Género" class="input-text">
-  </div>
-  <div>
-    <input type="text" name="paginas" id="paginas" placeholder="Páginas" class="input-text">
-  </div>
-  <div>
-    <input type="text" name="precio" id="precio" placeholder="Precio" class="input-text" required>
-  </div>
-  <div class="div-foto">
-    <label for="" class="nombre-reg">Ingresá una imagen del producto:</label>
-    <input type="file" name="imagen" id="imagen" accept=".jpg, .png">
-  </div>
-  <div class="div-bot">
-    <input type="submit" value="Crear producto" class="but-submit botones">
-    <input type="reset" value="Restablecer" class="but-rest botones">
-  </div>
-</form>
-<%- include("../parcials/footerAdmin.ejs"); %>
-</body>
+    <%- include("../parcials/headerAdmin.ejs"); %>
+
+      <form action="/crearProducto" method="POST" class="form">
+        <div>
+          <h4>CREAR PRODUCTO</h4>
+        </div>
+        <div>
+          <input type="text" name="nombre" id="nombre" placeholder="Nombre producto" minlength="3" required
+            class="input-text">
+        </div>
+        <div class="descripcion">
+          <label for="descripcion">Descripción</label>
+        </div>
+        <div>
+          <textarea name="descripcion" id="descripcion" cols="100" rows="6"></textarea>
+        </div>
+        <div>
+          <input type="text" name="genero" id="genero" placeholder="Género" class="input-text">
+        </div>
+        <div>
+          <input type="text" name="paginas" id="paginas" placeholder="Páginas" class="input-text">
+        </div>
+        <div>
+          <input type="text" name="precio" id="precio" placeholder="Precio" class="input-text" required>
+        </div>
+        <div class="div-foto">
+          <label for="" class="nombre-reg">Ingresá una imagen del producto:</label>
+          <input type="file" name="imagen" id="imagen" accept=".jpg, .png">
+        </div>
+        <div class="div-bot">
+          <input type="submit" value="Crear producto" class="but-submit botones">
+          <input type="reset" value="Restablecer" class="but-rest botones">
+        </div>
+      </form>
+      <%- include("../parcials/footerAdmin.ejs"); %>
+  </body>
 
 </html>

@@ -62,7 +62,7 @@
     color: rgb(50,50,50);
   }
 
-  .serch-product input {
+  .search-product input {
     margin: 5px 0;
   }
 
@@ -153,5 +153,15 @@
       width: 65%;
       padding-left: 40px;
       padding-right: 40px;
+    }
+    .search-product {
+      flex-wrap: nowrap;
+      justify-content: space-between;
+    }
+    .search {
+      width: 72%;
+    }
+    .but-search-edit {
+      width: 120px;
     }
   }
