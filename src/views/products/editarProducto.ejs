@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("../parcials/head.ejs", {stylesheet: ["stylehome", "style_crear_editarProducto" ]}); %>
+
+<body>
+
+  <%- include("../parcials/headerAdmin.ejs"); %>
+  
+<form action="" method="POST" class="form">
+  <div>
+    <h4>EDITAR PRODUCTO</h4>
+  </div>
+  <div class="serch-product">
+    <input type="text" name="producto" id="producto" placeholder="Buscar producto" minlength="3" required
+    class="input-text">
+    <input type="submit" value="Buscar" class="but-submit botones">
+  </div>
+  <hr>
+  <div>
+    <input type="text" name="nombre" id="nombre" placeholder="Nombre del producto" minlength="3" required
+    class="input-text">
+  </div>
+  <div class="genero">
+    <label for="genero">Genero</label>
+    <select name="genero" id="genero">
+      <option value="" selected>*el que tenga el producto*</option>
+      <option value="Terror">Terror</option>
+      <option value="Comedia">Comedia</option>
+      <option value="Drama">Drama</option>
+      <option value="Ciencia ficción">Ciencia ficción</option>
+      <option value="Novela">Novela</option>
+    </select>
+  </div>
+  <div>
+    <input type="text" name="descripcion" id="descripcion" placeholder="Descripción" class="input-text" required>
+  </div>
+  <div>
+    <input type="text" name="paginas" id="paginas" placeholder="Páginas" class="input-text">
+  </div>
+  <div>
+    <input type="text" name="precio" id="precio" placeholder="$ Precio" class="input-text" required>
+  </div>
+  <div class="div-foto">
+    <label for="" class="nombre-reg">Cambiar imagen del producto:</label>
+    <img src="/img/h-p-1.jpg" alt="nombre_del_libro" class="libro-edit">
+    <input type="file" name="imagen" id="imagen" accept=".jpg, .png">
+  </div>
+  <div class="div-bot">
+    <input type="submit" value="Editar producto" class="but-submit botones">
+    <input type="reset" value="Restablecer" class="but-rest botones">
+  </div>
+</form>
+<%- include("../parcials/footerAdmin.ejs"); %>
+</body>
+
+</html>

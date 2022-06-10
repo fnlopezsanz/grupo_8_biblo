@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include("../parcials/head.ejs", {stylesheet: ["stylehome", "style_crearProducto" ]}); %>
+<%- include("../parcials/head.ejs", {stylesheet: ["stylehome", "style_crear_editarProducto" ]}); %>
 
 <body>
+
+  <%- include("../parcials/headerAdmin.ejs"); %>
   
 <form action="/crearProducto" method="POST" class="form">
   <div>
-    <h4>Cargá un Producto</h4>
+    <h4>Crear producto</h4>
   </div>
   <div>
     <input type="text" name="nombre" id="nombre" placeholder="Nombre producto" minlength="3" required
@@ -29,14 +31,12 @@
     <label for="" class="nombre-reg">Ingresá una imagen del producto:</label>
     <input type="file" name="imagen" id="imagen" accept=".jpg, .png">
   </div>
-
   <div class="div-bot">
     <input type="submit" value="Crear producto" class="but-submit botones">
-
     <input type="reset" value="Restablecer" class="but-rest botones">
   </div>
 </form>
-
+<%- include("../parcials/footerAdmin.ejs"); %>
 </body>
 
 </html>

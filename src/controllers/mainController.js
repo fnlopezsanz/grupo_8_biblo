@@ -1,21 +1,24 @@
 const controller = {
     index: (req,res) => {
-       res.render("home");
+       res.render("users/home");
     },
     login: (req,res) => {
-        res.render("login");
+        res.render("users/login");
     },
     register: (req,res) => {
-        res.render("register");
+        res.render("users/register");
     },
     carrito: (req, res) => {
-        res.render("carrito");
+        res.render("users/carrito");
     },
     detalle: (req,res) => {
-        res.render("producto");
+        res.render("products/detalleProducto");
     },
     crear: (req,res) => {
-        res.render("crearProducto");
+        res.render("products/crearProducto");
+    },
+    editar: (req,res) => {
+        res.render("products/editarProducto");
     },
     guardar: function (req,res) {
       let producto = {
@@ -31,7 +34,6 @@ const controller = {
       
       res.redirect('/');
     }
-
 };
 
 module.exports = controller;
