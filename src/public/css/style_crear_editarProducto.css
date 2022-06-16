@@ -71,18 +71,18 @@
     flex-wrap: wrap;
   }
 
-  .genero {
+  .categoria {
     display: flex;
     flex-direction: column;
     width: 40%;
   }
 
-  .genero label {
+  .categoria label {
     font-weight: bold;
     margin-bottom: 5px;
   }
 
-  .genero select {
+  .categoria select {
     font-size: 14px;
     color: white;
     border-radius: 5px;
@@ -102,6 +102,7 @@
 
   .div-foto input {
     align-self: end;
+    margin-top: 5px;
     margin-left:10px;
   }
   
@@ -159,9 +160,9 @@
       justify-content: space-between;
     }
     .search {
-      width: 72%;
+      width: 83%;
     }
     .but-search-edit {
-      width: 120px;
+      width: 15%;
     }
   }

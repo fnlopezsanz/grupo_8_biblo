@@ -7,12 +7,16 @@
 
     <%- include("../parcials/headerAdmin.ejs"); %>
 
-      <form action="/crearProducto" method="POST" class="form">
+      <form action="/products" method="POST" class="form">
         <div>
           <h4>CREAR PRODUCTO</h4>
         </div>
         <div>
           <input type="text" name="nombre" id="nombre" placeholder="Nombre producto" minlength="3" required
+            class="input-text">
+        </div>
+        <div>
+          <input type="text" name="autor" id="autor" placeholder="Autor" minlength="3" required
             class="input-text">
         </div>
         <div class="descripcion">
@@ -24,11 +28,16 @@
         <div>
           <input type="text" name="genero" id="genero" placeholder="Género" class="input-text">
         </div>
-        <div>
-          <input type="text" name="paginas" id="paginas" placeholder="Páginas" class="input-text">
+        <div class="categoria">
+          <label for="categoria">Categoria</label>
+          <select name="categoria" id="categoria">
+            <option value="bestsellers">BESTSELLERS</option>
+            <option value="nuevos-lanzamientos">NUEVOS LANZAMIENTOS</option>
+            <option value="todos">TODOS</option>
+          </select>
         </div>
         <div>
-          <input type="text" name="precio" id="precio" placeholder="Precio" class="input-text" required>
+          <input type="text" name="precio" id="precio" placeholder="$ Precio" class="input-text" required>
         </div>
         <div class="div-foto">
           <label for="" class="nombre-reg">Ingresá una imagen del producto:</label>

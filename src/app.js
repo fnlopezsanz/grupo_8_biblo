@@ -1,12 +1,20 @@
 const express = require("express");
 const app = express();
 const path = require("path")
+const methodOverride = require("method-override");
 const PORT = process.env.PORT || 3000
 
 const mainRoutes = require("./routes/mainRoutes");
-const mainController = require("./controllers/mainController")
+const usersRoutes = require("./routes/usersRoutes");
+const productsRoutes = require("./routes/productsRoutes");
+
+const mainController = require("./controllers/mainController");
+const usersController = require("./controllers/usersController");
+const productsController = require("./controllers/productsController");
 
 app.use(express.static(path.join(__dirname, "./public")));
+
+app.use(methodOverride('_method'));
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -16,33 +24,8 @@ app.set("views", path.join(__dirname, "/views"));
 
 
 app.use("/", mainRoutes);
-
-/* app.get("/", (req, res) => {
-    const home = path.join(__dirname, "/views/home.html");
-    res.sendFile(home);
-});
-
-app.get("/producto", (req, res) => {
-    const home = path.join(__dirname, "/views/producto.html");
-    res.sendFile(home);
-});
-
-app.get("/carrito", (req, res) => {
-    const carrito = path.join(__dirname, "/views/carrito.html");
-    res.sendFile(carrito);
-});
-
-app.get("/register", (req, res) => {
-    const register = path.join(__dirname, "/views/register.html");
-    res.sendFile(register);
-});
-
-app.get("/login", (req, res) => {
-    const login = path.join(__dirname, "/views/login.html");
-    res.sendFile(login);
-});
-
-*/
+app.use("/users", usersRoutes);
+app.use("/products", productsRoutes);
 
 app.listen(PORT, () => {
     console.log(`Servidor funcionando en puerto ${PORT}`)

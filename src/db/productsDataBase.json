@@ -1,0 +1,30 @@
+[
+    {
+        "id" : 1,
+        "titulo" : "Harry Potter y la piedra filosofal",
+        "autor" : "J. K. Rowling",
+        "genero" : "Ciencia Ficción",
+        "categoria" : "bestsellers",
+        "descripcion" : "Harry Potter se ha quedado huérfano y vive en casa de sus abominables tíos y el insoportable
+        primo Dudley.
+        Harry se siente muy triste y solo, hasta que un buen día recibe una carta que cambiará su vida para
+        siempre.
+        En ella le comunican que ha sido aceptado como alumno en el Colegio Hogwarts de Magia.",
+        "precio" : "$3600",
+        "imagen" : "h-p-1.jpg"
+    },
+    {
+        "id" : 2,
+        "titulo" : "Harry Potter y la camara secreta",
+        "autor" : "J. K. Rowling",
+        "genero" : "Ciencia Ficción",
+        "categoria" : "bestsellers",
+        "descripcion" : "Harry Potter se ha quedado huérfano y vive en casa de sus abominables tíos y el insoportable
+        primo Dudley.
+        Harry se siente muy triste y solo, hasta que un buen día recibe una carta que cambiará su vida para
+        siempre.
+        En ella le comunican que ha sido aceptado como alumno en el Colegio Hogwarts de Magia.",
+        "precio" : "$3600",
+        "imagen" : "h-p-2.jpg"
+    }
+]

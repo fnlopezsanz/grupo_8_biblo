@@ -8,7 +8,7 @@ body {
 }
 
 main {
-  margin: 0 0;
+  margin-bottom: 20vh;
   padding: 0 5vw;
 }
 
@@ -121,15 +121,6 @@ h4 {
 
 .cant-tot {
   display: flex;
-  font-size: 12px;
-}
-
-.cant {
-  margin-right: 5vw;
-}
-
-.monto-tot-prod {
-  font-size: 12px;
 }
 
 .resumen p {

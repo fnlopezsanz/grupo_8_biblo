@@ -7,7 +7,7 @@
 
     <%- include("../parcials/headerAdmin.ejs"); %>
 
-      <form action="" method="POST" class="form">
+      <form action="/products/:id?_method=PUT" method="POST" class="form">
         <div>
           <h4>EDITAR PRODUCTO</h4>
         </div>
@@ -21,15 +21,19 @@
           <input type="text" name="nombre" id="nombre" placeholder="Nombre del producto" minlength="3" required
             class="input-text">
         </div>
-        <div class="genero">
-          <label for="genero">Genero</label>
-          <select name="genero" id="genero">
-            <option value="" selected>*el que tenga el producto*</option>
-            <option value="Terror">Terror</option>
-            <option value="Comedia">Comedia</option>
-            <option value="Drama">Drama</option>
-            <option value="Ciencia ficción">Ciencia ficción</option>
-            <option value="Novela">Novela</option>
+        <div>
+          <input type="text" name="autor" id="autor" placeholder="Autor" minlength="3" required
+            class="input-text">
+        </div>
+        <div>
+          <input type="text" name="genero" id="genero" placeholder="Género" class="input-text">
+        </div>
+        <div class="categoria">
+          <label for="categoria">Categoria</label>
+          <select name="categoria" id="categoria">
+            <option value="bestsellers">BESTSELLERS</option>
+            <option value="nuevos-lanzamientos">NUEVOS LANZAMIENTOS</option>
+            <option value="todos">TODOS</option>
           </select>
         </div>
         <div class="descripcion">
@@ -37,9 +41,6 @@
         </div>
         <div>
           <textarea name="descripcion" id="descripcion" cols="100" rows="5">*autocomp*</textarea>
-        </div>
-        <div>
-          <input type="text" name="paginas" id="paginas" placeholder="Páginas" class="input-text">
         </div>
         <div>
           <input type="text" name="precio" id="precio" placeholder="$ Precio" class="input-text" required>
