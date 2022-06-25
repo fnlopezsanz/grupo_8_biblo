@@ -13,7 +13,7 @@ Retrospectiva Sprint 1:
 
 Retrospectiva Sprint 2:
 
-1. Comenzar a hacer: En este sprint tuvimos la misma falta de comunicación que en el anterior, debido puntualmente a la deserción de 2 integrantes llegado el fin de este sprint, con lo cual lo que debemos empezar a hacer es tener una comunicación más directa entre los 2 integrantes que quedamos.
+1. Comenzar a hacer: En este sprint tuvimos la misma falta de comunicación que en el anterior, debido puntualmente a la deserción de 1 de los integrantes llegado el fin de este sprint, con lo cual lo que debemos empezar a hacer es tener una comunicación más directa entre los 3 integrantes que quedamos.
 
 2. Hacer más: Al ser menos a partir de ahora, "hacer más" sugiere que vamos a tener el doble de trabajo que en los sprints anteriores, lo que nos mantendrá más activo a ambos miembros y más en contacto para ir resolviendo los escollos que se presenten durante el proceso. Otro punto para hacer más, es el de avanzar con el desarrollo a medida que se vayan incorporando los conocimientos necesarios para hacerlo en clase.
 
