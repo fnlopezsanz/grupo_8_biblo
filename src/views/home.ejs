@@ -7,10 +7,10 @@
     <%- include("./parcials/header"); %>
       <%- include("./parcials/roulette"); %>
         <main>
+          <div class="top">
           <section id="destacado">
             <article>
               <h4>DESTACADO DEL MES</h4>
-              <h4>#1</h4>
               <% for(let i=0; i < products.length; i++){ %>
                 <% if(products[i].categoria=="destacado" ){ %>
                   <div class="destacado">
@@ -54,6 +54,7 @@
                     <% } %>
             </div>
           </section>
+        </div>
           <section class="box-bottom">
             <div class="bottom-section">
               <h3><a href="#">NUEVOS LANZAMIENTOS</a></h3>

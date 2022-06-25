@@ -55,7 +55,7 @@ html {
     color: #204860;
     background-color: white;
     border: none;
-    margin: 3px 10px;
+    margin: 2px 10px;
 }
 
 .top-nav {
@@ -153,20 +153,18 @@ html {
 
 #destacado {
     padding: 10px 0;
-    width: 100%;
     margin-bottom: 10px;
     background-color: #cdd6db;
     border-radius: 10px;
 }
 
 h4 {
-    font-family: sans-serif;
     text-align: center;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: bold;
     color: #5d676e;
     margin: 0;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 main {
@@ -181,6 +179,7 @@ main {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+    justify-content: baseline;
     align-items: center;
     text-align: center;
 }
@@ -196,8 +195,8 @@ section article .title {
 .description {
     margin: 0;
     font-size: 12px;
-    text-align: center;
-    width: 125px;
+    text-align: st;
+    width: 200px;
 }
 
 section article .destacado img {
@@ -229,6 +228,10 @@ h3 a {
 
 .book-description {
     display: none;
+    width: 230px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .top-section,
@@ -237,6 +240,7 @@ h3 a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
 }
 
 article a img:hover {
@@ -500,7 +504,7 @@ footer {
     }
 
     article {
-        margin: 0px 10px;
+        margin: 0px 20px;
     }
 
     #destacado {
@@ -511,8 +515,16 @@ footer {
         box-shadow: -2px 10px 30px rgb(131, 142, 146);
     }
 
-    .box-top {
-        width: 50%;
+    .top {
+        display: flex;
+    }
+
+    #destacado img {
+        max-width: 200px;
+        max-height: 200px;
+    }
+
+    .box-top { 
         padding: 10px;
     }
 
@@ -525,7 +537,7 @@ footer {
         flex-wrap: wrap;
         flex-direction: row;
         justify-content: flex-start;
-        align-items: center;
+        align-items: flex-start;
     }
 
     h3 {
@@ -539,13 +551,6 @@ footer {
         flex-wrap: wrap;
         flex-direction: row;
         justify-content: flex-start;
-        align-items: center;
-    }
-}
-
-@media (min-width: 1104px) {
-    .box-bottom {
-        margin-left: 317px;
-        padding: 10px;
+        align-items: flex-start;
     }
 }
