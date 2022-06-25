@@ -11,48 +11,41 @@
         <div>
           <h4>EDITAR PRODUCTO</h4>
         </div>
-        <div class="search-product">
-          <input type="text" name="producto" id="producto" placeholder="Buscar producto" minlength="3" required
-            class="input-text search">
-          <input type="submit" value="Buscar" class="but-submit botones but-search-edit">
-        </div>
-        <hr>
         <div>
           <input type="text" name="nombre" id="nombre" placeholder="Nombre del producto" minlength="3" required
-            class="input-text">
+            class="input-text" value="<%= products.titulo %>">
         </div>
         <div>
           <input type="text" name="autor" id="autor" placeholder="Autor" minlength="3" required
-            class="input-text">
+            class="input-text" value="<%= products.autor %>">
         </div>
         <div>
-          <input type="text" name="genero" id="genero" placeholder="Género" class="input-text">
+          <input type="text" name="genero" id="genero" placeholder="Género" class="input-text" value="<%= products.genero %>">
         </div>
         <div class="categoria">
           <label for="categoria">Categoria</label>
           <select name="categoria" id="categoria">
-            <option value="bestsellers">BESTSELLERS</option>
-            <option value="nuevos-lanzamientos">NUEVOS LANZAMIENTOS</option>
-            <option value="todos">TODOS</option>
+            <option value="bestsellers" <% products.categoria == "bestseller" ? "selected" : null %> >BESTSELLERS</option>
+            <option value="nuevos-lanzamientos" <% products.categoria == "nuevos-lanzamientos" ? "selected" : null %> >NUEVOS LANZAMIENTOS</option>
+            <option value="otros" <% products.categoria == "otros" ? "selected" : null %> >OTROS</option>
           </select>
         </div>
         <div class="descripcion">
           <label for="descripcion">Descripción</label>
         </div>
         <div>
-          <textarea name="descripcion" id="descripcion" cols="100" rows="5">*autocomp*</textarea>
+          <textarea name="descripcion" id="descripcion" cols="100" rows="5"><%= products.descripcion %></textarea>
         </div>
         <div>
-          <input type="text" name="precio" id="precio" placeholder="$ Precio" class="input-text" required>
+          <input type="text" name="precio" id="precio" placeholder="$ Precio" class="input-text" required value="<%= products.precio %>">
         </div>
         <div class="div-foto">
           <label for="" class="nombre-reg">Cambiar imagen del producto:</label>
-          <img src="/img/h-p-1.jpg" alt="nombre_del_libro" class="libro-edit">
+          <img src="/img/products/<%= products.imagen %>"" alt="<%= products.titulo %>"" class="libro-edit">
           <input type="file" name="imagen" id="imagen" accept=".jpg, .png">
         </div>
         <div class="div-bot">
           <input type="submit" value="Editar producto" class="but-submit botones">
-          <input type="reset" value="Restablecer" class="but-rest botones">
         </div>
       </form>
       <%- include("../parcials/footerAdmin.ejs"); %>

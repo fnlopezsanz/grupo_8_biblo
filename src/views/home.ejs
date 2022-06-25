@@ -11,76 +11,71 @@
             <article>
               <h4>DESTACADO DEL MES</h4>
               <h4>#1</h4>
-              <div class="destacado">
-                <a href="/detalleProducto"><img src="/img/red-queen.jpg" alt="red-queen"></a>
-                <p class="title">RED QUEEN</p>
-                <p class="price">$0000</p>
-                <p class="description">Lorem ipsum dolor sit, amet consectetur adipisicing eli...</p>
-              </div>
+              <% for(let i=0; i < products.length; i++){ %>
+                <% if(products[i].categoria=="destacado" ){ %>
+                  <div class="destacado">
+                    <a href="/products/detail/<%= products[i].id %>"><img src="/img/products/<%= products[i].imagen %>"
+                        alt="<%= products[i].titulo %>"></a>
+                    <p class="title">
+                      <%= products[i].titulo %>
+                    </p>
+                    <p class="price">
+                      <%= products[i].precio %>
+                    </p>
+                    <p class="description">
+                      <%= products[i].descripcion %>
+                    </p>
+                  </div>
+                  <% } %>
+                    <% } %>
             </article>
           </section>
           <section class="box-top">
             <div class="top-section">
               <h3><a href="#">BESTSELLERS</a></h3>
-              <article>
-                <a href="/detalleProducto"><img src="/img/h-p-1.jpg" alt="harry-potter-1"></a>
-                <div class="box-book">
-                  <p class="title">Harry Potter y la piedra filosofal</p>
-                  <p class="price">$0000</p>
-                  <p class="book-description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione
-                    aut similique debitis...</p>
-                </div>
-              </article>
-              <article>
-                <a href="/detalleProducto"><img src="/img/h-p-2.jpg" alt="harry-potter-2"></a>
-                <div class="box-book">
-                  <p class="title">Harry Potter y la cámara secreta</p>
-                  <p class="price">$0000</p>
-                  <p class="book-description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione
-                    aut similique debitis...</p>
-                </div>
-              </article>
-              <article>
-                <a href="/detalleProducto"><img src="/img/h-p-3.jpg" alt="harry-potter-3"></a>
-                <div class="box-book">
-                  <p class="title">Harry Potter y el prisionero de Azkaban</p>
-                  <p class="price">$0000</p>
-                  <p class="book-description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione
-                    aut similique debitis...</p>
-                </div>
-              </article>
+              <% for(let i=0; i < products.length; i++){ %>
+                <% if(products[i].categoria=="bestseller" ){ %>
+                  <article>
+                    <a href="/products/detail/<%= products[i].id %>"><img src="/img/products/<%= products[i].imagen %>"
+                        alt="<%= products[i].titulo %>"></a>
+                    <div class="box-book">
+                      <p class="title">
+                        <%= products[i].titulo %>
+                      </p>
+                      <p class="price">
+                        <%= products[i].precio %>
+                      </p>
+                      <p class="book-description">
+                        <%= products[i].descripcion %>
+                      </p>
+                    </div>
+                  </article>
+                  <% } %>
+                    <% } %>
             </div>
           </section>
           <section class="box-bottom">
             <div class="bottom-section">
               <h3><a href="#">NUEVOS LANZAMIENTOS</a></h3>
-              <article>
-                <a href="/detalleProducto"><img src="/img/hombres-del-norte.jpg" alt="hombres-del-norte"></a>
-                <div class="box-book">
-                  <p class="title">Los hombres del norte</p>
-                  <p class="price">$0000</p>
-                  <p class="book-description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione
-                    aut similique debitis...</p>
-                </div>
-              </article>
-              <article>
-                <a href="/detalleProducto"><img src="/img/violeta.jpg" alt="violeta"></a>
-                <div class="box-book">
-                  <p class="title">Violeta</p>
-                  <p class="price">$0000</p>
-                  <p class="book-description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione
-                    aut similique debitis...</p>
-                </div>
-              </article>
-              <article>
-                <a href="/detalleProducto"><img src="/img/billy-summers.jpeg" alt="billy-summers"></a>
-                <div class="box-book">
-                  <p class="title">BILLY SUMMERS</p class="title">
-                  <p class="price">$0000</p>
-                  <p class="book-description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione
-                    aut similique debitis...</p>
-                </div>
-              </article>
+              <% for(let i=0; i < products.length; i++){ %>
+                <% if(products[i].categoria=="nuevos-lanzamientos" ){ %>
+                  <article>
+                    <a href="/products/detail/<%= products[i].id %>"><img src="/img/products/<%= products[i].imagen %>"
+                        alt="<%= products[i].titulo %>"></a>
+                    <div class="box-book">
+                      <p class="title">
+                        <%= products[i].titulo %>
+                      </p>
+                      <p class="price">
+                        <%= products[i].precio %>
+                      </p>
+                      <p class="book-description">
+                        <%= products[i].descripcion %>
+                      </p>
+                    </div>
+                  </article>
+                  <% } %>
+                    <% } %>
             </div>
           </section>
         </main>
