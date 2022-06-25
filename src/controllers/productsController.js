@@ -55,6 +55,13 @@ const productsController = {
     fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
     return res.redirect("/");
   },
+  destroy : (req, res) => {
+		const products = readJsonFile(productsFilePath);
+		const productosFiltrados = products.filter(product => product.id != req.params.id);
+
+		fs.writeFileSync(productsFilePath, JSON.stringify(productosFiltrados, null, 2));
+		return res.redirect("/");
+	}
 };
 
 module.exports = productsController;

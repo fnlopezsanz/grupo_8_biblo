@@ -7,12 +7,12 @@
 
     <%- include("../parcials/headerAdmin.ejs"); %>
 
-      <form action="/products/:id?_method=PUT" method="POST" class="form">
+      <form action="/products/<%= products.id %>?_method=PUT" method="POST" class="form">
         <div>
           <h4>EDITAR PRODUCTO</h4>
         </div>
         <div>
-          <input type="text" name="nombre" id="nombre" placeholder="Nombre del producto" minlength="3" required
+          <input type="text" name="titulo" id="nombre" placeholder="Nombre del producto" minlength="3" required
             class="input-text" value="<%= products.titulo %>">
         </div>
         <div>

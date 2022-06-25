@@ -95,6 +95,41 @@ main section {
   margin: 15px 0;
 }
 
+.buy-now-button {
+  background-color: #204860;
+  font-size: 1.6em;
+  color: #e6eaed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  border-radius: 8px;
+  border: none;
+  margin-bottom: 15px;
+  text-decoration: none;
+}
+
+.action-button {
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2em;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 30px;
+  margin-top: 15px;
+}
+
+.action-button.edit {
+  background-color: chocolate;
+  text-decoration: none;
+}
+
+.action-button.delete {
+  background-color: rgb(248, 69, 37);
+}
+
 .ver-otros {
   text-decoration: none;
   font-size: 12px;

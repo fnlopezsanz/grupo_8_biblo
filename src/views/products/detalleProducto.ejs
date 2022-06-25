@@ -8,22 +8,27 @@
   <main>
     <section>
       <div class="container-producto">
-        <img src="/img/h-p-1.jpg" alt="imagen de producto">
+        <img src="/img/products/<%= product.imagen %>"" alt="<%= product.titulo %>"">
         <div class="info-y-link">
           <div class="informacion-producto">
-            <h3 class="titulo">Harry Potter I</h3>
-            <p class="desc">Harry Potter se ha quedado huérfano y vive en casa de sus abominables tíos y el insoportable
-              primo Dudley.
-              Harry se siente muy triste y solo, hasta que un buen día recibe una carta que cambiará su vida para
-              siempre.
-              En ella le comunican que ha sido aceptado como alumno en el Colegio Hogwarts de Magia.</p>
-            <p class="price">$2.500</p>
+            <h3 class="titulo"><%= product.titulo %></h3>
+            <p class="desc"><%= product.descripcion %></p>
+            <p class="price"><%= product.precio %></p>
             <p class="data-prod">Autor: <%= product.autor %></p>
-            <p class="data-prod">Género: Aventura, fantasía</p>
+            <p class="data-prod">Género:<%= product.genero %></p>
           </div>
           <div id="otros-libros">
             <a href="#" class="ver-otros">Ver otros libros de este autor</a>
           </div>
+        </div>
+        <div class="butt-container">
+          <a href="#" class="buy-now-button">Comprar</a>
+
+          <a href="/products/edit/<%= product.id %>" class="action-button edit">Editar Producto</a>
+
+          <form action="/products/<%= product.id %>?_method=DELETE" method="POST" style="display: inline-flex">
+            <button type="submit" class="action-button delete">Eliminar</button>
+          </form>
         </div>
       </div>
     </section>

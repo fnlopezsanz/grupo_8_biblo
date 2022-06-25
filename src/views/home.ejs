@@ -14,7 +14,7 @@
               <% for(let i=0; i < products.length; i++){ %>
                 <% if(products[i].categoria=="destacado" ){ %>
                   <div class="destacado">
-                    <a href="/products/detail/<%= products[i].id %>"><img src="/img/products/<%= products[i].imagen %>"
+                    <a href="/products/<%= products[i].id %>"><img src="/img/products/<%= products[i].imagen %>"
                         alt="<%= products[i].titulo %>"></a>
                     <p class="title">
                       <%= products[i].titulo %>
@@ -36,7 +36,7 @@
               <% for(let i=0; i < products.length; i++){ %>
                 <% if(products[i].categoria=="bestseller" ){ %>
                   <article>
-                    <a href="/products/detail/<%= products[i].id %>"><img src="/img/products/<%= products[i].imagen %>"
+                    <a href="/products/<%= products[i].id %>"><img src="/img/products/<%= products[i].imagen %>"
                         alt="<%= products[i].titulo %>"></a>
                     <div class="box-book">
                       <p class="title">
@@ -60,7 +60,7 @@
               <% for(let i=0; i < products.length; i++){ %>
                 <% if(products[i].categoria=="nuevos-lanzamientos" ){ %>
                   <article>
-                    <a href="/products/detail/<%= products[i].id %>"><img src="/img/products/<%= products[i].imagen %>"
+                    <a href="/products/<%= products[i].id %>"><img src="/img/products/<%= products[i].imagen %>"
                         alt="<%= products[i].titulo %>"></a>
                     <div class="box-book">
                       <p class="title">

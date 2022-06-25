@@ -21,11 +21,11 @@
   },
   {
     "id": 3,
-    "titulo": "Volverás a Región",
+    "titulo": "Titulo 3",
     "autor": "Kaycee Willavoys",
     "genero": "Comedy|Romance",
-    "categoria": "nuevos-lanzamientos",
-    "descripcion": "aliquam non mauris morbi non lectus aliquam sit amet diam in magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis fusce posuere felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam",
+    "categoria": "bestsellers",
+    "descripcion": "fasgfasgsfd",
     "precio": "$2200.37",
     "imagen": "image-default.jpg"
   },
@@ -41,11 +41,11 @@
   },
   {
     "id": 5,
-    "titulo": "Volverás a Región",
+    "titulo": "asfgfgadfgafgafga",
     "autor": "Erasmus Goymer",
     "genero": "Crime|Drama",
-    "categoria": "nuevos-lanzamientos",
-    "descripcion": "quis turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim vestibulum",
+    "categoria": "bestsellers",
+    "descripcion": "descripc",
     "precio": "$3117.10",
     "imagen": "image-default.jpg"
   },
