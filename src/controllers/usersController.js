@@ -14,6 +14,7 @@ const usersController = {
         res.render("users/register");
     },
     carrito: (req, res) => {
+        res.render("users/carrito")
     }
 };
 

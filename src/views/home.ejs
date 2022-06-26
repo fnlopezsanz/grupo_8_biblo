@@ -34,7 +34,7 @@
             <div class="top-section">
               <h3><a href="#">BESTSELLERS</a></h3>
               <% for(let i=0; i < products.length; i++){ %>
-                <% if(products[i].categoria=="bestseller" ){ %>
+                <% if(products[i].categoria=="bestseller"){ %>
                   <article>
                     <a href="/products/<%= products[i].id %>"><img src="/img/products/<%= products[i].imagen %>"
                         alt="<%= products[i].titulo %>"></a>

@@ -119,6 +119,10 @@ html {
     text-decoration: none;
 }
 
+.bottom-nav ul li i {
+    margin-left: 5px;
+}
+
 .fa-book {
     color: #204860;
     margin-right: 5px;
@@ -449,7 +453,7 @@ footer {
     .search-bottom form button {
         position: absolute;
         right: 27%;
-        bottom: 13%;
+        bottom: 10%;
         color: #204860;
         background-color: white;
         border: none;
@@ -529,6 +533,7 @@ footer {
     }
 
     .box-bottom {
+        margin-top: 30px;
         margin-left: 5%;
     }
 

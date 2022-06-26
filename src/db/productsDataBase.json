@@ -4,7 +4,7 @@
     "titulo": "La montaña mágica",
     "autor": "Felice Briddock",
     "genero": "Horror|Thriller",
-    "categoria": "bestseller",
+    "categoria": "otros",
     "descripcion": "pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida",
     "precio": "$1187.30",
     "imagen": "image-default.jpg"
@@ -44,7 +44,7 @@
     "titulo": "asfgfgadfgafgafga",
     "autor": "Erasmus Goymer",
     "genero": "Crime|Drama",
-    "categoria": "bestsellers",
+    "categoria": "otros",
     "descripcion": "descripc",
     "precio": "$3117.10",
     "imagen": "image-default.jpg"
@@ -64,7 +64,7 @@
     "titulo": "Jane Eyre",
     "autor": "Consolata Bridges",
     "genero": "Comedy|Horror",
-    "categoria": "bestseller",
+    "categoria": "otros",
     "descripcion": "tellus in sagittis dui vel nisl duis ac nibh fusce lacus purus aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst maecenas ut massa quis",
     "precio": "$3303.25",
     "imagen": "image-default.jpg"
@@ -74,7 +74,7 @@
     "titulo": "Dune",
     "autor": "Marna Ubank",
     "genero": "Comedy|Musical",
-    "categoria": "nuevos-lanzamientos",
+    "categoria": "otros",
     "descripcion": "enim sit amet nunc viverra dapibus nulla suscipit ligula in lacus curabitur at",
     "precio": "$1906.69",
     "imagen": "image-default.jpg"
@@ -84,7 +84,7 @@
     "titulo": "Jane Eyre",
     "autor": "Blinny Lammin",
     "genero": "Drama|Romance",
-    "categoria": "nuevos-lanzamientos",
+    "categoria": "otros",
     "descripcion": "libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus",
     "precio": "$2694.18",
     "imagen": "image-default.jpg"
@@ -94,7 +94,7 @@
     "titulo": "Las uvas de la ira",
     "autor": "Marcille Dunkinson",
     "genero": "Crime|Drama|Mystery",
-    "categoria": "nuevos-lanzamientos",
+    "categoria": "otros",
     "descripcion": "aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent",
     "precio": "$1697.45",
     "imagen": "image-default.jpg"
@@ -114,7 +114,7 @@
     "titulo": "La montaña mágica",
     "autor": "Tobye Burdas",
     "genero": "Horror|Western",
-    "categoria": "bestseller",
+    "categoria": "otros",
     "descripcion": "curae donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet lobortis sapien sapien non mi integer ac neque",
     "precio": "$2135.97",
     "imagen": "image-default.jpg"
@@ -134,7 +134,7 @@
     "titulo": "Volverás a Región",
     "autor": "Nada Walsham",
     "genero": "Thriller",
-    "categoria": "nuevos-lanzamientos",
+    "categoria": "otros",
     "descripcion": "pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti cras",
     "precio": "$2391.46",
     "imagen": "image-default.jpg"
@@ -144,7 +144,7 @@
     "titulo": "Romeo y Julieta",
     "autor": "Brunhilda Rollings",
     "genero": "Drama",
-    "categoria": "nuevos-lanzamientos",
+    "categoria": "otros",
     "descripcion": "ipsum dolor sit amet consectetuer adipiscing elit proin risus praesent lectus vestibulum quam sapien varius ut blandit non interdum in ante vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae duis faucibus accumsan",
     "precio": "$2015.77",
     "imagen": "image-default.jpg"
@@ -154,7 +154,7 @@
     "titulo": "It",
     "autor": "Wren Crickmoor",
     "genero": "Comedy|Drama",
-    "categoria": "bestseller",
+    "categoria": "otros",
     "descripcion": "augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet lobortis sapien sapien non mi integer",
     "precio": "$2303.36",
     "imagen": "image-default.jpg"
@@ -174,7 +174,7 @@
     "titulo": "Alguien voló sobre el nido del cuco",
     "autor": "Matti Clucas",
     "genero": "Drama|Mystery|Thriller",
-    "categoria": "nuevos-lanzamientos",
+    "categoria": "otros",
     "descripcion": "aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend",
     "precio": "$1307.78",
     "imagen": "image-default.jpg"
@@ -187,14 +187,14 @@
     "categoria": "destacado",
     "descripcion": "dolor sit amet consectetuer adipiscing elit proin risus praesent lectus vestibulum quam sapien varius ut blandit non interdum in ante vestibulum ante ipsum primis",
     "precio": "$1536.55",
-    "imagen": "image-default.jpg"
+    "imagen": "romeo-julieta.jpg"
   },
   {
     "id": 20,
     "titulo": "La montaña mágica",
     "autor": "Bruce Phillcock",
     "genero": "Action|Crime|Drama",
-    "categoria": "nuevos-lanzamientos",
+    "categoria": "otros",
     "descripcion": "ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus",
     "precio": "$2517.52",
     "imagen": "image-default.jpg"
@@ -204,7 +204,7 @@
     "titulo": "Alguien voló sobre el nido del cuco",
     "autor": "Row Vernall",
     "genero": "Drama|War",
-    "categoria": "nuevos-lanzamientos",
+    "categoria": "bestseller",
     "descripcion": "id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris eget massa",
     "precio": "$2024.74",
     "imagen": "image-default.jpg"
@@ -244,7 +244,7 @@
     "titulo": "Romeo y Julieta",
     "autor": "Bennett Caffin",
     "genero": "Comedy",
-    "categoria": "otros",
+    "categoria": "bestseller",
     "descripcion": "semper interdum mauris ullamcorper purus sit amet nulla quisque arcu libero rutrum",
     "precio": "$2855.42",
     "imagen": "image-default.jpg"
@@ -297,16 +297,6 @@
     "categoria": "bestseller",
     "descripcion": "vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam",
     "precio": "$1782.87",
-    "imagen": "image-default.jpg"
-  },
-  {
-    "id": 31,
-    "titulo": "asfasfa",
-    "autor": "asfasf",
-    "genero": "asfasf",
-    "categoria": "bestsellers",
-    "descripcion": "asfsafa",
-    "precio": "4444",
     "imagen": "image-default.jpg"
   },
   {

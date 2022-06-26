@@ -1,7 +1,8 @@
 * {
-    box-sizing: border-box;
-    font-family: 'Be Vietnam Pro', sans-serif;
+  box-sizing: border-box;
+  font-family: 'Be Vietnam Pro', sans-serif;
 }
+
 p {
   margin: 0;
 }
@@ -13,13 +14,20 @@ p {
 main {
   width: 100%;
   padding: 15px 0;
-  background-color: #e6eaed;
+  box-shadow: inset;
   margin: 0;
 }
 
 main section {
   margin-bottom: 15px;
   width: 100%;
+}
+
+.box-producto {
+  width: 70%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .container-producto {
@@ -36,9 +44,7 @@ main section {
 
 .container-producto img {
   width: 40%;
-  margin: 15px 0px;
-    /* width: 400px; */
-    /* height: 450px; */
+  margin: 20px 0px;
 }
 
 .info-y-link {
@@ -55,7 +61,7 @@ main section {
   padding: 15px 15px;
   background-color: #08344fac;
   border-radius: 20px;
-  color:#e6eaed;
+  color: #e6eaed;
 }
 
 .titulo {
@@ -68,7 +74,7 @@ main section {
 }
 
 .desc {
-  text-align: justify;
+  text-align: center;
   padding: 0 10px;
   font-size: 14px;
   font-weight: 600;
@@ -80,54 +86,60 @@ main section {
   font-weight: 600;
   padding-bottom: 8px;
   padding-left: 10px;
+  text-align: center;
 }
 
 .price {
   width: 100%;
-  padding: 7px 0 14px 0;
+  padding: 10px;
   font-size: 16px;
-  font-weight: bolder;
-  justify-content: center;
-
+  font-weight: bold;
+  text-align: center;
 }
 
 #otros-libros {
   margin: 15px 0;
 }
 
+.butt-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+}
+
+.butt-container a {
+  width: 200px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
 .buy-now-button {
   background-color: #204860;
-  font-size: 1.6em;
+  font-size: 16px;
+  font-weight: bold;
   color: #e6eaed;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 15px;
+  padding: 10px;
   border-radius: 8px;
-  border: none;
-  margin-bottom: 15px;
   text-decoration: none;
 }
 
 .action-button {
   border: none;
   border-radius: 8px;
-  font-size: 1.2em;
+  font-size: 16px;
   color: #ffffff;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 15px 30px;
-  margin-top: 15px;
+  padding: 10px 20px;
 }
 
 .action-button.edit {
-  background-color: chocolate;
+  background-color: lightblue;
   text-decoration: none;
 }
 
 .action-button.delete {
-  background-color: rgb(248, 69, 37);
+  background-color: rgb(233, 98, 74);
 }
 
 .ver-otros {
@@ -150,20 +162,46 @@ main section {
 }
 
 @media (min-width: 481px) {
+  .box-producto {
+    justify-content: space-between;
+  }
+
   .info-y-link {
-  width: 60%;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-}
+    width: 60%;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    margin-top: 20px;
+  }
 
   .container-producto img {
-  width: 200px;
-  height: 300px;
-  align-self: flex-start;
-  margin: 20px 0;
-}
-}
+    max-width: 180px;
+    max-height: 300px;
+    align-self: flex-start;
+  }
 
+  .butt-container {
+    align-items: flex-end;
+  }
+
+  .butt-container a,
+  .butt-container form {
+    margin: 10px 0px;
+  }
+
+  .desc {
+    text-align: justify;
+  }
+
+  .price {
+    font-size: 20px;
+    text-align: end;
+  }
+  
+  .data-prod {
+    font-size: 14px;
+    text-align: start;
+  }
+}
 
 /*
 @media (max-width: 400px) {
