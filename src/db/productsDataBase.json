@@ -298,5 +298,25 @@
     "descripcion": "vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam",
     "precio": "$1782.87",
     "imagen": "image-default.jpg"
+  },
+  {
+    "id": 31,
+    "titulo": "asfasfa",
+    "autor": "asfasf",
+    "genero": "asfasf",
+    "categoria": "bestsellers",
+    "descripcion": "asfsafa",
+    "precio": "4444",
+    "imagen": "image-default.jpg"
+  },
+  {
+    "id": 32,
+    "titulo": "gargfdg",
+    "autor": "jhsgfjfs",
+    "genero": "sghsfh",
+    "categoria": "todos",
+    "descripcion": "jsfgjsfg",
+    "precio": "45454",
+    "imagen": "image-default.jpg"
   }
 ]

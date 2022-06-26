@@ -13,7 +13,7 @@ const productsController = {
     res.render('products/detalleProducto', { product });
   },
   crear: (req, res) => {
-    res.render("products/crearProducto");
+    res.render('products/crearProducto');
   },
   store: (req, res) => {
     const products = readJsonFile(productsFilePath);
@@ -26,11 +26,11 @@ const productsController = {
       descripcion: req.body.descripcion,
       precio: req.body.precio,
       imagen: req.file?.filename || "image-default.jpg"
-    }
+    };
 
     products.push(product);
     fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
-    return res.redirect("/products")
+    return res.redirect("/");
   },
   editar: (req, res) => {
     const productsJson = readJsonFile(productsFilePath);
