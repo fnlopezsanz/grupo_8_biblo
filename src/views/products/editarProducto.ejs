@@ -25,9 +25,9 @@
         <div class="categoria">
           <label for="categoria">Categoria</label>
           <select name="categoria" id="categoria">
-            <option value="bestsellers" <% products.categoria == "bestseller" ? "selected" : null %> >BESTSELLERS</option>
-            <option value="nuevos-lanzamientos" <% products.categoria == "nuevos-lanzamientos" ? "selected" : null %> >NUEVOS LANZAMIENTOS</option>
-            <option value="otros" <% products.categoria == "otros" ? "selected" : null %> >OTROS</option>
+            <option value="bestsellers" <%= products.categoria == "bestseller" ? "selected" : null %> >BESTSELLERS</option>
+            <option value="nuevos-lanzamientos" <%= products.categoria == "nuevos-lanzamientos" ? "selected" : null %> >NUEVOS LANZAMIENTOS</option>
+            <option value="otros" <%= products.categoria == "otros" ? "selected" : null %> >OTROS</option>
           </select>
         </div>
         <div class="descripcion">
