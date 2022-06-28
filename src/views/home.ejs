@@ -60,7 +60,7 @@
               <h3><a href="#">NUEVOS LANZAMIENTOS</a></h3>
               <% for(let i=0; i < products.length; i++){ %>
                 <% if(products[i].categoria=="nuevos-lanzamientos" ){ %>
-                  <article>
+                  <article>     
                     <a href="/products/<%= products[i].id %>"><img src="/img/products/<%= products[i].imagen %>"
                         alt="<%= products[i].titulo %>"></a>
                     <div class="box-book">
