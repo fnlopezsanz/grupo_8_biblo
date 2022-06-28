@@ -536,6 +536,12 @@ footer {
         margin-top: 30px;
         margin-left: 5%;
     }
+    
+    h3 {
+        margin-top: 20px;
+        text-align: start;
+        width: 100%;
+    }
 
     .top-section {
         display: flex;
@@ -545,11 +551,6 @@ footer {
         align-items: flex-start;
     }
 
-    h3 {
-        margin-top: 20px;
-        text-align: start;
-        width: 100%;
-    }
 
     .bottom-section {
         display: flex;

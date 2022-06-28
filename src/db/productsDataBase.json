@@ -204,7 +204,7 @@
     "titulo": "Alguien voló sobre el nido del cuco",
     "autor": "Row Vernall",
     "genero": "Drama|War",
-    "categoria": "bestseller",
+    "categoria": "bestsellers",
     "descripcion": "id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris eget massa",
     "precio": "$2024.74",
     "imagen": "image-default.jpg"
@@ -224,7 +224,7 @@
     "titulo": "Las uvas de la ira",
     "autor": "Micheil Dies",
     "genero": "Comedy",
-    "categoria": "bestseller",
+    "categoria": "bestsellers",
     "descripcion": "eget semper rutrum nulla nunc purus phasellus in felis donec semper sapien a",
     "precio": "$1462.19",
     "imagen": "image-default.jpg"
@@ -244,7 +244,7 @@
     "titulo": "Romeo y Julieta",
     "autor": "Bennett Caffin",
     "genero": "Comedy",
-    "categoria": "bestseller",
+    "categoria": "bestsellers",
     "descripcion": "semper interdum mauris ullamcorper purus sit amet nulla quisque arcu libero rutrum",
     "precio": "$2855.42",
     "imagen": "image-default.jpg"
@@ -254,7 +254,7 @@
     "titulo": "It",
     "autor": "Gene Krysiak",
     "genero": "Action",
-    "categoria": "bestseller",
+    "categoria": "bestsellers",
     "descripcion": "lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh in quis justo",
     "precio": "$3414.37",
     "imagen": "image-default.jpg"
@@ -294,7 +294,7 @@
     "titulo": "Dune",
     "autor": "Elvin Schorah",
     "genero": "Animation|Children|Fantasy|Mystery",
-    "categoria": "bestseller",
+    "categoria": "bestsellers",
     "descripcion": "vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam",
     "precio": "$1782.87",
     "imagen": "image-default.jpg"

@@ -12,7 +12,7 @@
             <article>
               <h4>DESTACADO DEL MES</h4>
               <% for(let i=0; i < products.length; i++){ %>
-                <% if(products[i].categoria=="destacado" ){ %>
+                <% if(products[i].categoria == "destacado" ){ %>
                   <div class="destacado">
                     <a href="/products/<%= products[i].id %>"><img src="/img/products/<%= products[i].imagen %>"
                         alt="<%= products[i].titulo %>"></a>
@@ -33,45 +33,43 @@
           <section class="box-top">
             <div class="top-section">
               <h3><a href="#">BESTSELLERS</a></h3>
-              <% for(let i=0; i < products.length; i++){ %>
-                <% if(products[i].categoria=="bestseller"){ %>
+              <% for(let i=0; i < bestseller.length; i++){ %>
                   <article>
-                    <a href="/products/<%= products[i].id %>"><img src="/img/products/<%= products[i].imagen %>"
-                        alt="<%= products[i].titulo %>"></a>
+                    <a href="/products/<%= bestseller[i].id %>"><img src="/img/products/<%= bestseller[i].imagen %>"
+                        alt="<%= bestseller[i].titulo %>"></a>
                     <div class="box-book">
                       <p class="title">
-                        <%= products[i].titulo %>
+                        <%= bestseller[i].titulo %>
                       </p>
                       <p class="price">
-                        <%= products[i].precio %>
+                        <%= bestseller[i].precio %>
                       </p>
                       <p class="book-description">
-                        <%= products[i].descripcion %>
+                        <%= bestseller[i].descripcion %>
                       </p>
                     </div>
                   </article>
                   <% } %>
-                    <% } %>
             </div>
           </section>
         </div>
           <section class="box-bottom">
             <div class="bottom-section">
               <h3><a href="#">NUEVOS LANZAMIENTOS</a></h3>
-              <% for(let i=0; i < products.length; i++){ %>
-                <% if(products[i].categoria=="nuevos-lanzamientos" ){ %>
+              <% for(let i=0; i < nuevosLanzamientos.length; i++){ %>
+                <% if(nuevosLanzamientos[i].categoria == "nuevos-lanzamientos" ){ %>
                   <article>
-                    <a href="/products/<%= products[i].id %>"><img src="/img/products/<%= products[i].imagen %>"
-                        alt="<%= products[i].titulo %>"></a>
+                    <a href="/products/<%= nuevosLanzamientos[i].id %>"><img src="/img/products/<%= nuevosLanzamientos[i].imagen %>"
+                        alt="<%= nuevosLanzamientos[i].titulo %>"></a>
                     <div class="box-book">
                       <p class="title">
-                        <%= products[i].titulo %>
+                        <%= nuevosLanzamientos[i].titulo %>
                       </p>
                       <p class="price">
-                        <%= products[i].precio %>
+                        <%= nuevosLanzamientos[i].precio %>
                       </p>
                       <p class="book-description">
-                        <%= products[i].descripcion %>
+                        <%= nuevosLanzamientos[i].descripcion %>
                       </p>
                     </div>
                   </article>
