@@ -1,27 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include("../parcials/head.ejs", { stylesheet: ["stylehome", "style_login_register" ]}); %>
+<%- include("../parcials/head.ejs", { stylesheet: ["stylehome", "style_register" ]}); %>
 
   <body>
     <%- include("../parcials/header.ejs"); %>
-      <main>
+      <main class="main-register">
         <section class="form-register">
-          <form action="/" method="get">
-            <h5>Crea tu cuenta</h5>
-            <p class="textos">Nombre</p>
-            <input class="completar" type="text" name="Nombre" value="" placeholder="" required minlength="4">
-            <p class="textos">Email</p>
-            <input class="completar" type="email" name="Email" value="" placeholder="ejemplo@ejemplo.com" required>
-            <p class="textos">Contraseña</p>
-            <input class="completar" type="password" name="Contraseña" value="" placeholder="6 caracteres mínimo"
-              required minlength="6">
-            <input class="botones" type="submit" name="submit" value="Crear">
-            <p><a class="links" href="/login">¿Ya tenés cuenta? Inicia sesión</a></p>
+          <form action="/" method="get" class="register">
+            <div class="contenedor">
+              <div class="box-form-1">
+                <h5>CREA TU CUENTA</h5>
+                <div class="box">
+                <p class="textos">Nombre</p>
+                  <input class="completar" type="text" name="Nombre" value="" placeholder="" required minlength="4">
+                </div>
+                <div class="box">
+                <p class="textos">Apellido</p>
+                  <input class="completar" type="text" name="Apellido" value="" placeholder="" required minlength="4">
+                </div>
+                <div class="box">
+                <p class="textos">Email</p>
+                  <input class="completar" type="email" name="Email" value="" placeholder="Ejemplo@ejemplo.com"
+                    required>
+                </div>
+                <div class="box">
+                <p class="textos">Contraseña</p>
+                  <input class="completar" type="password" name="Contraseña" value="" placeholder="Mínimo 6 caracteres"
+                    required minlength="6">
+                </div>
+              </div>
+              <div class="box-form-2">
+                <div class="div-foto">
+                <p class="textos">Foto de perfil</p>
+                  <img src="/img/users/image-default.jpg" alt="image-avatar" class="user-avatar">
+                  <input type="file" name="image" id="image" accept=".jpg, .png">
+                </div>
+              </div>
+            </div>
+            <div class="box-form-3">
+              <div>
+                <input class="button" type="submit" name="submit" value="Registrarse">
+              </div>
+              <div>
+                <p>¿Ya tenés cuenta? <a class="link" href="/users/login">Inicia sesión</a></p>
+              </div>
+            </div>
           </form>
         </section>
       </main>
-      <hr>
+      <hr class="hr-r-l">
       <%- include("../parcials/footer.ejs"); %>
   </body>
 

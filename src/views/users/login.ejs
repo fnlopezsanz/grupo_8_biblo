@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include("../parcials/head.ejs", {stylesheet: ["stylehome", "style_login_register" ]}); %>
+<%- include("../parcials/head.ejs", {stylesheet: ["stylehome", "style_login" ]}); %>
 
   <body>
     <%- include("../parcials/header.ejs"); %>
@@ -9,15 +9,33 @@
         <section class="form-login">
           <form action="/" method="get">
             <h5>Iniciar sesión</h5>
-            <input class="completar" type="text" name="Email" value="" placeholder="Email">
-            <input class="completar" type="password" name="Contraseña" value="" placeholder="Contraseña">
-            <input class="botones" type="submit" name="" value="Iniciar sesión">
-            <p><a class="links" href="#">Recuperar Contraseña</a></p>
-            <p><a class="links" href="/register">¿No tenés cuenta? Crea tu cuenta</a></p>
+            <div class="box-form">
+              <div class="box-login">
+                <div class="completar">
+                  <i class="fas fa-user-circle"></i>
+                  <input type="text" name="Email" value="" placeholder="Email">
+                </div>
+                <div class="completar">
+                  <i class="fas fa-lock"></i>
+                  <input type="password" name="Contraseña" value="" placeholder="Contraseña">
+                </div>
+              </div>
+              <div class="recordame">
+                <input type="checkbox" name="recordame">
+                <label for="recordame">Recordame</label>
+              </div>
+              <div class="botones">
+                <input type="submit" name="" value="Iniciar sesión">
+              </div>
+              <div class="links">
+                <p><a href="#">Recuperar Contraseña</a></p>
+                <p><a href="/register">¿No tenés cuenta? Crea tu cuenta</a></p>
+              </div>
+            </div>
           </form>
         </section>
       </main>
-      <hr>
+      <hr class="hr-r-l">
       <%- include("../parcials/footer.ejs"); %>
   </body>
 

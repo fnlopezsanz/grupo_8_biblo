@@ -1,0 +1,40 @@
+
+h5 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    margin: auto;
+    text-align: center;
+}
+
+p, input, label {
+    font-size: 14px;
+}
+
+.hr-r-l {
+    margin: 0;
+    padding: 0; 
+}
+
+.box-form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.completar {
+    margin: 10px 0;
+    border: solid 1px black;
+}
+
+.completar i {
+    padding: 10px;
+    margin: 0;
+}
+
+.completar input {
+    border: none;
+    margin: 0;
+    padding: 10px;
+}
