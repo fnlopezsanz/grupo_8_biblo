@@ -19,10 +19,10 @@ const usersController = {
     const users = readJsonFile(usersFilePath);
     const user = {
       id: users[users.length - 1].id + 1,
-      firstname: req.body.nombre,
-      lastname: req.body.apellido,
-      email: req.body.email,
-      password: req.body.contraseña,
+      firstname: req.body.Nombre,
+      lastname: req.body.Apellido,
+      email: req.body.Email,
+      password: req.body.Password,
       image: req.file?.filename || "image-default.jpg"
     };
     users.push(user);
