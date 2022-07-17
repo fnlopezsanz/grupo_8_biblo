@@ -37,6 +37,13 @@ p, input, label {
     width: 100%;
 }
 
+.invalid-feedback {
+  color: red;
+  font-weight: 700;
+  font-family: 'Oswald', sans-serif;
+  font-size: 14px;
+}
+
 .box-form-1 {
     padding: 20px;
     margin-bottom: 10px;

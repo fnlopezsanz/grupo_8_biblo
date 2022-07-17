@@ -268,32 +268,5 @@
     "password": "6O0amU5",
     "category": "user",
     "avatar": "user_30.jpg"
-  },
-  {
-    "id": 31,
-    "image": "1657728806447.jpg"
-  },
-  {
-    "id": 32,
-    "image": "user-1657762132934.jpg"
-  },
-  {
-    "id": 33,
-    "image": "image-default.jpg"
-  },
-  {
-    "id": 34,
-    "firstname": "fsafdsa",
-    "lastname": "fasdfas",
-    "email": "dfsg@gfdag.com",
-    "image": "user-1657762302490.jpg"
-  },
-  {
-    "id": 35,
-    "firstname": "asfsafd",
-    "lastname": "asfsafd",
-    "email": "facundonahuel.ls@gmail.com",
-    "password": "sdaffasdasfd",
-    "image": "user-1657762357939.jpg"
   }
 ]
