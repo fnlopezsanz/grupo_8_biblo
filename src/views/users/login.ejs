@@ -14,10 +14,20 @@
                 <div class="completar">
                   <i class="fas fa-user-circle"></i>
                   <input type="text" name="Email" value="" placeholder="Email">
+                  <% if (locals.errors && errors.Email) { %>
+                    <div class="invalid-feedback">
+                      <%= errors.Email.msg %>
+                    </div>
+                    <% } %>
                 </div>
                 <div class="completar">
                   <i class="fas fa-lock"></i>
                   <input type="password" name="Contraseña" value="" placeholder="Contraseña">
+                  <% if (locals.errors && errors.Password) { %>
+                    <div class="invalid-feedback">
+                      <%= errors.Password.msg %>
+                    </div>
+                    <% } %>
                 </div>
               </div>
               <div class="recordame">

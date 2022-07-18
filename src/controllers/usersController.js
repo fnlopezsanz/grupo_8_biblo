@@ -7,41 +7,50 @@ const readJsonFile = (path) => {
 const { validationResult } = require('express-validator');
 
 const usersController = {
-    login: (req,res) => {
-        res.render("users/login");
-    },
+  login: (req, res) => {
+    res.render("users/login");
 
-    register: (req,res) => {
-        res.render("users/register");
-    },
+    const resultValidation = validationResult(req);
 
-    store: (req, res) => {
-      const resultValidation = validationResult(req);
-
-      if (resultValidation.errors.length > 0) {
-        return res.render('users/register', {
-            errors: resultValidation.mapped(),
-            oldData: req.body
-        });
-      }
-
-      const users = readJsonFile(usersFilePath);
-      const user = {
-        id: users[users.length - 1].id + 1,
-        firstname: req.body.Nombre,
-        lastname: req.body.Apellido,
-        email: req.body.Email,
-        password: req.body.Password,
-        image: req.file?.filename || "image-default.jpg"
-      };
-      users.push(user);
-      fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
-      return res.redirect("/")
-    },
-
-    carrito: (req, res) => {
-        res.render("users/carrito")
+    if (resultValidation.errors.length > 0) {
+      return res.render('users/login', {
+        errors: resultValidation.mapped(),
+        oldData: req.body
+      });
     }
+  },
+
+  register: (req, res) => {
+    res.render("users/register");
+  },
+
+  store: (req, res) => {
+    const resultValidation = validationResult(req);
+
+    if (resultValidation.errors.length > 0) {
+      return res.render('users/register', {
+        errors: resultValidation.mapped(),
+        oldData: req.body
+      });
+    }
+
+    const users = readJsonFile(usersFilePath);
+    const user = {
+      id: users[users.length - 1].id + 1,
+      firstname: req.body.Nombre,
+      lastname: req.body.Apellido,
+      email: req.body.Email,
+      password: req.body.Password,
+      image: req.file?.filename || "image-default.jpg"
+    };
+    users.push(user);
+    fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
+    return res.redirect("/")
+  },
+
+  carrito: (req, res) => {
+    res.render("users/carrito")
+  }
 };
 
 module.exports = usersController;

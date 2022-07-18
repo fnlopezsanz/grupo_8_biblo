@@ -40,7 +40,7 @@ const validations = [
   })
 ];
 
-router.get("/login", usersController.login);
+router.get("/login", validations, usersController.login);
 
 router.get("/register", usersController.register);
 
