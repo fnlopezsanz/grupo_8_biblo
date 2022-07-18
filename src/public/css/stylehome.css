@@ -125,7 +125,8 @@ html {
     margin-left: 5px;
 }
 
-.fa-book {
+.fa-book,
+.fa-user-circle {
     color: #204860;
     margin-right: 5px;
 }
