@@ -60,7 +60,7 @@ main section {
   flex-wrap: wrap;
   padding: 15px 15px;
   background-color: #08344fac;
-  border-radius: 20px;
+  border-radius: 10px;
   color: #e6eaed;
 }
 
@@ -71,6 +71,7 @@ main section {
   margin: 0;
   padding-bottom: 15px;
   font-weight: 900;
+  font-family: 'Titillium Web', sans-serif;
 }
 
 .desc {
@@ -78,6 +79,7 @@ main section {
   padding: 0 10px;
   font-size: 14px;
   font-weight: 600;
+  font-family: 'Titillium Web', sans-serif;
 }
 
 .data-prod {
@@ -87,6 +89,7 @@ main section {
   padding-bottom: 8px;
   padding-left: 10px;
   text-align: center;
+  font-family: 'Titillium Web', sans-serif;
 }
 
 .price {
@@ -95,6 +98,7 @@ main section {
   font-size: 16px;
   font-weight: bold;
   text-align: center;
+  font-family: 'Titillium Web', sans-serif;
 }
 
 #otros-libros {
@@ -144,7 +148,7 @@ main section {
 
 .ver-otros {
   text-decoration: none;
-  font-size: 12px;
+  font-size: 14px;
   color: #e6eaed;
   cursor: pointer;
   border-radius: 20px;
@@ -154,6 +158,7 @@ main section {
   margin: 50px 0px;
   transition: all 350ms;
   font-weight: 600;
+  font-family: 'Titillium Web', sans-serif;
 }
 
 .ver-otros:hover {

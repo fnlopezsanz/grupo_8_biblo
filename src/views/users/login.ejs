@@ -5,11 +5,11 @@
 
   <body>
     <%- include("../parcials/header.ejs"); %>
-      <main>
+      <main class="login">
         <section class="form-login">
           <form action="/" method="get">
-            <h5>Iniciar sesión</h5>
             <div class="box-form">
+              <h5>INICIAR SESIÓN</h5>
               <div class="box-login">
                 <div class="completar">
                   <i class="fas fa-user-circle"></i>
@@ -34,12 +34,12 @@
                 <input type="checkbox" name="recordame">
                 <label for="recordame">Recordame</label>
               </div>
-              <div class="botones">
-                <input type="submit" name="" value="Iniciar sesión">
+              <div class="boton">
+                <input type="submit" name="" value="Login">
               </div>
               <div class="links">
                 <p><a href="#">Recuperar Contraseña</a></p>
-                <p><a href="/register">¿No tenés cuenta? Crea tu cuenta</a></p>
+                <p><a href="/users/register">¿No tenés cuenta? Crea tu cuenta</a></p>
               </div>
             </div>
           </form>

@@ -5,6 +5,7 @@ h5 {
     font-weight: bold;
     margin: auto;
     text-align: center;
+    padding: 10px;
 }
 
 p, input, label {
@@ -16,11 +17,25 @@ p, input, label {
     padding: 0; 
 }
 
+.login {
+    margin: 0;
+    background-color: #cdd6db80;
+    padding: 100px 20px;
+}
+
+.form-login {
+    width: 90%;
+    background-color: white;
+    margin: auto;
+}
+
 .box-form {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.226);
+    border-radius: 4px;
 }
 
 .completar {
@@ -37,4 +52,46 @@ p, input, label {
     border: none;
     margin: 0;
     padding: 10px;
+}
+
+.invalid-feedback {
+    color: red;
+    font-weight: 700;
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+  }
+
+.recordame {
+    margin: 10px;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.boton input  {
+    font-size: 16px;
+    width: 150px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.637);
+    border: solid 1px #06293f59;
+    border-radius: 5px;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.boton input:hover {
+    transition-duration: 700ms;
+    transform-style: flat;
+    color: white;
+    background-color: rgba(6, 41, 63, 0.596)
+}
+
+.links p {
+    font-size: 12px;
+    text-align: center;
+    color: #06293f;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+@media (min-width: 481px) {
+    .form-login {
+        max-width: 50%;
+    }
 }
