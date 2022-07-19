@@ -53,12 +53,12 @@
                 <p class="textos">Foto de perfil</p>
                   <img src="/img/users/image-default.jpg" alt="image-avatar" class="user-avatar">
                   <input type="file" name="image" id="image" accept=".jpg, .png">
+                  <% if (locals.errors && errors.image) { %>
+                    <div class="invalid-feedback">
+                      <%= errors.image.msg %>
+                    </div>
+                    <% } %>
                 </div>
-                <% if (locals.errors && errors.image) { %>
-                  <div class="invalid-feedback">
-                    <%= errors.image.msg %>
-                  </div>
-                  <% } %>
               </div>
             </div>
             <div class="box-form-3">

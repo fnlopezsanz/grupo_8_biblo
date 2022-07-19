@@ -17,15 +17,26 @@ const usersController = {
 
     if (resultValidation.errors.isEmpty()) {
       const users = readJsonFile(usersFilePath);
-      let usuarios;
-      if (users == ' ') {
-        usuarios = [];
-      } else {
-        usuarios = JSON.parse(users);
+
+      for (let i = 0; i < users.length; i++) {
+        if (users[i].email == req.body.Email) {
+          if (bcrypt.compareSync(req.body.Password, users[i].password)) {
+            let userLog = users[i];
+            break;
+          }
+        }
+      }
+      
+      if (userLog == undefined){
+        res.render ('users/login', {errors: [{msg: '¡Incorrecto, verifique sus datos!'}]});
       }
 
-      
+      req.session.userOk = userLog;
 
+      res.redirect('users/login');
+
+    } else {
+      return res.render('users/login', { errors: resultValidation.errors })
     }
 
   },

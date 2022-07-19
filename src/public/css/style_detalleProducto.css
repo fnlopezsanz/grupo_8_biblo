@@ -55,7 +55,7 @@ main section {
 }
 
 .informacion-producto {
-  width: 90%;
+  width: 98%;
   display: flex;
   flex-wrap: wrap;
   padding: 15px 15px;
@@ -194,7 +194,7 @@ main section {
   }
 
   .desc {
-    text-align: justify;
+    text-align: center;
   }
 
   .price {
