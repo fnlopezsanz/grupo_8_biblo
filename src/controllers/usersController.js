@@ -13,7 +13,21 @@ const usersController = {
   },
 
   processLogin: (req, res) => {
-    
+    const resultValidation = validationResult(req);
+
+    if (resultValidation.errors.isEmpty()) {
+      const users = readJsonFile(usersFilePath);
+      let usuarios;
+      if (users == ' ') {
+        usuarios = [];
+      } else {
+        usuarios = JSON.parse(users);
+      }
+
+      
+
+    }
+
   },
 
   register: (req, res) => {
