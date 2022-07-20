@@ -58,8 +58,13 @@ p, input, label {
     color: red;
     font-weight: 700;
     font-family: 'Oswald', sans-serif;
-    font-size: 14px;
+    font-size: 12px;
+    text-align: center;
   }
+
+.error {
+    font-family: 'Titillium Web', sans-serif;
+}
 
 .recordame {
     margin: 10px;

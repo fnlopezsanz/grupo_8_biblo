@@ -7,32 +7,37 @@
     <%- include("../parcials/header.ejs"); %>
       <main class="login">
         <section class="form-login">
-          <form action="/" method="get">
+          <form action="/users/login" method="post">
             <div class="box-form">
               <h5>INICIAR SESIÓN</h5>
               <div class="box-login">
                 <div class="completar">
                   <i class="fas fa-user-circle"></i>
-                  <input type="text" name="Email" value="" placeholder="Email">
-                  <% if (locals.errors && errors.Email) { %>
-                    <div class="invalid-feedback">
-                      <%= errors.Email.msg %>
-                    </div>
-                    <% } %>
+                  <input type="text" name="Email" value="<%= locals.oldData ? oldData.Email : null %>" placeholder="Email">
                 </div>
+                <% if (locals.errors && errors.Email) { %>
+                  <div class="invalid-feedback">
+                    <%= errors.Email.msg %>
+                  </div>
+                  <% } %>
                 <div class="completar">
                   <i class="fas fa-lock"></i>
                   <input type="password" name="Password" value="" placeholder="Contraseña">
-                  <% if (locals.errors && errors.Password) { %>
-                    <div class="invalid-feedback">
-                      <%= errors.Password.msg %>
-                    </div>
-                    <% } %>
                 </div>
+                <% if (locals.errors && errors.Password) { %>
+                  <div class="invalid-feedback">
+                    <%= errors.Password.msg %>
+                  </div>
+                  <% } %>
               </div>
+              <% if (locals.errors) { %>
+                <div class="invalid-feedback">
+                  <p class="error"><%= errors.msg %></p>
+                </div>
+                <% } %>
               <div class="recordame">
                 <input type="checkbox" name="recordame">
-                <label for="recordame">Recordame</label>
+                <label for="">Recordame</label>
               </div>
               <div class="boton">
                 <input type="submit" name="" value="Login">

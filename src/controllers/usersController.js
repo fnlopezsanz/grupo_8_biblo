@@ -15,28 +15,32 @@ const usersController = {
   processLogin: (req, res) => {
     const resultValidation = validationResult(req);
 
-    if (resultValidation.errors.isEmpty()) {
+    if (resultValidation.isEmpty()) {
       const users = readJsonFile(usersFilePath);
+
+      let usuario;
 
       for (let i = 0; i < users.length; i++) {
         if (users[i].email == req.body.Email) {
           if (bcrypt.compareSync(req.body.Password, users[i].password)) {
-            let userLog = users[i];
+            usuario = users[i]
             break;
           }
         }
       }
       
-      if (userLog == undefined){
-        res.render ('users/login', {errors: [{msg: '¡Incorrecto, verifique sus datos!'}]});
+      if(usuario == undefined){
+        return res.render('users/login', { errors: {msg: 'Usuario y/o contraseña incorrecto'} });
       }
 
-      req.session.userOk = userLog;
+      delete usuario.password;
+      
+      req.session.userOk = usuario;
 
-      res.redirect('users/login');
+      return res.redirect('/');
 
     } else {
-      return res.render('users/login', { errors: resultValidation.errors })
+      return res.render('users/login', { errors: resultValidation.mapped(), oldData: req.body })
     }
 
   },

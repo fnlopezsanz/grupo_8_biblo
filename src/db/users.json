@@ -268,5 +268,13 @@
     "password": "6O0amU5",
     "category": "user",
     "avatar": "user_30.jpg"
+  },
+  {
+    "id": 31,
+    "firstname": "Emiliana",
+    "lastname": "Baglioni",
+    "email": "emi@gmail.com",
+    "password": "$2a$10$SYaTEzBp9pu646kMmrrFa.v2gj1q5uf.5MC7SJfD6B4NRVi/2t4hK",
+    "image": "user-1658253565292.jpg"
   }
 ]

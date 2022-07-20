@@ -4,6 +4,7 @@ const multer = require('multer');
 
 const productsController = require("../controllers/productsController.js");
 
+
 router.get("/create/", productsController.crear);
 
 router.get("/:id", productsController.detalle);
