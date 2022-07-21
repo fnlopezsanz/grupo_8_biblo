@@ -13,7 +13,7 @@
               <div class="box-login">
                 <div class="completar">
                   <i class="fas fa-user-circle"></i>
-                  <input type="text" name="Email" value="<%= locals.oldData ? oldData.Email : null %>" placeholder="Email">
+                  <input type="text" name="email" value="<%= locals.oldData ? oldData.Email : null %>" placeholder="Email">
                 </div>
                 <% if (locals.errors && errors.Email) { %>
                   <div class="invalid-feedback">
@@ -22,7 +22,7 @@
                   <% } %>
                 <div class="completar">
                   <i class="fas fa-lock"></i>
-                  <input type="password" name="Password" value="" placeholder="Contraseña">
+                  <input type="password" name="password" value="" placeholder="Contraseña">
                 </div>
                 <% if (locals.errors && errors.Password) { %>
                   <div class="invalid-feedback">

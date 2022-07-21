@@ -29,10 +29,20 @@
       </div>
       <nav class="bottom-nav">
         <ul>
-          <li><a href="/users/register">Crea tu cuenta</a></li>
-          <li><a href="/users/login">Iniciar sesión</a></li>
-          <li><a href="#" class="profile-box"><img class='profile' src="/img/users/image-default.jpg" alt="">NOMBRE</a></li>
-          <li><i class="fas fa-book"></i><a href="/users/carrito">MI CARRITO</a></li>
+          <% if(!locals.isLogged){%>
+            <li><a href="#" class="profile-box"><img class='profile' src="/img/users/<%= locals.userLogged.image %>" alt=""><p style="font-size: 15px;"><%= locals.userLogged.firstname %></p></a></li>
+            <% } else { %>
+              <li><a href="/users/register">Crea tu cuenta</a></li>
+              <li><a href="/users/login">Iniciar sesión</a></li>
+              <% } %>
+              <li><i class="fas fa-book"></i><a href="/users/carrito">MI CARRITO</a></li>
+            <% if(!locals.isLogged){%>
+              <li>
+                <form action="/users/logout" method="get">
+                  <button type="submit" class="logout"><i class="fas fa-sign-out-alt"></i></button>
+                  </form>
+              </li>
+            <% } %>
         </ul>
       </nav>
     </div>

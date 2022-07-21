@@ -6,6 +6,7 @@ const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const PORT = process.env.PORT || 3000
 
+const userLogMiddleware = require("./middlewares/userLogMiddleware");
 
 
 app.use(methodOverride('_method'));
@@ -14,7 +15,7 @@ app.use(session({secret: '¡sh!', resave: false, saveUninitialized: false}));
 
 app.use(cookieParser());
 
-/*app.use(recordameMiddleware);*/
+app.use(userLogMiddleware);
 
 app.use(express.urlencoded({ extended: false }));
 

@@ -1,7 +1,7 @@
 const { body } = require('express-validator');
 
 module.exports = [
-    body('Email').notEmpty().withMessage('Debe introducir un correo electrónico').bail()
+    body('email').notEmpty().withMessage('Debe introducir un correo electrónico').bail()
     .isEmail().withMessage('Debe introducir un formato de correo válido'),
-    body('Password').notEmpty().withMessage('Debe introducir una contraseña')
+    body('password').notEmpty().withMessage('Debe introducir una contraseña')
   ];

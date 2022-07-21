@@ -41,8 +41,15 @@ p, input, label {
   color: red;
   font-weight: 700;
   font-family: 'Oswald', sans-serif;
-  font-size: 14px;
-  margin-left: 80px;
+  font-size: 12px;
+}
+
+.img-error {
+    color: red;
+  font-weight: 700;
+  font-family: 'Oswald', sans-serif;
+  font-size: 12px;  
+  margin: auto;
 }
 
 .box-form-1 {
