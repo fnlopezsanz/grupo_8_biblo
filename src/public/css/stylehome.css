@@ -122,6 +122,12 @@ html {
     text-decoration: none;
 }
 
+.bottom-nav ul li a:hover {
+    color: black;
+    transition-duration: 800ms;
+}
+
+
 .bottom-nav ul li i {
     margin-left: 5px;
 }
