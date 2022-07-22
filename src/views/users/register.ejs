@@ -14,36 +14,36 @@
                 <div class="box">
                 <p class="textos">Nombre</p>
                   <input class="completar" type="text" name="nombre" value="<%= locals.oldData ? oldData.Nombre : null %>">
-                  <% if (locals.errors && errors.Nombre) { %>
+                  <% if (locals.errors && errors.nombre) { %>
                      <div class="invalid-feedback">
-                      <%= errors.Nombre.msg %>
+                      <%= errors.nombre.msg %>
                      </div>
                       <% } %>
                 </div>
                 <div class="box">
                 <p class="textos">Apellido</p>
                   <input class="completar" type="text" name="apellido" value="<%= locals.oldData ? oldData.Apellido : null %>">
-                  <% if (locals.errors && errors.Apellido) { %>
+                  <% if (locals.errors && errors.apellido) { %>
                     <div class="invalid-feedback">
-                      <%= errors.Apellido.msg %>
+                      <%= errors.apellido.msg %>
                     </div>
                     <% } %>
                 </div>
                 <div class="box">
                 <p class="textos">Email</p>
                   <input class="completar" type="text" name="email" value="<%= locals.oldData ? oldData.Email : null %>" placeholder="ejemplo@ejemplo.com">
-                  <% if (locals.errors && errors.Email) { %>
+                  <% if (locals.errors && errors.email) { %>
                     <div class="invalid-feedback">
-                      <%= errors.Email.msg %>
+                      <%= errors.email.msg %>
                     </div>
                     <% } %>
                 </div>
                 <div class="box">
                 <p class="textos">Contraseña</p>
                   <input class="completar" type="password" name="password" value="" placeholder="Mínimo 8 caracteres">
-                  <% if (locals.errors && errors.Password) { %>
+                  <% if (locals.errors && errors.password) { %>
                     <div class="invalid-feedback">
-                      <%= errors.Password.msg %>
+                      <%= errors.password.msg %>
                     </div>
                     <% } %>
                 </div>
@@ -63,7 +63,7 @@
             </div>
             <div class="box-form-3">
               <div>
-                <input class="button" type="submit" name="submit" value="Registrarse">
+                <input class="button" type="submit" value="Registrarse">
               </div>
               <div>
                 <p>¿Ya tenés cuenta? <a class="link" href="/users/login">Inicia sesión</a></p>

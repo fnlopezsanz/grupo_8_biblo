@@ -1,2 +1,37 @@
 [
+  {
+    "id": 1,
+    "nombre": "asfasf",
+    "apellido": "asfs",
+    "email": "asa@asas.com",
+    "password": "$2a$10$FLUHOBtWhSnrJYT8xBll7erFc88wW3N0qMr0wNzcpfW/T9x51pSkG",
+    "submit": "Registrarse",
+    "image": "user-1658450025261.jpg"
+  },
+  {
+    "id": 2,
+    "nombre": "safasf",
+    "apellido": "sfaf",
+    "email": "as@as.com",
+    "password": "$2a$10$mKQWK2FxYn6ErQp6NajLH.Q/T6X3SwfnZ6d.xVoDUYXY.yu0/qILW",
+    "submit": "Registrarse",
+    "image": "user-1658450056266.jpg"
+  },
+  {
+    "id": 3,
+    "nombre": "sdasda",
+    "apellido": "asdasd",
+    "email": "juan@gmail.com",
+    "password": "$2a$10$qYQdFGhw.uGdDV4bE80Sc.d04v7BQmeUhVPIUfNWzW7oK6EQaeN8m",
+    "submit": "Registrarse",
+    "image": "user-1658450450033.jpg"
+  },
+  {
+    "id": 4,
+    "nombre": "fsafasf",
+    "apellido": "asfas",
+    "email": "joac@gmail.com",
+    "password": "$2a$10$6PT8LiJFGFcfGDUaQUzSCuLtbOoI6b3oSqpnxH.6yQTBhyOTj7Fgy",
+    "image": "user-1658450999652.jpg"
+  }
 ]
