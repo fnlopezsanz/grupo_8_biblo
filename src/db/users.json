@@ -33,5 +33,13 @@
     "email": "joac@gmail.com",
     "password": "$2a$10$6PT8LiJFGFcfGDUaQUzSCuLtbOoI6b3oSqpnxH.6yQTBhyOTj7Fgy",
     "image": "user-1658450999652.jpg"
+  },
+  {
+    "id": 5,
+    "nombre": "Juanito",
+    "apellido": "Reyes",
+    "email": "juanreyes@gmail.com",
+    "password": "$2a$10$VthibJnOY80alhjqKmIymu08bXToyGJwr.3v8ksna0nqP8ECtCVJm",
+    "image": "user-1658530391022.jpg"
   }
 ]

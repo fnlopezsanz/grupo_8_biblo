@@ -26,6 +26,11 @@ const usersController = {
         if (passOk) {
           delete userToLog.password;
           req.session.userLogged = userToLog;
+
+          if(req.body.recordame){
+            res.cookie('userData', req.body.email, { maxAge: (1000 * 60)})
+          }
+
           return res.redirect('/')
         }
         return res.render('users/login', { errors: { msg: 'Usuario y/o contraseña incorrecto' } });
@@ -80,6 +85,7 @@ const usersController = {
   },
 
   logout: (req, res) => {
+    res.clearCookie('userData');
     req.session.destroy();
     res.redirect('/')
   }
