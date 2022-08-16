@@ -41,5 +41,13 @@
     "email": "juanreyes@gmail.com",
     "password": "$2a$10$VthibJnOY80alhjqKmIymu08bXToyGJwr.3v8ksna0nqP8ECtCVJm",
     "image": "user-1658530391022.jpg"
+  },
+  {
+    "id": 6,
+    "nombre": "Emi",
+    "apellido": "baglkio",
+    "email": "emi@emi.com",
+    "password": "$2a$10$XjKlP2NpOLvMqNgGMF1yNeEp7o2ozItIE9h.ToQDnli2tjB8wIC5K",
+    "image": "user-1659674781035.jpg"
   }
 ]
