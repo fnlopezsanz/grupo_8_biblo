@@ -19,7 +19,7 @@ const Autor = sequelize.define('Autores', {
 
   Autor.associate = (models) => {
     Autor.hasMany(models.Productos, {
-      as: 'autor',
+      as: 'productos',
       foreignKey: 'id_autor'
     });
   }

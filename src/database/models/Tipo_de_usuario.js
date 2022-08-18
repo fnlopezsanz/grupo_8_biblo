@@ -16,10 +16,10 @@ module.exports = (sequelize, dataTypes) => {
 
   Tipo.associate = (models) => {
     Tipo.hasMany(models.Usuarios, {
-      as: 'tipoUsuario',
+      as: 'usuarios',
       foreignKey: 'id_tipo'
     });
   }
 
-  return Categoria;
+  return Tipo;
 };

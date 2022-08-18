@@ -18,7 +18,8 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `biblo_db`
+CREATE DATABASE biblo_db;
+USE biblo_db;
 --
 
 -- --------------------------------------------------------
@@ -56,18 +57,6 @@ INSERT INTO `categorias` (`id`, `categoria`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `creadores`
---
-
-CREATE TABLE `creadores` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `id_usuario` int(10) UNSIGNED NOT NULL,
-  `id_producto` int(10) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `generos`
 --
 
@@ -81,13 +70,13 @@ CREATE TABLE `generos` (
 --
 
 INSERT INTO `generos` (`id`, `genero`) VALUES
-(1, 'Biografías'),
-(2, 'Ciencia Ficcion'),
-(3, 'Contemporanea'),
-(4, 'Fantastico'),
-(5, 'Poesia'),
-(6, 'Novela Romantica'),
-(7, 'Novela Historica'),
+(1, 'Biografía'),
+(2, 'Ciencia Ficción'),
+(3, 'Contemporáneo'),
+(4, 'Fantástico'),
+(5, 'Poesía'),
+(6, 'Novela Romóntica'),
+(7, 'Novela Histórica'),
 (8, 'Economía'),
 (9, 'Deportes'),
 (10, 'Infantiles'),
@@ -110,7 +99,7 @@ CREATE TABLE `productos` (
   `precio` decimal(8,2) NOT NULL,
   `imagen` varchar(255) NOT NULL,
   `year` smallint(10) UNSIGNED NOT NULL,
-  `id_usuario` int(10) NOT NULL,
+  `id_creador` int(10) NOT NULL,
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -168,14 +157,6 @@ ALTER TABLE `categorias`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `creadores`
---
-ALTER TABLE `creadores`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id_usuario` (`id_usuario`),
-  ADD UNIQUE KEY `id_producto` (`id_producto`);
-
---
 -- Indices de la tabla `generos`
 --
 ALTER TABLE `generos`
@@ -189,7 +170,7 @@ ALTER TABLE `productos`
   ADD UNIQUE KEY `id_autor` (`id_autor`),
   ADD UNIQUE KEY `id_genero` (`id_genero`),
   ADD UNIQUE KEY `id_categoria` (`id_categoria`),
-  ADD UNIQUE KEY `id_usuario` (`id_usuario`);
+  ADD UNIQUE KEY `id_creador` (`id_creador`);
 
 --
 -- Indices de la tabla `tipo_de_usuarios`
@@ -249,19 +230,12 @@ ALTER TABLE `usuarios`
 --
 
 --
--- Filtros para la tabla `creadores`
---
-ALTER TABLE `creadores`
-  ADD CONSTRAINT `id_producto` FOREIGN KEY (`id`) REFERENCES `productos` (`id`),
-  ADD CONSTRAINT `id_usuario` FOREIGN KEY (`id`) REFERENCES `autores` (`id`);
-
---
 -- Filtros para la tabla `productos`
 --
 ALTER TABLE `productos`
   ADD CONSTRAINT `id_autor` FOREIGN KEY (`id`) REFERENCES `autores` (`id`),
   ADD CONSTRAINT `id_categoria` FOREIGN KEY (`id`) REFERENCES `categorias` (`id`),
-  ADD CONSTRAINT `id_creador` FOREIGN KEY (`id`) REFERENCES `creadores` (`id`),
+  ADD CONSTRAINT `id_creador` FOREIGN KEY (`id`) REFERENCES `usuarios` (`id`),
   ADD CONSTRAINT `id_genero` FOREIGN KEY (`id`) REFERENCES `generos` (`id`);
 COMMIT;
 

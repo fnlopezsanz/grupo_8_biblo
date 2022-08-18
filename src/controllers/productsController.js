@@ -1,5 +1,8 @@
 const fs = require("fs");
 const path = require("path");
+const db = require('../database/models');
+const sequelize = db.sequelize;
+const moment = require('moment');
 
 const productsFilePath = path.join(__dirname, '../db/productsDataBase.json');
 const readJsonFile = (path) => {
@@ -13,8 +16,16 @@ const productsController = {
     res.render('products/detalleProducto', { product });
   },
   crear: (req, res) => {
-    res.render('products/crearProducto');
+
+    db.Generos
+      .findAll()
+      .then(generos => {
+        return res.render('products/crearProducto', { generos });
+      })
+      .catch(error => console.log(error));
+
   },
+  
   store: (req, res) => {
     const products = readJsonFile(productsFilePath);
     const product = {

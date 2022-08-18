@@ -308,5 +308,13 @@
     "descripcion": "jsfgjsfg",
     "precio": "45454",
     "imagen": "image-default.jpg"
+  },
+  {
+    "id": 33,
+    "titulo": "batman 4",
+    "categoria": "bestsellers",
+    "descripcion": "fashgouadhfguiodhf afuhgfausigh auiosgf ashdugfhadiufg adiuoh",
+    "precio": "2300",
+    "imagen": "image-default.jpg"
   }
 ]

@@ -49,5 +49,13 @@
     "email": "emi@emi.com",
     "password": "$2a$10$XjKlP2NpOLvMqNgGMF1yNeEp7o2ozItIE9h.ToQDnli2tjB8wIC5K",
     "image": "user-1659674781035.jpg"
+  },
+  {
+    "id": 7,
+    "nombre": "fac",
+    "apellido": "fac",
+    "email": "fac@fac.com",
+    "password": "$2a$10$sEdVfQo/c06gZ36aze0W2eXTfvXc.drYyZQ3PYj9rBUukTu0iJt6i",
+    "image": "user-1660847630973.png"
   }
 ]
