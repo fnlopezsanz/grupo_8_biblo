@@ -22,6 +22,15 @@ router.post("/store", fileUpload.single('image'), validationRegister, usersContr
 
 router.get("/carrito", usersController.carrito);
 
+router.get('/profile/:id', usersController.perfil);
+
+/* EDIT USUARIO */
+router.get('/editarUser/:id', usersController.edit);
+router.post('/editarUser/:id', upload.single('avatar'), usersController.update);
+/* EDIT AVATAR */
+router.get('/editarAvatar/:id', usersController.editarAvatar);
+router.post('/editarAvatar/:id', upload.single('avatar'), usersController.updateAvatar);
+
 router.get('/logout', usersController.logout);
 
 

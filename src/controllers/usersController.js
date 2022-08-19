@@ -3,7 +3,8 @@ const path = require("path");
 const db = require('../database/models');
 const bcrypt = require('bcryptjs');
 const User = require('../models/User');
-const { validationResult } = require('express-validator');
+const sequelize = db.sequelize;
+const { check, body, validationResult } = require('express-validator');
 
 
 const usersFilePath = path.join(__dirname, '../db/users.json');
@@ -84,6 +85,67 @@ const usersController = {
   carrito: (req, res) => {
     res.render("users/carrito")
   },
+
+  perfil: (req, res) => {
+    db.Usuarios
+      .findByPk(req.params.id)
+      .then(function (user) {
+        if (!user) {
+          res.render('noperfil')
+        } else {
+          res.render('perfil', { user: user })
+        }
+      })
+      .catch(error => console.log(error));
+  },
+
+  edit: function (req, res) {
+    db.Users.findByPk(req.params.id)
+
+      .then(function (user) {
+
+        res.render('editarUser', { user: user });
+      })
+  },
+
+  update: function (req, res) {
+    console.log("req.body.imagen");
+    db.Users.update({
+      nombre: req.body.nombre,
+      apellido: req.body.apellido,
+      email: req.body.email,
+      password: req.body.password,
+      /*  avatar: req.file.filename,  */
+    }, {
+      where: {
+        id: req.session.user.id
+      }
+    }).then(userUpdated => {
+      res.redirect('/users/profile/' + req.params.id)
+    })
+      .catch(error => console.log(error));
+  },
+
+  editarAvatar: function (req, res) {
+    db.Users.findByPk(req.params.id)
+      .then(function (user) {
+        res.render('editarAvatar', { user: user });
+      })
+  },
+
+  updateAvatar: function (req, res) {
+    db.Users.update({
+      imagen: req.file.filename
+    }, {
+      where: {
+        id: req.session.user.id
+      }
+    }).then(userUpdated => {
+
+      res.redirect('/users/profile/' + req.params.id)
+    })
+      .catch(error => console.log(error));
+  }, 
 
   logout: (req, res) => {
     res.clearCookie('userData');

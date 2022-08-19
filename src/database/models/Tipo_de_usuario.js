@@ -5,12 +5,12 @@ module.exports = (sequelize, dataTypes) => {
       autoIncrement: true,
       type: dataTypes.INTEGER
     },
-    tipo_de_usuario: {
+    tipo: {
       type: dataTypes.STRING
     },
   },
     {
-      tableName: 'categorias',
+      tableName: 'tipo_de_usuarios',
       timestamps: false
     });
 
