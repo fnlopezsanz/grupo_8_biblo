@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-	const Usuario = sequelize.define('Usuarios', {
+	const Usuario = sequelize.define('Usuario', {
 		id: {
 			primaryKey: true,
 			autoIncrement: true,
@@ -20,7 +20,7 @@ module.exports = (sequelize, dataTypes) => {
 		password: {
 			type: dataTypes.TEXT('tiny')
     },
-    imagen: {
+    avatar: {
 			type: dataTypes.STRING
 		}
   }, 
@@ -30,15 +30,10 @@ module.exports = (sequelize, dataTypes) => {
 	});
 
   Usuario.associate = (models) => {
-    Usuario.belongsTo(models.TipoUsuarios, {
-      as: 'tipoUsuario',
-      foreignKey: 'id_tipo'
+    Usuario.belongsTo(models.Rol, {
+      as: 'rol',
+      foreignKey: 'id_rol'
     });
-
-  Usuario.hasMany(models.Productos, {
-      as: 'productos',
-      foreignKey: 'id_creador'
-    })
   }
 	
 	return Usuario;

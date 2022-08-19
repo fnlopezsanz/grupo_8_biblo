@@ -18,7 +18,7 @@ router.post("/login", validationLogin, usersController.processLogin);
 
 router.get("/register", guestMiddleware, usersController.register);
 
-router.post("/store", fileUpload.single('image'), validationRegister, usersController.store);
+router.post("/store", fileUpload.single('imagen'), validationRegister, usersController.store);
 
 router.get("/carrito", usersController.carrito);
 
@@ -26,10 +26,10 @@ router.get('/profile/:id', usersController.perfil);
 
 /* EDIT USUARIO */
 router.get('/editarUser/:id', usersController.edit);
-router.post('/editarUser/:id', upload.single('avatar'), usersController.update);
+router.post('/editarUser/:id', fileUpload.single('imagen'), usersController.update);
 /* EDIT AVATAR */
 router.get('/editarAvatar/:id', usersController.editarAvatar);
-router.post('/editarAvatar/:id', upload.single('avatar'), usersController.updateAvatar);
+router.post('/editarAvatar/:id', fileUpload.single('imagen'), usersController.updateAvatar);
 
 router.get('/logout', usersController.logout);
 

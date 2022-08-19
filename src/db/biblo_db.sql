@@ -1,3 +1,5 @@
+CREATE DATABASE biblo_db;
+USE biblo_db;
 -- phpMyAdmin SQL Dump
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
@@ -40,7 +42,7 @@ CREATE TABLE `autores` (
 
 CREATE TABLE `categorias` (
   `id` int(10) UNSIGNED NOT NULL,
-  `categorias` varchar(255) DEFAULT NULL
+  `categoria` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -77,12 +79,12 @@ CREATE TABLE `productos` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tipo_de_usuario`
+-- Estructura de tabla para la tabla `roles`
 --
 
-CREATE TABLE `tipo_de_usuario` (
+CREATE TABLE `roles` (
   `id` int(10) UNSIGNED NOT NULL,
-  `usuario` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+  `rol` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -93,11 +95,12 @@ CREATE TABLE `tipo_de_usuario` (
 
 CREATE TABLE `usuarios` (
   `id` int(10) UNSIGNED NOT NULL,
-  `id_tipo` int(10) UNSIGNED NOT NULL,
+  `id_rol` int(10) UNSIGNED NOT NULL,
   `nombre` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `apellido` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `avatar` varchar(255) NOT NULL DEFAULT 'no-image.png',
   `remember_token` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -135,9 +138,9 @@ ALTER TABLE `productos`
   ADD KEY `id_categoria` (`id_categoria`);
 
 --
--- Indices de la tabla `tipo_de_usuario`
+-- Indices de la tabla `roles`
 --
-ALTER TABLE `tipo_de_usuario`
+ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -146,7 +149,7 @@ ALTER TABLE `tipo_de_usuario`
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `user_email` (`email`),
-  ADD KEY `id_tipo` (`id_tipo`);
+  ADD KEY `id_rol` (`id_rol`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -179,7 +182,7 @@ ALTER TABLE `productos`
 --
 -- AUTO_INCREMENT de la tabla `tipo_de_usuario`
 --
-ALTER TABLE `tipo_de_usuario`
+ALTER TABLE `roles`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
@@ -191,7 +194,36 @@ ALTER TABLE `usuarios`
 --
 -- Restricciones para tablas volcadas
 --
+INSERT INTO `categorias` (`id`, `categoria`) VALUES
+(1, 'BESTSELLERS'),
+(2, 'OTROS'),
+(3, 'NOVEDADES');
 
+INSERT INTO `generos` (`id`, `genero`) VALUES
+(1, 'Biografía'),
+(2, 'Novela'),
+(3, 'Historia'),
+(4, 'Ciencia'),
+(5, 'Deportes'),
+(6, 'Narrativa'),
+(7, 'Infantil'),
+(8, 'Teatro'),
+(9, 'Arte');
+
+INSERT INTO `autores` (`id`, `fullname`) VALUES
+(1, 'Jessie James'),
+(2, 'Peter Stromba'),
+(3, 'Michael Peterson'),
+(4, 'Robert Miyagi'),
+(5, 'Johanna de Arch'),
+(6, 'Mijail Jordan'),
+(7, 'Rogelio Federer'),
+(8, 'Ramona Lagarza'),
+(9, 'Lucrecia Mantel');
+
+INSERT INTO `roles` (`id`, `rol`) VALUES
+(1, 'Cliente'),
+(2, 'Administrador');
 --
 -- Filtros para la tabla `productos`
 --
@@ -204,7 +236,7 @@ ALTER TABLE `productos`
 -- Filtros para la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD CONSTRAINT `id_tipo` FOREIGN KEY (`id_tipo`) REFERENCES `tipo_de_usuario` (`id`);
+  ADD CONSTRAINT `id_rol` FOREIGN KEY (`id_rol`) REFERENCES `roles` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

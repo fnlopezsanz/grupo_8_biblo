@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-  const Genero = sequelize.define('Generos', {
+  const Genero = sequelize.define('Genero', {
     id: {
       primaryKey: true,
       autoIncrement: true,
@@ -15,7 +15,7 @@ module.exports = (sequelize, dataTypes) => {
     });
 
     Genero.associate = (models) => {
-    Genero.hasMany(models.Productos, {
+    Genero.hasMany(models.Producto, {
       as: 'productos',
       foreignKey: 'id_genero'
     });

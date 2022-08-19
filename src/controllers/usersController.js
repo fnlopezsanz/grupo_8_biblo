@@ -71,12 +71,15 @@ const usersController = {
     }
 
     const userToCreate = {
-      ...req.body,
+      nombre: req.body.nombre,
+      apellido: req.body.apellido,
+      email: req.body.email,
       password: bcrypt.hashSync(req.body.password, 10),
-      image: req.file?.filename || 'image-default.jpg'
+      avatar: req.file?.filename || 'image-default.jpg'
     }
 
-    const userCreated = User.create(userToCreate);
+    // const userCreated = User.create(userToCreate);
+    const userCreated = db.Usuario.create(userToCreate);
 
     return res.redirect('/users/login')
 
@@ -87,7 +90,7 @@ const usersController = {
   },
 
   perfil: (req, res) => {
-    db.Usuarios
+    db.Usuario
       .findByPk(req.params.id)
       .then(function (user) {
         if (!user) {
@@ -100,7 +103,7 @@ const usersController = {
   },
 
   edit: function (req, res) {
-    db.Users.findByPk(req.params.id)
+    db.Usuario.findByPk(req.params.id)
 
       .then(function (user) {
 
@@ -110,7 +113,7 @@ const usersController = {
 
   update: function (req, res) {
     console.log("req.body.imagen");
-    db.Users.update({
+    db.Usuario.update({
       nombre: req.body.nombre,
       apellido: req.body.apellido,
       email: req.body.email,
@@ -127,14 +130,14 @@ const usersController = {
   },
 
   editarAvatar: function (req, res) {
-    db.Users.findByPk(req.params.id)
+    db.Usuario.findByPk(req.params.id)
       .then(function (user) {
         res.render('editarAvatar', { user: user });
       })
   },
 
   updateAvatar: function (req, res) {
-    db.Users.update({
+    db.Usuario.update({
       imagen: req.file.filename
     }, {
       where: {

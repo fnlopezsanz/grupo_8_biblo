@@ -7,7 +7,7 @@ module.exports = [
     body('email').notEmpty().withMessage('Debe introducir un correo electrónico').bail()
     .isEmail().withMessage('Debe introducir un formato de correo válido'),
     body('password').notEmpty().withMessage('Debe introducir una contraseña'),
-    body('image').custom((value, { req }) => {
+    body('imagen').custom((value, { req }) => {
       let file = req.file;
       let acceptedExtensions = ['.jpg', '.png'];
       
