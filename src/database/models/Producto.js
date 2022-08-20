@@ -26,7 +26,7 @@ module.exports = (sequelize, dataTypes) => {
     imagen: {
       type: dataTypes.STRING
     },
-    year: {
+    anio: {
       type: dataTypes.INTEGER
     },
     id_creador: {
@@ -35,7 +35,6 @@ module.exports = (sequelize, dataTypes) => {
   },
     {
       tablename: 'productos',
-      timestamps: false
     });
 
   Producto.associate = (models) => {
@@ -43,8 +42,8 @@ module.exports = (sequelize, dataTypes) => {
       as: 'autor',
       foreignKey: 'id_autor'
     });
-    Producto.belongsTo(models.Generos, {
-      as: 'genero',
+    Producto.belongsTo(models.Genero, {
+      as: 'generos',
       foreignKey: 'id_genero'
     });
     Producto.belongsTo(models.Categoria, {

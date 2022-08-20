@@ -17,7 +17,7 @@ const productsController = {
   },
   crear: (req, res) => {
 
-    db.Generos
+    db.Genero
       .findAll()
       .then(generos => {
         return res.render('products/crearProducto', { generos });
