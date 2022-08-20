@@ -18,12 +18,15 @@
         <div>
           <input type="text" name="anio" id="anio" placeholder="Año" minlength="4" required class="input-text">
         </div>
-        <div class="">
-          <label for="">Autor</label>
-        </div>
-        <div>
-          <input type="text" name="id_autor" id="autor" placeholder="Apellido y Nombre" minlength="1" required
-            class="input-text">
+        <div class="categoria">
+          <label for="autor">Autor</label>
+          <select name="id_autor" id="autor">
+            <% for (let i=0; i < autores.length; i++) {%>
+              <option value="<%= autores[i].id %>">
+                <%= autores[i].fullname %>
+              </option>
+              <% } %>
+          </select>
         </div>
         <div class="descripcion">
           <label for="descripcion">Descripción</label>
@@ -31,14 +34,14 @@
         <div>
           <textarea name="descripcion" id="descripcion" cols="100" rows="6"></textarea>
         </div>
-        <div>
+        <div class="categoria">
           <label for="genero">Género</label>
           <select name="id_genero" id="genero">
-            <% for (let i = 0; i < generos.length; i++) {%>
-                <option value="<%= generos[i].id %>">
-                  <%= generos[i].genero %>
-                </option>
-                <% } %>
+            <% for (let i=0; i < generos.length; i++) {%>
+              <option value="<%= generos[i].id %>">
+                <%= generos[i].genero %>
+              </option>
+              <% } %>
           </select>
         </div>
         <div class="categoria">
@@ -50,7 +53,7 @@
           </select>
         </div>
         <div>
-          <input type="text" name="precio" id="precio" placeholder="$ Precio" class="input-text" required>
+          <input type="text" name="precio" id="precio" placeholder="Precio" class="input-text" required>
         </div>
         <div class="div-foto">
           <label for="" class="nombre-reg">Ingresá una imagen del producto:</label>

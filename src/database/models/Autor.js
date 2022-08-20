@@ -1,16 +1,13 @@
 module.exports = (sequelize, dataTypes) => {
-const Autor = sequelize.define('autor', {
+const Autor = sequelize.define('Autores', {
     id: {
       primaryKey: true,
       autoIncrement: true,
       type: dataTypes.INTEGER
     },
-    nombre: {
+    fullname: {
       type: dataTypes.STRING
-    },
-    apellido: {
-      type: dataTypes.STRING
-    },
+    }
   },
   {
       tableName: 'autores',
@@ -18,7 +15,7 @@ const Autor = sequelize.define('autor', {
   });
 
   Autor.associate = (models) => {
-    Autor.hasMany(models.producto, {
+    Autor.hasMany(models.Productos, {
       as: 'producto',
       foreignKey: 'id_autor'
     });

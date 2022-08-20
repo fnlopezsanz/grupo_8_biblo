@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-	const Usuario = sequelize.define('usuario', {
+	const Usuario = sequelize.define('Usuarios', {
 		id: {
 			primaryKey: true,
 			autoIncrement: true,
@@ -31,7 +31,7 @@ module.exports = (sequelize, dataTypes) => {
 		});
 
 	Usuario.associate = (models) => {
-		Usuario.belongsTo(models.rol, {
+		Usuario.belongsTo(models.Roles, {
 			as: 'rol',
 			foreignKey: 'id_rol'
 		});

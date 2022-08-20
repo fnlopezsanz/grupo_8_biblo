@@ -69,7 +69,7 @@ CREATE TABLE `productos` (
   `id_categoria` int(10) UNSIGNED NOT NULL,
   `titulo` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `descripcion` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `precio` decimal(8,2) DEFAULT NULL,
+  `precio` decimal(8,2) NOT NULL,
   `imagen` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `anio` smallint(10) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
