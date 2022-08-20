@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-  const Genero = sequelize.define('Genero', {
+  const Genero = sequelize.define('Generos', {
     id: {
       primaryKey: true,
       autoIncrement: true,

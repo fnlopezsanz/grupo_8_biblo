@@ -43,7 +43,7 @@ module.exports = (sequelize, dataTypes) => {
       as: 'autor',
       foreignKey: 'id_autor'
     });
-    Producto.belongsTo(models.Genero, {
+    Producto.belongsTo(models.Generos, {
       as: 'genero',
       foreignKey: 'id_genero'
     });
