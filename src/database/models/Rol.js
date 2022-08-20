@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-  const Rol = sequelize.define('Rol', {
+  const Rol = sequelize.define('rol', {
     id: {
       primaryKey: true,
       autoIncrement: true,
@@ -15,8 +15,8 @@ module.exports = (sequelize, dataTypes) => {
     });
 
   Rol.associate = (models) => {
-    Rol.hasMany(models.Usuario, {
-      as: 'usuarios',
+    Rol.hasMany(models.usuario, {
+      as: 'usuario',
       foreignKey: 'id_rol'
     });
   }

@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-  const Producto = sequelize.define('Producto', {
+  const Producto = sequelize.define('producto', {
     id: {
       primaryKey: true,
       autoIncrement: true,
@@ -35,18 +35,20 @@ module.exports = (sequelize, dataTypes) => {
   },
     {
       tablename: 'productos',
+      createdAt: 'created_at',
+      updatedAt: 'updated_at'
     });
 
   Producto.associate = (models) => {
-    Producto.belongsTo(models.Autor, {
+    Producto.belongsTo(models.autor, {
       as: 'autor',
       foreignKey: 'id_autor'
     });
-    Producto.belongsTo(models.Genero, {
-      as: 'generos',
+    Producto.belongsTo(models.genero, {
+      as: 'genero',
       foreignKey: 'id_genero'
     });
-    Producto.belongsTo(models.Categoria, {
+    Producto.belongsTo(models.categoria, {
       as: 'categoria',
       foreignKey: 'id_categoria'
     });

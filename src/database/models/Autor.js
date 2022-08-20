@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-const Autor = sequelize.define('Autor', {
+const Autor = sequelize.define('autor', {
     id: {
       primaryKey: true,
       autoIncrement: true,
@@ -18,8 +18,8 @@ const Autor = sequelize.define('Autor', {
   });
 
   Autor.associate = (models) => {
-    Autor.hasMany(models.Producto, {
-      as: 'productos',
+    Autor.hasMany(models.producto, {
+      as: 'producto',
       foreignKey: 'id_autor'
     });
   }

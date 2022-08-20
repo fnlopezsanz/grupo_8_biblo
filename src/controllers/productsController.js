@@ -17,7 +17,7 @@ const productsController = {
   },
   crear: (req, res) => {
 
-    db.Genero
+    db.genero
       .findAll()
       .then(generos => {
         return res.render('products/crearProducto', { generos });
@@ -27,21 +27,32 @@ const productsController = {
   },
   
   store: (req, res) => {
-    const products = readJsonFile(productsFilePath);
-    const product = {
-      id: products[products.length - 1].id + 1,
+    db.producto.create({
       titulo: req.body.titulo,
-      autor: req.body.autor,
-      genero: req.body.genero,
-      categoria: req.body.categoria,
       descripcion: req.body.descripcion,
       precio: req.body.precio,
-      imagen: req.file?.filename || "image-default.jpg"
-    };
+      imagen: req.body.imagen,
+      anio: req.body.anio
+    })
+    .then(function(){
+      return res.redirect("/")
+    })
 
-    products.push(product);
-    fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
-    return res.redirect("/");
+    // const products = readJsonFile(productsFilePath);
+    // const product = {
+    //   id: products[products.length - 1].id + 1,
+    //   titulo: req.body.titulo,
+    //   autor: req.body.autor,
+    //   genero: req.body.genero,
+    //   categoria: req.body.categoria,
+    //   descripcion: req.body.descripcion,
+    //   precio: req.body.precio,
+    //   imagen: req.file?.filename || "image-default.jpg"
+    // };
+
+    // products.push(product);
+    // fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
+    // return res.redirect("/");
   },
   editar: (req, res) => {
     const productsJson = readJsonFile(productsFilePath);

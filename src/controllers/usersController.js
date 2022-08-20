@@ -79,7 +79,7 @@ const usersController = {
     }
 
     // const userCreated = User.create(userToCreate);
-    const userCreated = db.Usuario.create(userToCreate);
+    const userCreated = db.usuario.create(userToCreate);
 
     return res.redirect('/users/login')
 
@@ -90,7 +90,7 @@ const usersController = {
   },
 
   perfil: (req, res) => {
-    db.Usuario
+    db.usuario
       .findByPk(req.params.id)
       .then(function (user) {
         if (!user) {
@@ -103,7 +103,7 @@ const usersController = {
   },
 
   edit: function (req, res) {
-    db.Usuario.findByPk(req.params.id)
+    db.usuario.findByPk(req.params.id)
 
       .then(function (user) {
 
@@ -113,7 +113,7 @@ const usersController = {
 
   update: function (req, res) {
     console.log("req.body.imagen");
-    db.Usuario.update({
+    db.usuario.update({
       nombre: req.body.nombre,
       apellido: req.body.apellido,
       email: req.body.email,
@@ -130,14 +130,14 @@ const usersController = {
   },
 
   editarAvatar: function (req, res) {
-    db.Usuario.findByPk(req.params.id)
+    db.usuario.findByPk(req.params.id)
       .then(function (user) {
         res.render('editarAvatar', { user: user });
       })
   },
 
   updateAvatar: function (req, res) {
-    db.Usuario.update({
+    db.usuario.update({
       imagen: req.file.filename
     }, {
       where: {
