@@ -46,21 +46,42 @@ const usersController = {
   register: (req, res) => {
     res.render("users/register");
   },
-
+  
   store: (req, res) => {
-    const resultValidation = validationResult(req);
+    /* let errors = validationResult(req);
+    console.log(errors);
 
-    if (resultValidation.errors.length > 0) {
-      return res.render('users/register', {
+    if (errors.isEmpty()) { */
+
+      const userToCreate = {
+        nombre: req.body.nombre,
+        apellido: req.body.apellido,
+        email: req.body.email,
+        id_rol: 1,
+        password: bcrypt.hashSync(req.body.password, 10),
+        avatar: req.file?.filename || 'image-default.jpg'
+      }
+              db.Usuarios
+                .create(userToCreate)
+                .then(function() {
+
+                  res.redirect('login');
+                })
+                .catch(error => console.log(error));
+          
+  },
+      /* return res.render('users/register', {
         errors: resultValidation.mapped(),
         oldData: req.body
       });
+
+
     }
 
     let userInDB = User.findByFile('email', req.body.email);
 
     if (userInDB) {
-      return res.render('users/register', {
+      return res.render('register', {
         errors: {
           email: {
             msg: '¡Usuario ya registrado!'
@@ -70,23 +91,16 @@ const usersController = {
       });
     }
 
-    const userToCreate = {
-      nombre: req.body.nombre,
-      apellido: req.body.apellido,
-      email: req.body.email,
-      password: bcrypt.hashSync(req.body.password, 10),
-      avatar: req.file?.filename || 'image-default.jpg'
-    }
 
     // const userCreated = User.create(userToCreate);
-    const userCreated = db.usuario.create(userToCreate);
+    const userCreated = db.Usuarios.create(userToCreate)
+      
+  
 
-    return res.redirect('/users/login')
-
-  },
+  }, */
 
   carrito: (req, res) => {
-    res.render("users/carrito")
+    res.render("carrito")
   },
 
   perfil: (req, res) => {
