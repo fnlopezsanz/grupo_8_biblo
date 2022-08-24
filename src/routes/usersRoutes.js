@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const path = require('path');
+const { body } = require('express-validator');
 
 const usersController = require("../controllers/usersController.js");
 
@@ -18,7 +19,7 @@ router.post("/login", validationLogin, usersController.processLogin);
 
 router.get("/register", guestMiddleware, usersController.register);
 
-router.post("/store", fileUpload.single('imagen'), validationRegister, usersController.store);
+router.post("/store", fileUpload.single('avatar'), validationRegister, usersController.store);
 
 router.get("/carrito", usersController.carrito);
 
@@ -26,10 +27,10 @@ router.get('/profile/:id', usersController.perfil);
 
 /* EDIT USUARIO */
 router.get('/editarUser/:id', usersController.edit);
-router.post('/editarUser/:id', fileUpload.single('imagen'), usersController.update);
+router.post('/editarUser/:id', fileUpload.single('avatar'), usersController.update);
 /* EDIT AVATAR */
 router.get('/editarAvatar/:id', usersController.editarAvatar);
-router.post('/editarAvatar/:id', fileUpload.single('imagen'), usersController.updateAvatar);
+router.post('/editarAvatar/:id', fileUpload.single('avatar'), usersController.updateAvatar);
 
 router.get('/logout', usersController.logout);
 

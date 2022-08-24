@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('partials/head', {title: 'Perfil' }) %>
+  <%- include("../parcials/head.ejs", {stylesheet: ["stylehome", "style_login" ]}); %>
 
   <body>
     <div class="" id="main-container">
-      <%- include('partials/header') %>
+      <%- include("../parcials/header.ejs"); %>
 
         <% if (userID==user.id || userRole=='admin' ) { %>
           <div class="">
             <div class="">
-              <img src="/img/users/<%= user.imagen %>" class="profile" width="200">
+              <img src="/img/users/<%= user.avatar %>" class="profile" width="200">
 
             </div>
             <div class="">
@@ -35,7 +35,7 @@
             </div>
             <div class="col-12 col-md-2 py-1 text-center text-md-left"></div>
           </div>
-          <!-- ↑↑↑ aca termina el contenido ****************************** -->
+          <!-- aca termina el contenido -->
           <% } else { %>
 
             <div class="row text-center">
@@ -56,9 +56,7 @@
               </div>
             </div>
             <% } %>
-              <!-- Footer -->
-              <%- include('partials/footer') %>
-                <!-- ↓↓ aca termina el DIV main container ↓↓ -->
+            <%- include("../parcials/footer.ejs"); %>
     </div>
   </body>
 

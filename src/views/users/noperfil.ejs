@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- Include Head -->
-<%- include('partials/head', {title: 'Perfil' }) %>
+<%- include("../parcials/head.ejs", {stylesheet: ["stylehome", "style_login" ]}); %>
 
   <body>
     <!-- ID Main container es el que contiene toooooodo -->
     <div class="container-fluid" id="main-container">
       <!-- Header -->
-      <%- include('partials/header') %>
+      <%- include("../parcials/header.ejs"); %>
 
 
         <div class="row text-center">
@@ -26,7 +26,7 @@
         </div>
 
         <!-- Footer -->
-        <%- include('partials/footer') %>
+        <%- include("../parcials/footer.ejs"); %>
           <!-- ↓↓ aca termina el DIV main container ↓↓ -->
     </div>
   </body>

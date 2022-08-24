@@ -15,18 +15,18 @@
                   <i class="fas fa-user-circle"></i>
                   <input type="text" name="email" value="<%= locals.oldData ? oldData.Email : null %>" placeholder="Email">
                 </div>
-                <% if (locals.errors && errors.Email) { %>
+                <% if (locals.errors && errors.email) { %>
                   <div class="invalid-feedback">
-                    <%= errors.Email.msg %>
+                    <%= errors.email.msg %>
                   </div>
                   <% } %>
                 <div class="completar">
                   <i class="fas fa-lock"></i>
                   <input type="password" name="password" value="" placeholder="Contraseña">
                 </div>
-                <% if (locals.errors && errors.Password) { %>
+                <% if (locals.errors && errors.password) { %>
                   <div class="invalid-feedback">
-                    <%= errors.Password.msg %>
+                    <%= errors.password.msg %>
                   </div>
                   <% } %>
               </div>

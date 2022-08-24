@@ -2,7 +2,6 @@ const fs = require("fs");
 const path = require("path");
 const db = require('../database/models');
 const bcrypt = require('bcryptjs');
-const User = require('../models/User');
 const sequelize = db.sequelize;
 const { check, body, validationResult } = require('express-validator');
 
@@ -18,27 +17,32 @@ const usersController = {
   },
 
   processLogin: (req, res) => {
-    const resultValidation = validationResult(req);
-
-    if (resultValidation.isEmpty()) {
-      let userToLog = User.findByFile('email', req.body.email);
-
-      if (userToLog) {
-        let passOk = bcrypt.compareSync(req.body.password, userToLog.password)
-        if (passOk) {
-          delete userToLog.password;
-          req.session.userLogged = userToLog;
-
-          if(req.body.recordame){
-            res.cookie('userData', req.body.email, { maxAge: (1000 * 60)})
+    let errors = (validationResult(req));
+    if (errors.isEmpty()) {
+      db.Usuarios
+        .findAll({
+          where: {
+            email: req.body.email
           }
-
-          return res.redirect('/')
-        }
-        return res.render('users/login', { errors: { msg: 'Usuario y/o contraseña incorrecto' } });
-      }
+        })
+        .then(function (user) {
+          if (user[0] != undefined) {
+            let passOk = bcrypt.compareSync(req.body.password, user[0].password);
+            if (passOk) {
+              delete user[0].password
+              req.session.user = user[0]
+              if (req.body.recordame) {
+                res.cookie('userData', user[0].id, { maxAge: (1000 * 60) });
+                console.log()
+              }
+              return res.redirect('/')
+            } else {
+              return res.render('users/login', { errors: { msg: 'Usuario y/o contraseña incorrecto' } });
+            }
+          }
+        });
     } else {
-      return res.render('users/login', { errors: resultValidation.mapped(), oldData: req.body })
+      return res.render('users/login', { errors: errors.mapped(), oldData: req.body });
     }
 
   },
@@ -46,58 +50,43 @@ const usersController = {
   register: (req, res) => {
     res.render("users/register");
   },
-  
+
   store: (req, res) => {
-    /* let errors = validationResult(req);
-    console.log(errors);
-
-    if (errors.isEmpty()) { */
-
-      const userToCreate = {
-        nombre: req.body.nombre,
-        apellido: req.body.apellido,
-        email: req.body.email,
-        id_rol: 1,
-        password: bcrypt.hashSync(req.body.password, 10),
-        avatar: req.file?.filename || 'image-default.jpg'
-      }
-              db.Usuarios
-                .create(userToCreate)
-                .then(function() {
-
-                  res.redirect('login');
-                })
-                .catch(error => console.log(error));
-          
-  },
-      /* return res.render('users/register', {
-        errors: resultValidation.mapped(),
-        oldData: req.body
-      });
-
-
-    }
-
-    let userInDB = User.findByFile('email', req.body.email);
-
-    if (userInDB) {
-      return res.render('register', {
-        errors: {
-          email: {
-            msg: '¡Usuario ya registrado!'
+    let errors = (validationResult(req));
+    if (errors.isEmpty()) {
+      db.Usuarios
+        .findOne({
+          where: {
+            email: req.body.email
           }
-        },
-        oldData: req.body
-      });
+        })
+        .then(user => {
+          if (!user[0]) {
+            const userToCreate = {
+              nombre: req.body.nombre,
+              apellido: req.body.apellido,
+              email: req.body.email,
+              id_rol: req.body.id_rol,
+              password: bcrypt.hashSync(req.body.password, 10),
+              avatar: req.file?.filename || 'image-default.jpg'
+            }
+            db.Usuarios
+              .create(userToCreate)
+              .then(function () {
+
+                res.redirect('login');
+              })
+              .catch(error => console.log(error));
+          } else {
+            res.render("users/register", { user })
+          }
+        })
+    } else {
+      return res.render("users/register", { errors: errors.mapped(), oldData: req.body })
     }
 
 
-    // const userCreated = User.create(userToCreate);
-    const userCreated = db.Usuarios.create(userToCreate)
-      
-  
-
-  }, */
+  },
 
   carrito: (req, res) => {
     res.render("carrito")
@@ -107,7 +96,7 @@ const usersController = {
     db.Usuarios
       .findByPk(req.params.id)
       .then(function (user) {
-        if (!user) {
+        if (!user[0]) {
           res.render('noperfil')
         } else {
           res.render('perfil', { user: user })
@@ -121,7 +110,7 @@ const usersController = {
 
       .then(function (user) {
 
-        res.render('editarUser', { user: user });
+        res.render('users/editarUser', { user: user });
       })
   },
 
@@ -162,7 +151,7 @@ const usersController = {
       res.redirect('/users/profile/' + req.params.id)
     })
       .catch(error => console.log(error));
-  }, 
+  },
 
   logout: (req, res) => {
     res.clearCookie('userData');

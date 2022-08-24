@@ -22,11 +22,13 @@
       </div>
       <nav class="bottom-nav">
         <ul>
+          <% if(!locals.isLogged){%>
           <li><a href="/products/create">Crear producto</a></li>
           <li>|</li>
-          <li><a href="#">Editar usuarios</a></li>
+          <li><a href="/users/profile/<%= locals.userLogged.id %>">Perfil</a></li>
           <li>|</li>
-          <li><a href="#" class="profile-box"><img class='profile' src="/img/users/<%= locals.userLogged.image %>" alt=""><p style="font-size: 15px;"><%= locals.userLogged.firstname %></p></a></li>
+          <li><a href="/users/profile/<%= locals.userLogged.id %>" class="profile-box"><img class='profile' src="/img/users/<%= locals.userLogged.avatar %>" alt=""><p style="font-size: 15px;"><%= locals.userLogged.nombre %></p></a></li>
+          <% } %>
         </ul>
       </nav>
     </div>
