@@ -95,7 +95,7 @@ CREATE TABLE `roles` (
 
 CREATE TABLE `usuarios` (
   `id` int(10) UNSIGNED NOT NULL,
-  `id_rol` int(10) UNSIGNED NOT NULL,
+  `id_rol` int(10) UNSIGNED NOT NULL DEFAULT 1,
   `nombre` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `apellido` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
