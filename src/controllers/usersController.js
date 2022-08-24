@@ -35,9 +35,13 @@ const usersController = {
                 res.cookie('userData', user[0].id, { maxAge: (1000 * 60) });
                 console.log()
               }
-              return res.redirect('/')
+              return res.redirect('/users/perfil')
             } else {
-              return res.render('users/login', { errors: { msg: 'Usuario y/o contraseña incorrecto' } });
+              return res.render('users/login', { 
+                  errors: { 
+                    msg: 'Usuario y/o contraseña incorrecto' } 
+                }
+              );
             }
           }
         });
@@ -45,6 +49,19 @@ const usersController = {
       return res.render('users/login', { errors: errors.mapped(), oldData: req.body });
     }
 
+  },
+
+  perfil: (req, res) => {
+    db.Usuarios
+      .findByPk(req.params.id)
+      .then(function (user) {
+        if (!user[0]) {
+          res.render('noperfil')
+        } else {
+          res.render('perfil', { user: user })
+        }
+      })
+      .catch(error => console.log(error));
   },
 
   register: (req, res) => {
@@ -92,18 +109,7 @@ const usersController = {
     res.render("carrito")
   },
 
-  perfil: (req, res) => {
-    db.Usuarios
-      .findByPk(req.params.id)
-      .then(function (user) {
-        if (!user[0]) {
-          res.render('noperfil')
-        } else {
-          res.render('perfil', { user: user })
-        }
-      })
-      .catch(error => console.log(error));
-  },
+  
 
   edit: function (req, res) {
     db.Usuarios.findByPk(req.params.id)

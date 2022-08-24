@@ -23,7 +23,7 @@ router.post("/store", fileUpload.single('avatar'), validationRegister, usersCont
 
 router.get("/carrito", usersController.carrito);
 
-router.get('/profile/:id', usersController.perfil);
+router.get('/perfil/:id', authMiddleware, usersController.perfil);
 
 /* EDIT USUARIO */
 router.get('/editarUser/:id', usersController.edit);
