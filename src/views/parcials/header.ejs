@@ -30,7 +30,7 @@
       <nav class="bottom-nav">
         <ul>
           <% if(locals.isLogged) { %>
-            <li><a href="#" class="profile-box"><img class='profile' src="/img/users/<%= locals.userLogged.avatar %>" alt=""><p style="font-size: 15px;"><%= locals.userLogged.nombre %></p></a></li>
+            <li><a href="/users/perfil/<%= locals.userLogged.id %>" class="profile-box"><img class='profile' src="/img/users/<%= locals.userLogged.avatar %>" alt=""><p style="font-size: 15px;"><%= locals.userLogged.nombre %></p></a></li>
             <% } else { %>
               <li><a href="/users/register">Creá tu cuenta</a></li>
               <li><a href="/users/login">Iniciar sesión</a></li>

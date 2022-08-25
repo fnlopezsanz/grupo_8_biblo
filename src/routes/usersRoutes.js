@@ -19,7 +19,7 @@ router.post("/login", validationLogin, usersController.processLogin);
 
 router.get("/register", guestMiddleware, usersController.register);
 
-router.post("/store", fileUpload.single('avatar'), validationRegister, usersController.store);
+router.post("/store", fileUpload.single('imagen'), validationRegister, usersController.store);
 
 router.get("/carrito", usersController.carrito);
 

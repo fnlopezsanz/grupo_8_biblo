@@ -6,7 +6,7 @@
     <div class="" id="main-container">
       <%- include("../parcials/header.ejs"); %>
 
-        <% if (userID==user.id || userRole=='admin' ) { %>
+        
           <div class="">
             <div class="">
               <img src="/img/users/<%= user.avatar %>" class="profile" width="200">
@@ -26,36 +26,9 @@
                   aria-hidden="true"></i>Editar info del perfil</a>
               <a href="/users/editarAvatar/<%= user.id %>" class="mr-3 font-abel"><i class="fa fa-picture-o pr-2"
                   aria-hidden="true"></i> Cambiar foto</a>
-
-              <% if(userRole=='user' ){ %>
-                <a href="/users/logout" class="font-abel"><i class="fa fa-sign-out pr-2" aria-hidden="true"></i> Cerrar
-                  Sesión</a>
-                <% } %>
-
             </div>
             <div class="col-12 col-md-2 py-1 text-center text-md-left"></div>
           </div>
-          <!-- aca termina el contenido -->
-          <% } else { %>
-
-            <div class="row text-center">
-              <div class="col-12">
-                <h3>Epa, epa... A donde vamos?</h3>
-              </div>
-              <div class="col-12">
-                <img src="/images/hackerman.PNG" class="img-thumbnail img-fluid" width="400px" alt="">
-              </div>
-              <div class="col-12 mt-2">
-                <%if (userID=="" ){%>
-                  <p>Por favor, volvé al <a href="/" style="text-decoration: underline">inicio</a> o <a
-                      href="/users/login" style="text-decoration: underline">logueate</a></p>
-                  <% } else { %>
-                    <p>Por favor, volvé a <a href="/users/profile/<%= userID %>" style="text-decoration: underline">tu
-                        perfil</a></p>
-                    <% } %>
-              </div>
-            </div>
-            <% } %>
             <%- include("../parcials/footer.ejs"); %>
     </div>
   </body>

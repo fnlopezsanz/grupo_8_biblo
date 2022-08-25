@@ -17,16 +17,45 @@ const usersController = {
   },
 
   processLogin: (req, res) => {
-    let errors = (validationResult(req));
-    if (errors.isEmpty()) {
-      db.Usuarios
-        .findAll({
-          where: {
-            email: req.body.email
-          }
+    const resultValidation = validationResult(req);
+
+    if (resultValidation.errors.length > 0) {
+      return res.render("users/login", {
+        errors: resultValidation.mapped(),
+        oldData: req.body,
+      });
+    }
+    // BUSCA USUARIOS POR MAIL
+    db.Usuarios.findOne({
+          where: { email: req.body.email }
         })
-        .then(function (user) {
-          if (user[0] != undefined) {
+          .then((userInDb) => {
+          // VALIDACION MAIL EN DB
+            if (userInDb == null) {
+              let mensajeError = "El mail no está registrado";
+              res.render("users/login", { mensajeError });
+            } else if (
+              userInDb.id != undefined &&
+              bcrypt.compareSync(req.body.password, userInDb.password)
+            ) { //LOGUEO EXITOSO
+              req.session.userLogged = userInDb;
+              // (si el checkbox de recordar usuario no está tildado, debería llegar como "undefined")
+              if (req.body.recordame != undefined) {
+                res.cookie('recordame',
+                  userInDb.id,
+                  { maxAge: 6000000 })
+              }
+              res.redirect("/");
+            } else {
+              // LOGUEO ERRONEO
+              let mensajeError = "Usuario y/o contraseña incorrectos";
+              res.render("users/login", { mensajeError });
+            }
+          })
+      .catch((error) => res.send(error));
+  },
+/* 
+
             let passOk = bcrypt.compareSync(req.body.password, user[0].password);
             if (passOk) {
               delete user[0].password
@@ -35,7 +64,7 @@ const usersController = {
                 res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) });
                 console.log()
               }
-              return res.redirect('/users/perfil')
+              return res.redirect('/')
             } else {
               return res.render('users/login', { 
                   errors: { 
@@ -49,13 +78,13 @@ const usersController = {
       return res.render('users/login', { errors: errors.mapped(), oldData: req.body });
     }
 
-  },
+  }, */
 
   perfil: (req, res) => {
     db.Usuarios
       .findByPk(req.params.id)
       .then(function (user) {
-        if (!user[0]) {
+        if (!user) {
           res.render('users/noperfil')
         } else {
           res.render('users/perfil', { user: user })
@@ -69,8 +98,8 @@ const usersController = {
   },
 
   store: (req, res) => {
-    let errors = (validationResult(req));
-    if (errors.isEmpty()) {
+    const resultValidation = validationResult(req);
+    if (resultValidation.isEmpty()) {
       db.Usuarios
         .findOne({
           where: {
@@ -78,12 +107,12 @@ const usersController = {
           }
         })
         .then(user => {
-          if (!user[0]) {
+          if (!user) {
             const userToCreate = {
               nombre: req.body.nombre,
               apellido: req.body.apellido,
               email: req.body.email,
-              id_rol: req.body.id_rol,
+              id_rol: 1,
               password: bcrypt.hashSync(req.body.password, 10),
               avatar: req.file?.filename || 'image-default.jpg'
             }
@@ -99,7 +128,7 @@ const usersController = {
           }
         })
     } else {
-      return res.render("users/register", { errors: errors.mapped(), oldData: req.body })
+      return res.render("users/register", { errors: resultValidation.mapped(), oldData: req.body })
     }
 
 
@@ -126,14 +155,14 @@ const usersController = {
       nombre: req.body.nombre,
       apellido: req.body.apellido,
       email: req.body.email,
-      password: req.body.password,
+      // password: req.body.password,
       /*  avatar: req.file.filename,  */
     }, {
       where: {
-        id: req.session.user.id
+        id: req.session.userLogged.id
       }
     }).then(userUpdated => {
-      res.redirect('/users/profile/' + req.params.id)
+      res.redirect('/users/profile/' + req.userLogged.id)
     })
       .catch(error => console.log(error));
   },
@@ -150,7 +179,7 @@ const usersController = {
       imagen: req.file.filename
     }, {
       where: {
-        id: req.session.user.id
+        id: req.session.userLogged.id
       }
     }).then(userUpdated => {
 
@@ -160,7 +189,7 @@ const usersController = {
   },
 
   logout: (req, res) => {
-    res.clearCookie('userData');
+    res.clearCookie('recordame');
     req.session.destroy();
     res.redirect('/')
   }

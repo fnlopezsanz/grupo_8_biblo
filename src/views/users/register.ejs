@@ -13,7 +13,7 @@
                 <h5>CREA TU CUENTA</h5>
                 <div class="box">
                 <p class="textos">Nombre</p>
-                  <input class="completar" type="text" name="nombre" value="<%= locals.oldData ? oldData.Nombre : null %>">
+                  <input class="completar" type="text" name="nombre" value="<%= locals.oldData ? oldData.nombre : null %>">
                   <% if (locals.errors && errors.nombre) { %>
                      <div class="invalid-feedback">
                       <%= errors.nombre.msg %>
@@ -22,7 +22,7 @@
                 </div>
                 <div class="box">
                 <p class="textos">Apellido</p>
-                  <input class="completar" type="text" name="apellido" value="<%= locals.oldData ? oldData.Apellido : null %>">
+                  <input class="completar" type="text" name="apellido" value="<%= locals.oldData ? oldData.apellido : null %>">
                   <% if (locals.errors && errors.apellido) { %>
                     <div class="invalid-feedback">
                       <%= errors.apellido.msg %>
@@ -31,7 +31,7 @@
                 </div>
                 <div class="box">
                 <p class="textos">Email</p>
-                  <input class="completar" type="text" name="email" value="<%= locals.oldData ? oldData.Email : null %>" placeholder="ejemplo@ejemplo.com">
+                  <input class="completar" type="text" name="email" value="<%= locals.oldData ? oldData.email : null %>" placeholder="ejemplo@ejemplo.com">
                   <% if (locals.errors && errors.email) { %>
                     <div class="invalid-feedback">
                       <%= errors.email.msg %>
@@ -53,9 +53,9 @@
                 <p class="textos">Foto de perfil</p>
                   <img src="/img/users/image-default.jpg" alt="image-avatar" class="user-avatar">
                   <input type="file" name="imagen" id="image" accept=".jpg, .png">
-                  <% if (locals.errors && errors.image) { %>
+                  <% if (locals.errors && errors.imagen) { %>
                     <div class="img-error">
-                      <%= errors.image.msg %>
+                      <%= errors.imagen.msg %>
                     </div>
                     <% } %>
                 </div>

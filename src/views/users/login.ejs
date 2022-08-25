@@ -13,7 +13,7 @@
               <div class="box-login">
                 <div class="completar">
                   <i class="fas fa-user-circle"></i>
-                  <input type="text" name="email" value="<%= locals.oldData ? oldData.Email : null %>" placeholder="Email">
+                  <input type="text" name="email" value="<%= locals.oldData ? oldData.email : null %>" placeholder="Email">
                 </div>
                 <% if (locals.errors && errors.email) { %>
                   <div class="invalid-feedback">
