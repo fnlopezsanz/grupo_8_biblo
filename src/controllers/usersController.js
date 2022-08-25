@@ -30,16 +30,16 @@ const usersController = {
             let passOk = bcrypt.compareSync(req.body.password, user[0].password);
             if (passOk) {
               delete user[0].password
-              req.session.user = user[0]
+              req.session.userLogged = user[0]
               if (req.body.recordame) {
-                res.cookie('userData', user[0].id, { maxAge: (1000 * 60) });
+                res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) });
                 console.log()
               }
               return res.redirect('/users/perfil')
             } else {
               return res.render('users/login', { 
                   errors: { 
-                    msg: 'Usuario y/o contraseña incorrecto' } 
+                    msg: 'Usuario y/o contraseña incorrectos' } 
                 }
               );
             }
@@ -56,9 +56,9 @@ const usersController = {
       .findByPk(req.params.id)
       .then(function (user) {
         if (!user[0]) {
-          res.render('noperfil')
+          res.render('users/noperfil')
         } else {
-          res.render('perfil', { user: user })
+          res.render('users/perfil', { user: user })
         }
       })
       .catch(error => console.log(error));
@@ -91,7 +91,7 @@ const usersController = {
               .create(userToCreate)
               .then(function () {
 
-                res.redirect('login');
+                res.redirect('/users/login');
               })
               .catch(error => console.log(error));
           } else {

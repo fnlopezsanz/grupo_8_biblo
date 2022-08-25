@@ -1,18 +1,19 @@
 const db = require("../database/models");
+const sequelize = db.sequelize;
 
 module.exports = (req, res, next) => {
 
-    res.locals.isLogged = true;
+    res.locals.isLogged = false;
 
-    const emailInCookie = req.cookies.userData;
+    const emailInCookie = req.cookies.userEmail;
     const userFromCookie = db.Usuarios
-        .findAll({
+        .findOne({
             where: {
-                email: req.body.email
+              email: emailInCookie
             }
         })
-        .then(function(user){
-            return (user[0] == emailInCookie);
+        .then(function(user) {
+            return user;
         });
 
     if (userFromCookie) {
@@ -22,7 +23,7 @@ module.exports = (req, res, next) => {
     console.log(userFromCookie)
 
     if (req.session && req.session.userLogged) {
-        res.locals.isLogged = false;
+        res.locals.isLogged = true;
         res.locals.userLogged = req.session.userLogged
     }
 
