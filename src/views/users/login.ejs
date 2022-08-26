@@ -30,9 +30,9 @@
                   </div>
                   <% } %>
               </div>
-              <% if (locals.errors) { %>
+              <% if (locals.mensajeError) { %>
                 <div class="invalid-feedback">
-                  <p class="error"><%= errors.msg %></p>
+                  <p class="error"><%= mensajeError %></p>
                 </div>
                 <% } %>
               <div class="recordame">

@@ -32,7 +32,7 @@ const usersController = {
           .then((userInDb) => {
           // VALIDACION MAIL EN DB
             if (userInDb == null) {
-              let mensajeError = "El mail no está registrado";
+              let mensajeError = "Usuario y/o contraseña incorrectos";
               res.render("users/login", { mensajeError });
             } else if (
               userInDb.id != undefined &&
@@ -124,7 +124,8 @@ const usersController = {
               })
               .catch(error => console.log(error));
           } else {
-            res.render("users/register", { user })
+            let mensajeError = "Este email ya se encuentra registrado"
+            res.render("users/register", { mensajeError })
           }
         })
     } else {
@@ -144,7 +145,6 @@ const usersController = {
     db.Usuarios.findByPk(req.params.id)
 
       .then(function (user) {
-
         res.render('users/editarUser', { user: user });
       })
   },
