@@ -10,7 +10,8 @@ const validationRegister = require("../middlewares/validationRegister");
 const validationLogin = require("../middlewares/validationLogin");
 const guestMiddleware = require("../middlewares/guestMiddleware");
 const authMiddleware = require("../middlewares/authMiddleware");
-
+const editPassMiddleware = require("../middlewares/editPassMiddleware");
+const validationEditPassword = require("../middlewares/validationEditPassword");
 
 
 router.get("/login", guestMiddleware, usersController.login);
@@ -28,6 +29,9 @@ router.get('/perfil/:id', authMiddleware, usersController.perfil);
 /* EDIT USUARIO */
 router.get('/editarUser/:id', usersController.edit);
 router.post('/editarUser/:id', fileUpload.single('avatar'), usersController.update);
+/* EDIT PASS */
+router.get('/editarPass/:id', editPassMiddleware, usersController.editPass);
+router.post('/editarPass/:id', validationEditPassword, usersController.updatePass);
 /* EDIT AVATAR */
 router.get('/editarAvatar/:id', usersController.editarAvatar);
 router.post('/editarAvatar/:id', fileUpload.single('avatar'), usersController.updateAvatar);

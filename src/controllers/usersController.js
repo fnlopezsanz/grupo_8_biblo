@@ -119,7 +119,6 @@ const usersController = {
             db.Usuarios
               .create(userToCreate)
               .then(function () {
-
                 res.redirect('/users/login');
               })
               .catch(error => console.log(error));
@@ -131,19 +130,14 @@ const usersController = {
     } else {
       return res.render("users/register", { errors: resultValidation.mapped(), oldData: req.body })
     }
-
-
   },
 
   carrito: (req, res) => {
     res.render("carrito")
   },
 
-  
-
   edit: function (req, res) {
     db.Usuarios.findByPk(req.params.id)
-
       .then(function (user) {
         res.render('users/editarUser', { user: user });
       })
@@ -165,6 +159,39 @@ const usersController = {
       res.redirect('/users/profile/' + req.userLogged.id)
     })
       .catch(error => console.log(error));
+  },
+
+  editPass: function (req, res) {
+    db.Usuarios.findByPk(req.params.id)
+      .then(function (user) {
+          res.render('users/editarPass', { user: user });
+      })
+      .catch(error => console.log(error));  
+  },
+
+  updatePass: function (req, res) {
+    const resultValidation = validationResult(req);
+    let idEditado = req.params.id;
+
+    if (resultValidation.errors.length > 0) {
+      console.log(resultValidation);
+      return res.render("users/editarPass", { errors: resultValidation.mapped() })
+    } 
+    db.Usuarios.update(
+      {
+        password: bcrypt.hashSync(req.body.newPass, 10),
+      },     
+      {
+        where: { id: idEditado },
+      })
+      .then(() => {
+        res.redirect("/users/perfil"+req.params.id);
+      })
+      .catch ((error) => res.send(error));
+    /* if (bcrypt.compareSync(req.body.actualPass, req.session.userLogged.password)) {
+      console.log('pass actual y de usuario iguales')
+    } else { console.log('passes distintas') } */
+    
   },
 
   editarAvatar: function (req, res) {
