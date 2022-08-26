@@ -10,7 +10,7 @@ const validationRegister = require("../middlewares/validationRegister");
 const validationLogin = require("../middlewares/validationLogin");
 const guestMiddleware = require("../middlewares/guestMiddleware");
 const authMiddleware = require("../middlewares/authMiddleware");
-const editPassMiddleware = require("../middlewares/editPassMiddleware");
+const editUserMiddleware = require("../middlewares/editUserMiddleware");
 const validationEditPassword = require("../middlewares/validationEditPassword");
 
 
@@ -27,14 +27,14 @@ router.get("/carrito", usersController.carrito);
 router.get('/perfil/:id', authMiddleware, usersController.perfil);
 
 /* EDIT USUARIO */
-router.get('/editarUser/:id', usersController.edit);
-router.post('/editarUser/:id', fileUpload.single('avatar'), usersController.update);
+router.get('/editarUser/:id', editUserMiddleware, usersController.edit);
+router.post('/editarUser/:id', validationRegister, usersController.update);
 /* EDIT PASS */
-router.get('/editarPass/:id', editPassMiddleware, usersController.editPass);
+router.get('/editarPass/:id', editUserMiddleware, usersController.editPass);
 router.post('/editarPass/:id', validationEditPassword, usersController.updatePass);
 /* EDIT AVATAR */
-router.get('/editarAvatar/:id', usersController.editarAvatar);
-router.post('/editarAvatar/:id', fileUpload.single('avatar'), usersController.updateAvatar);
+router.get('/editarAvatar/:id', editUserMiddleware, usersController.editarAvatar);
+router.post('/editarAvatar/:id', fileUpload.single('imagen'), validationRegister, usersController.updateAvatar);
 
 router.get('/logout', usersController.logout);
 

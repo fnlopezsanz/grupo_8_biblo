@@ -141,10 +141,11 @@ const usersController = {
       .then(function (user) {
         res.render('users/editarUser', { user: user });
       })
+      .catch(error => console.log(error));
   },
 
   update: function (req, res) {
-    console.log("req.body.imagen");
+    
     db.Usuarios.update({
       nombre: req.body.nombre,
       apellido: req.body.apellido,
@@ -153,10 +154,10 @@ const usersController = {
       /*  avatar: req.file.filename,  */
     }, {
       where: {
-        id: req.session.userLogged.id
+        id: req.params.id
       }
     }).then(userUpdated => {
-      res.redirect('/users/profile/' + req.userLogged.id)
+      res.redirect('/users/perfil/' + req.params.id)
     })
       .catch(error => console.log(error));
   },
@@ -171,47 +172,59 @@ const usersController = {
 
   updatePass: function (req, res) {
     const resultValidation = validationResult(req);
-    let idEditado = req.params.id;
-
+         
     if (resultValidation.errors.length > 0) {
-      console.log(resultValidation);
-      return res.render("users/editarPass", { errors: resultValidation.mapped() })
-    } 
+      db.Usuarios.findByPk(req.params.id)
+        .then(function (user) {
+          return res.render("users/editarPass", { errors: resultValidation.mapped(), user });
+        })
+        .catch(error => console.log(error));
+    }
     db.Usuarios.update(
-      {
-        password: bcrypt.hashSync(req.body.newPass, 10),
-      },     
-      {
-        where: { id: idEditado },
-      })
-      .then(() => {
-        res.redirect("/users/perfil"+req.params.id);
-      })
-      .catch ((error) => res.send(error));
-    /* if (bcrypt.compareSync(req.body.actualPass, req.session.userLogged.password)) {
-      console.log('pass actual y de usuario iguales')
-    } else { console.log('passes distintas') } */
-    
+        {
+          password: bcrypt.hashSync(req.body.newPass, 10),
+        },
+        {
+          where: { id: req.params.id },
+        })
+        .then(() => {
+          res.redirect("/users/perfil/" + req.params.id);
+        })
+        .catch((error) => res.send(error));
   },
 
   editarAvatar: function (req, res) {
     db.Usuarios.findByPk(req.params.id)
       .then(function (user) {
-        res.render('editarAvatar', { user: user });
+        res.render('users/editarAvatar', { user: user });
       })
   },
 
   updateAvatar: function (req, res) {
-    db.Usuarios.update({
-      imagen: req.file.filename
-    }, {
-      where: {
-        id: req.session.userLogged.id
-      }
-    }).then(userUpdated => {
+    const resultValidation = validationResult(req);
 
-      res.redirect('/users/profile/' + req.params.id)
-    })
+    if (resultValidation.errors.length > 0) {
+      db.Usuarios.findByPk(req.params.id)
+        .then(function (user) {
+          return res.render("users/editarAvatar", { errors: resultValidation.mapped(), user });
+        })
+        .catch(error => console.log(error));
+    }
+    db.Usuarios.findByPk(req.params.id)
+      .then(function (userFound) {
+        let user = userFound;
+      db.Usuarios.update({
+        avatar: req.file?.filename
+      },
+        {
+          where: {
+            id: req.params.id
+          }
+        })
+        .then(userUpdated => {
+          res.redirect('/users/perfil/' + req.params.id, { user })
+        })
+      })
       .catch(error => console.log(error));
   },
 
