@@ -47,9 +47,11 @@
         <div class="categoria">
           <label for="categoria">Categoria</label>
           <select name="id_categoria" id="categoria">
-            <option value="1">BESTSELLERS</option>
-            <option value="3">NUEVOS LANZAMIENTOS</option>
-            <option value="2">OTROS</option>
+            <% for (let i=0; i < categorias.length; i++) {%>
+            <option value="<%= categorias[i].id %>">
+              <%= categorias[i].categoria %>
+            </option>
+            <% } %>
           </select>
         </div>
         <div>

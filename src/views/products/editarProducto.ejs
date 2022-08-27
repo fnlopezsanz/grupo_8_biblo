@@ -7,41 +7,56 @@
 
     <%- include("../parcials/headerAdmin.ejs"); %>
 
-      <form action="/products/<%= products.id %>?_method=PUT" method="POST" class="form">
+      <form action="/products/<%= product.id %>?_method=PUT" method="POST" class="form">
         <div>
           <h4>EDITAR PRODUCTO</h4>
         </div>
         <div>
           <input type="text" name="titulo" id="nombre" placeholder="Nombre del producto" minlength="3" required
-            class="input-text" value="<%= products.titulo %>">
+            class="input-text" value="<%= product.titulo %>">
         </div>
-        <div>
-          <input type="text" name="autor" id="autor" placeholder="Autor" minlength="3" required
-            class="input-text" value="<%= products.autor %>">
+        <div class="categoria">
+          <label for="autor">Autor</label>
+          <select name="id_autor" id="autor">
+            <% for (let i=0; i < autores.length; i++) {%>
+              <option value="<%= autores[i].id %>">
+                <%= autores[i].fullname %>
+              </option>
+              <% } %>
+          </select>
         </div>
-        <div>
-          <input type="text" name="genero" id="genero" placeholder="Género" class="input-text" value="<%= products.genero %>">
+        <div class="categoria">
+          <label for="genero">Género</label>
+          <select name="id_genero" id="genero">
+            <% for (let i=0; i < generos.length; i++) {%>
+              <option value="<%= generos[i].id %>">
+                <%= generos[i].genero %>
+              </option>
+              <% } %>
+          </select>
         </div>
         <div class="categoria">
           <label for="categoria">Categoria</label>
-          <select name="categoria" id="categoria">
-            <option value="bestsellers" <%= products.categoria == "bestseller" ? "selected" : null %> >BESTSELLERS</option>
-            <option value="nuevos-lanzamientos" <%= products.categoria == "nuevos-lanzamientos" ? "selected" : null %> >NUEVOS LANZAMIENTOS</option>
-            <option value="otros" <%= products.categoria == "otros" ? "selected" : null %> >OTROS</option>
+          <select name="id_categoria" id="categoria">
+            <% for (let i=0; i < categorias.length; i++) {%>
+            <option value="<%= categorias[i].id %>">
+              <%= categorias[i].categoria %>
+            </option>
+            <% } %>
           </select>
         </div>
         <div class="descripcion">
           <label for="descripcion">Descripción</label>
         </div>
         <div>
-          <textarea name="descripcion" id="descripcion" cols="100" rows="5"><%= products.descripcion %></textarea>
+          <textarea name="descripcion" id="descripcion" cols="100" rows="5"><%= product.descripcion %></textarea>
         </div>
         <div>
-          <input type="text" name="precio" id="precio" placeholder="$ Precio" class="input-text" required value="<%= products.precio %>">
+          <input type="text" name="precio" id="precio" placeholder="$ Precio" class="input-text" required value="<%= product.precio %>">
         </div>
         <div class="div-foto">
           <label for="" class="nombre-reg">Cambiar imagen del producto:</label>
-          <img src="/img/products/<%= products.imagen %>"" alt="<%= products.titulo %>"" class="libro-edit">
+          <img src="/img/products/<%= product.imagen %>"" alt="<%= product.titulo %>"" class="libro-edit">
           <input type="file" name="imagen" id="imagen" accept=".jpg, .png">
         </div>
         <div class="div-bot">

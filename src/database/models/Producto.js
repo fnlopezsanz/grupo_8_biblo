@@ -28,9 +28,6 @@ module.exports = (sequelize, dataTypes) => {
     },
     anio: {
       type: dataTypes.INTEGER
-    },
-    id_creador: {
-      type: dataTypes.INTEGER
     }
   },
     {

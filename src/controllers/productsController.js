@@ -11,9 +11,39 @@ const readJsonFile = (path) => {
 
 const productsController = {
   detalle: (req, res) => {
-    const products = readJsonFile(productsFilePath)
-    const product = products.find(product => product.id == req.params.id)
-    res.render('products/detalleProducto', { product });
+    db.Productos
+      .findOne(
+        {
+          were: {
+            id: req.params.id
+          }
+        }
+      )
+      .then(detail => {
+        const genero = db.Generos.findOne({
+          were: {
+            id: detail.id_genero
+          }
+        })
+
+        const autor = db.Autores.findOne({
+          were: {
+            id: detail.id_autor
+          }
+        })
+
+        Promise.all([autor, genero])
+          .then(function ([autores, generos]) {
+            return res.render("products/detalleProducto", { autor, genero, detail })
+          })
+          .catch(error => console.log(error));
+
+      })
+      .catch(error => console.log)
+
+    // const products = readJsonFile(productsFilePath)
+    // const product = products.find(product => product.id == req.params.id)
+    // res.render('products/detalleProducto', { product });
   },
   crear: (req, res) => {
 
@@ -21,9 +51,11 @@ const productsController = {
 
     const pedidoAutores = db.Autores.findAll()
 
-    Promise.all([pedidoAutores, pedidoGeneros])
-      .then(function ([autores, generos]) {
-        res.render("products/crearProducto", { autores, generos })
+    const pedidoCategorias = db.Categorias.findAll()
+
+    Promise.all([pedidoAutores, pedidoGeneros, pedidoCategorias])
+      .then(function ([autores, generos, categorias]) {
+        res.render("products/crearProducto", { autores, generos, categorias })
       })
       .catch(error => console.log(error));
 
@@ -45,9 +77,32 @@ const productsController = {
       .catch(error => console.log(error));
   },
   editar: (req, res) => {
-    const productsJson = readJsonFile(productsFilePath);
-    const products = productsJson.find(product => product.id == req.params.id)
-    res.render("products/editarProducto", { products });
+    db.Productos
+      .findOne(
+        {
+          were: {
+            id: req.params.id
+          }
+        }
+      )
+      .then(product => {
+        const pedidoGeneros = db.Generos.findAll()
+
+        const pedidoAutores = db.Autores.findAll()
+
+        const pedidoCategorias = db.Categorias.findAll()
+
+        Promise.all([pedidoAutores, pedidoGeneros, pedidoCategorias])
+          .then(function ([autores, generos, categorias]) {
+            res.render("products/editarProducto", { autores, generos, categorias, product })
+          })
+          .catch(error => console.log(error));
+      })
+      .catch(error => console.log)
+
+    // const productsJson = readJsonFile(productsFilePath);
+    // const products = productsJson.find(product => product.id == req.params.id)
+    // res.render("products/editarProducto", { products });
   },
   update: (req, res) => {
     const products = readJsonFile(productsFilePath)

@@ -11,19 +11,19 @@
           <section id="destacado">
             <h4>DESTACADO</h4>
             <article>
-              <% for(let i=0; i < products.length; i++){ %>
-                <% if(products[i].categoria == "destacado" ){ %>
+              <% for(let i=0; i < productos.length; i++){ %>
+                <% if(productos[i].id_categoria == 4 ){ %>
                   <div class="destacado">
-                    <a href="/products/<%= products[i].id %>"><img src="/img/products/<%= products[i].imagen %>"
-                        alt="<%= products[i].titulo %>"></a>
+                    <a href="/products/<%= productos[i].id %>"><img src="/img/products/<%= productos[i].imagen %>"
+                        alt="<%= productos[i].titulo %>"></a>
                     <p class="title">
-                      <%= products[i].titulo %>
+                      <%= productos[i].titulo %>
                     </p>
                     <p class="price">
-                      <%= products[i].precio %>
+                     $ <%= productos[i].precio %>
                     </p>
                     <p class="description">
-                      <%= products[i].descripcion %>
+                      <%= productos[i].descripcion %>
                     </p>
                   </div>
                   <% } %>
@@ -42,7 +42,7 @@
                         <%= bestseller[i].titulo %>
                       </p>
                       <p class="price">
-                        <%= bestseller[i].precio %>
+                       $ <%= bestseller[i].precio %>
                       </p>
                       <p class="book-description">
                         <%= bestseller[i].descripcion %>
@@ -57,7 +57,7 @@
             <div class="bottom-section">
               <h3><a href="#">NUEVOS LANZAMIENTOS</a></h3>
               <% for(let i=0; i < nuevosLanzamientos.length; i++){ %>
-                <% if(nuevosLanzamientos[i].categoria == "nuevos-lanzamientos" ){ %>
+                <% if(nuevosLanzamientos[i].id_categoria == 3 ){ %>
                   <article>
                     <a href="/products/<%= nuevosLanzamientos[i].id %>"><img src="/img/products/<%= nuevosLanzamientos[i].imagen %>"
                         alt="<%= nuevosLanzamientos[i].titulo %>"></a>
@@ -66,7 +66,7 @@
                         <%= nuevosLanzamientos[i].titulo %>
                       </p>
                       <p class="price">
-                        <%= nuevosLanzamientos[i].precio %>
+                        $ <%= nuevosLanzamientos[i].precio %>
                       </p>
                       <p class="book-description">
                         <%= nuevosLanzamientos[i].descripcion %>

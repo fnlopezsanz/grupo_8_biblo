@@ -101,12 +101,9 @@
   },
   {
     "id": 11,
-    "titulo": "Jane Eyre",
-    "autor": "Obadiah Archibald",
-    "genero": "Drama",
-    "categoria": "otros",
-    "descripcion": "in eleifend quam a odio in hac habitasse platea dictumst maecenas ut massa quis augue",
-    "precio": "$2145.76",
+    "titulo": "Alicia en el País de las Maravillas",
+    "descripcion": "Alicia está aburrida. De repente, un conejo blanco, vestido con pantalón y saco, que mira desesperado a su reloj, anuncia preocupado que llegará tarde a alguna parte.",
+    "precio": "3500.00",
     "imagen": "image-default.jpg"
   },
   {

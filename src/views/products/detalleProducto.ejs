@@ -9,21 +9,21 @@
         <section>
           <div class="container-producto">
             <div class="box-producto">
-              <img src="/img/products/<%= product.imagen %>" "alt=" <%=product.titulo %>"">
+              <img src="/img/products/<%= detail.imagen %>" "alt=" <%=detail.titulo %>"">
               <div class="info-y-link">
                 <div class="informacion-producto">
                   <h3 class="titulo">
-                    <%= product.titulo %>
+                    <%= detail.titulo %>
                   </h3>
                   <p class="desc">
-                    <%= product.descripcion %>
+                    <%= detail.descripcion %>
                   </p>
                   <p class="price">
-                    <%= product.precio %>
+                    <%= detail.precio %>
                   </p>
-                  <p class="data-prod">Autor: <%= product.autor %>
+                  <p class="data-prod">Autor: <%= autor.fullname %>
                   </p>
-                  <p class="data-prod">Género: <%= product.genero %>
+                  <p class="data-prod">Género: <%= genero.genero %>
                   </p>
                 </div>
                 <div id="otros-libros">
@@ -32,10 +32,12 @@
               </div>
               <div class="butt-container">
                 <a href="#" class="buy-now-button">Comprar</a>
-                <a href="/products/edit/<%= product.id %>" class="action-button edit">Editar Producto</a>
-                <form action="/products/<%= product.id %>?_method=DELETE" method="POST" style="display: inline-flex">
-                  <button type="submit" class="action-button delete">Eliminar</button>
-                </form>
+                <% if (locals.userLogged.id_rol==2) { %>
+                  <a href="/products/edit/<%= detail.id %>" class="action-button edit">Editar Producto</a>
+                  <form action="/products/<%= detail.id %>?_method=DELETE" method="POST" style="display: inline-flex">
+                    <button type="submit" class="action-button delete">Eliminar</button>
+                  </form>
+                  <% } %>
               </div>
             </div>
           </div>

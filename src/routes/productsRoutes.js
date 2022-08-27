@@ -1,21 +1,22 @@
 const express = require("express");
 const router = express.Router();
-const multer = require('multer');
 
 const productsController = require("../controllers/productsController.js");
+const admMiddleware = require("../middlewares/admMiddleware");
+const fileUploadProductos = require("../middlewares/fileUploadProductos");
 
 
-router.get("/create/", productsController.crear);
+router.get("/create/",admMiddleware, productsController.crear);
 
 router.get("/:id", productsController.detalle);
 
-router.get("/edit/:id", productsController.editar);
+router.get("/edit/:id",admMiddleware, productsController.editar);
 
-router.post("/store", productsController.store);
+router.post("/store",admMiddleware, fileUploadProductos.single('imagen'), productsController.store);
 
-router.put("/:id", productsController.update);
+router.put("/:id",admMiddleware, fileUploadProductos.single('imagen'), productsController.update);
 
-router.delete('/:id', productsController.destroy);
+router.delete('/:id',admMiddleware, productsController.destroy);
 
 
 module.exports = router;
