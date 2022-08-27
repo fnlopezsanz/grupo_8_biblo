@@ -12,6 +12,8 @@ const guestMiddleware = require("../middlewares/guestMiddleware");
 const authMiddleware = require("../middlewares/authMiddleware");
 const editUserMiddleware = require("../middlewares/editUserMiddleware");
 const validationEditPassword = require("../middlewares/validationEditPassword");
+const validationUpdateUser = require("../middlewares/validationUpdateUser");
+const validationUpdateAvatar = require("../middlewares/validationUpdateAvatar");
 
 
 router.get("/login", guestMiddleware, usersController.login);
@@ -28,13 +30,13 @@ router.get('/perfil/:id', authMiddleware, usersController.perfil);
 
 /* EDIT USUARIO */
 router.get('/editarUser/:id', editUserMiddleware, usersController.edit);
-router.post('/editarUser/:id', validationRegister, usersController.update);
+router.post('/editarUser/:id', validationUpdateUser, usersController.update);
 /* EDIT PASS */
 router.get('/editarPass/:id', editUserMiddleware, usersController.editPass);
 router.post('/editarPass/:id', validationEditPassword, usersController.updatePass);
 /* EDIT AVATAR */
 router.get('/editarAvatar/:id', editUserMiddleware, usersController.editarAvatar);
-router.post('/editarAvatar/:id', fileUpload.single('imagen'), validationRegister, usersController.updateAvatar);
+router.post('/editarAvatar/:id', fileUpload.single('imagen'), validationUpdateAvatar, usersController.updateAvatar);
 
 router.get('/logout', usersController.logout);
 

@@ -20,32 +20,27 @@ const usersController = {
     const resultValidation = validationResult(req);
 
     if (resultValidation.errors.length > 0) {
-      return res.render("users/login", {
-        errors: resultValidation.mapped(),
-        oldData: req.body,
-      });
+      return res.render("users/login", { errors: resultValidation.mapped(), oldData: req.body });
     }
     // BUSCA USUARIOS POR MAIL
     db.Usuarios.findOne({
-          where: { email: req.body.email }
-        })
-          .then((userInDb) => {
+        where: { email: req.body.email }
+      })
+      .then((userInDb) => {
           // VALIDACION MAIL EN DB
-            if (userInDb == null) {
-              let mensajeError = "Usuario y/o contraseña incorrectos";
-              res.render("users/login", { mensajeError });
-            } else if (
-              userInDb.id != undefined &&
-              bcrypt.compareSync(req.body.password, userInDb.password)
-            ) { //LOGUEO EXITOSO
-              req.session.userLogged = userInDb;
-              // (si el checkbox de recordar usuario no está tildado, debería llegar como "undefined")
-              if (req.body.recordame != undefined) {
-                res.cookie('recordame',
+        if (userInDb == null) {
+          let mensajeError = "Usuario y/o contraseña incorrectos";
+            res.render("users/login", { mensajeError });
+        } else if (userInDb.id != undefined && bcrypt.compareSync(req.body.password, userInDb.password)) { 
+            //LOGUEO EXITOSO
+            req.session.userLogged = userInDb;
+            // (si el checkbox de recordar usuario no está tildado, debería llegar como "undefined")
+            if (req.body.recordame != undefined) {
+              res.cookie('recordame',
                   userInDb.id,
                   { maxAge: 6000000 })
-              }
-              res.redirect("/");
+            }
+            res.redirect("/");
             } else {
               // LOGUEO ERRONEO
               let mensajeError = "Usuario y/o contraseña incorrectos";
@@ -54,31 +49,6 @@ const usersController = {
           })
       .catch((error) => res.send(error));
   },
-/* 
-
-            let passOk = bcrypt.compareSync(req.body.password, user[0].password);
-            if (passOk) {
-              delete user[0].password
-              req.session.userLogged = user[0]
-              if (req.body.recordame) {
-                res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) });
-                console.log()
-              }
-              return res.redirect('/')
-            } else {
-              return res.render('users/login', { 
-                  errors: { 
-                    msg: 'Usuario y/o contraseña incorrectos' } 
-                }
-              );
-            }
-          }
-        });
-    } else {
-      return res.render('users/login', { errors: errors.mapped(), oldData: req.body });
-    }
-
-  }, */
 
   perfil: (req, res) => {
     db.Usuarios
@@ -87,6 +57,7 @@ const usersController = {
         if (!user) {
           res.render('users/noperfil')
         } else {
+          // console.log(res.locals)
           res.render('users/perfil', { user: user })
         }
       })
@@ -139,27 +110,48 @@ const usersController = {
   edit: function (req, res) {
     db.Usuarios.findByPk(req.params.id)
       .then(function (user) {
+        // console.log(res.locals.userLogged)
         res.render('users/editarUser', { user: user });
       })
       .catch(error => console.log(error));
   },
 
   update: function (req, res) {
-    
-    db.Usuarios.update({
-      nombre: req.body.nombre,
-      apellido: req.body.apellido,
-      email: req.body.email,
-      // password: req.body.password,
-      /*  avatar: req.file.filename,  */
-    }, {
-      where: {
-        id: req.params.id
+    let idEditado = req.params.id;
+    const resultValidation = validationResult(req);
+
+    if (resultValidation.errors.length > 0) {
+      db.Usuarios.findByPk(req.params.id)
+        .then(function (user) {
+          console.log(resultValidation)
+          return res.render("users/editarUser", { errors: resultValidation.mapped(), oldData: req.body, user });
+        })
+        .catch(error => console.log(error));
+    } else {
+      db.Usuarios.findByPk(idEditado)
+        .then((encontrado) => {
+          db.Usuarios.update({
+            nombre: req.body.nombre,
+            apellido: req.body.apellido,
+            email: req.body.email,
+          },
+          {
+            where: {
+              id: encontrado.id
+            },
+          })
+          .then(() => {
+            db.Usuarios.findByPk(idEditado)
+              .then((editado) => {
+                req.session.userLogged = editado;
+                res.redirect('/users/perfil/' + idEditado)
+              })
+              .catch((error) => res.send(error));
+          })
+          .catch(error => console.log(error));
+        })
+        .catch((error) => res.send(error));        
       }
-    }).then(userUpdated => {
-      res.redirect('/users/perfil/' + req.params.id)
-    })
-      .catch(error => console.log(error));
   },
 
   editPass: function (req, res) {
@@ -179,7 +171,7 @@ const usersController = {
           return res.render("users/editarPass", { errors: resultValidation.mapped(), user });
         })
         .catch(error => console.log(error));
-    }
+    } else {
     db.Usuarios.update(
         {
           password: bcrypt.hashSync(req.body.newPass, 10),
@@ -191,6 +183,7 @@ const usersController = {
           res.redirect("/users/perfil/" + req.params.id);
         })
         .catch((error) => res.send(error));
+    }
   },
 
   editarAvatar: function (req, res) {
@@ -201,6 +194,7 @@ const usersController = {
   },
 
   updateAvatar: function (req, res) {
+    let idEditado = req.params.id;
     const resultValidation = validationResult(req);
 
     if (resultValidation.errors.length > 0) {
@@ -209,23 +203,30 @@ const usersController = {
           return res.render("users/editarAvatar", { errors: resultValidation.mapped(), user });
         })
         .catch(error => console.log(error));
-    }
-    db.Usuarios.findByPk(req.params.id)
+    } else {
+      db.Usuarios.findByPk(idEditado)
       .then(function (userFound) {
         let user = userFound;
-      db.Usuarios.update({
-        avatar: req.file?.filename
-      },
-        {
-          where: {
-            id: req.params.id
+        db.Usuarios.update({
+          avatar: req.file?.filename
+          },
+          {
+            where: {
+              id: idEditado
           }
-        })
+          })
         .then(userUpdated => {
-          res.redirect('/users/perfil/' + req.params.id, { user })
+          db.Usuarios.findByPk(idEditado)
+            .then((editado) => {
+              req.session.userLogged = editado;
+              res.redirect('/users/perfil/' + idEditado)
+            })
+            .catch((error) => res.send(error));
         })
+        .catch(error => console.log(error));
       })
       .catch(error => console.log(error));
+    }
   },
 
   logout: (req, res) => {

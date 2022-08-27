@@ -14,7 +14,7 @@
                 <div class="box">
                   <p class="textos">Nombre</p>
                   <input class="completar" type="text" name="nombre"
-                    value="<%= user.nombre %>">
+                    value="<%= locals.oldData ? oldData.nombre : user.nombre %>">
                   <% if (locals.errors && errors.nombre) { %>
                     <div class="invalid-feedback">
                       <%= errors.nombre.msg %>
@@ -24,7 +24,7 @@
                 <div class="box">
                   <p class="textos">Apellido</p>
                   <input class="completar" type="text" name="apellido"
-                    value="<%= user.apellido %>">
+                    value="<%= locals.oldData ? oldData.apellido : user.apellido %>">
                   <% if (locals.errors && errors.apellido) { %>
                     <div class="invalid-feedback">
                       <%= errors.apellido.msg %>
@@ -33,8 +33,7 @@
                 </div>
                 <div class="box">
                   <p class="textos">Email</p>
-                  <input class="completar" type="text" name="email" value="<%= user.email %>"
-                    placeholder="ejemplo@ejemplo.com">
+                  <input class="completar" type="text" name="email" value="<%= locals.oldData ? oldData.email : user.email %>">
                   <% if (locals.errors && errors.email) { %>
                     <div class="invalid-feedback">
                       <%= errors.email.msg %>
