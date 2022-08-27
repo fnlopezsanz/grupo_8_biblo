@@ -33,3 +33,14 @@ Retrospectiva Sprint 5:
 3. Continuar haciendo: Debemos continuar avanzando paralelamente ambos miembros en las partes del proyecto que acordamos realizar en los chats diarios que tenemos a través de WhatsApp. Esta forma de comunicación es la que nos dio mejor resultado, ya que al ser solo 2 integrantes termina siendo lo más efectivo y evita la carga de una tarea más si usáramos por ejemplo un tablero de trabajo.
 
 4 y 5. Hacer menos y Dejar de hacer: En cuanto a hacer menos y dejar de hacer, consideramos que no tenemos conductas negativas que haga falta modificar.
+
+
+Retrospectiva Sprint 6:
+
+1. Comenzar a hacer: Consideramos que no tenemos que comenzar a hacer nada que no hayamos hecho hasta ahora.
+
+2. Hacer más: Al adentrarnos en las consignas de este sprint y comenzarlas a llevar a cabo, llegamos a la conclusión de que la dedicación al proyecto demanda más tiempo en esta etapa del que veníamos dedicándole.
+
+3. Continuar haciendo: El tiempo de dedicación que le damos al proyecto desde esta entrega es el que pensamos va a ser acorde para finalizarlo en tiempo y forma, y debemos mantenero hasta el final.
+
+4 y 5. Hacer menos y Dejar de hacer: En cuanto a hacer menos y dejar de hacer, consideramos que no tenemos conductas negativas que haga falta modificar.
