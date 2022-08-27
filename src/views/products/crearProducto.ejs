@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include("../parcials/head.ejs", {stylesheet: ["stylehome", "style_crear_editarProducto" ]}); %>
+<%- include("../parcials/head.ejs", {stylesheet: ["stylehome", "style_crear_editarProducto", "style_login" ]}); %>
 
   <body>
 
@@ -12,12 +12,22 @@
           <h4>CREAR PRODUCTO</h4>
         </div>
         <div>
-          <input type="text" name="titulo" id="titulo" placeholder="Nombre producto" minlength="3" required
+          <input type="text" name="titulo" id="titulo" placeholder="Nombre producto" minlength="3"
             class="input-text">
         </div>
+        <% if (locals.errors && errors.titulo) { %>
+          <div class="invalid-feedback">
+           <%= errors.titulo.msg %>
+          </div>
+           <% } %>
         <div>
-          <input type="text" name="anio" id="anio" placeholder="Año" minlength="4" required class="input-text">
+          <input type="text" name="anio" id="anio" placeholder="Año" minlength="4" class="input-text">
         </div>
+        <% if (locals.errors && errors.anio) { %>
+          <div class="invalid-feedback">
+           <%= errors.anio.msg %>
+          </div>
+           <% } %>
         <div class="categoria">
           <label for="autor">Autor</label>
           <select name="id_autor" id="autor">
@@ -34,6 +44,11 @@
         <div>
           <textarea name="descripcion" id="descripcion" cols="100" rows="6"></textarea>
         </div>
+        <% if (locals.errors && errors.descripcion) { %>
+          <div class="invalid-feedback">
+           <%= errors.descripcion.msg %>
+          </div>
+           <% } %>
         <div class="categoria">
           <label for="genero">Género</label>
           <select name="id_genero" id="genero">
@@ -55,12 +70,22 @@
           </select>
         </div>
         <div>
-          <input type="text" name="precio" id="precio" placeholder="Precio" class="input-text" required>
+          <input type="text" name="precio" id="precio" placeholder="Precio" class="input-text">
         </div>
+        <% if (locals.errors && errors.precio) { %>
+          <div class="invalid-feedback">
+           <%= errors.precio.msg %>
+          </div>
+           <% } %>
         <div class="div-foto">
           <label for="" class="nombre-reg">Ingresá una imagen del producto:</label>
           <input type="file" name="imagen" id="imagen" accept=".jpg, .png">
         </div>
+        <% if (locals.errors && errors.imagen) { %>
+          <div class="invalid-feedback">
+           <%= errors.imagen.msg %>
+          </div>
+           <% } %>
         <div class="div-bot">
           <input type="submit" value="Crear producto" class="but-submit botones">
         </div>

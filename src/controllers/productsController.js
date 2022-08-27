@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const db = require('../database/models');
+const { validationResult } = require('express-validator');
 const sequelize = db.sequelize;
 const moment = require('moment');
 
@@ -12,46 +13,28 @@ const readJsonFile = (path) => {
 const productsController = {
   detalle: (req, res) => {
     db.Productos
-      .findOne(
-        {
-          were: {
-            id: req.params.id
-          }
-        }
-      )
-      .then(detail => {
-        const genero = db.Generos.findOne({
-          were: {
-            id: detail.id_genero
-          }
-        })
+      .findByPk(req.params.id)
+      .then(producto => {
+        let pedidoGeneros = db.Generos.findAll()
 
-        const autor = db.Autores.findOne({
-          were: {
-            id: detail.id_autor
-          }
-        })
+        let pedidoAutores = db.Autores.findAll()
 
-        Promise.all([autor, genero])
+        Promise.all([pedidoAutores, pedidoGeneros])
           .then(function ([autores, generos]) {
-            return res.render("products/detalleProducto", { autor, genero, detail })
+            return res.render("products/detalleProducto", { autores, generos, producto })
           })
           .catch(error => console.log(error));
 
       })
       .catch(error => console.log)
-
-    // const products = readJsonFile(productsFilePath)
-    // const product = products.find(product => product.id == req.params.id)
-    // res.render('products/detalleProducto', { product });
   },
   crear: (req, res) => {
 
-    const pedidoGeneros = db.Generos.findAll()
+    let pedidoGeneros = db.Generos.findAll()
 
-    const pedidoAutores = db.Autores.findAll()
+    let pedidoAutores = db.Autores.findAll()
 
-    const pedidoCategorias = db.Categorias.findAll()
+    let pedidoCategorias = db.Categorias.findAll()
 
     Promise.all([pedidoAutores, pedidoGeneros, pedidoCategorias])
       .then(function ([autores, generos, categorias]) {
@@ -61,66 +44,110 @@ const productsController = {
 
   },
   store: (req, res) => {
-    db.Productos.create({
-      titulo: req.body.titulo,
-      id_autor: req.body.id_autor,
-      id_genero: req.body.id_genero,
-      id_categoria: req.body.id_categoria,
-      descripcion: req.body.descripcion,
-      precio: req.body.precio,
-      imagen: req.body.imagen,
-      anio: req.body.anio
-    })
-      .then(productoGuardado => {
-        return res.redirect("/")
+    const resultValidation = validationResult(req);
+    if (resultValidation.isEmpty()) {
+      db.Productos.create({
+        titulo: req.body.titulo,
+        id_autor: req.body.id_autor,
+        id_genero: req.body.id_genero,
+        id_categoria: req.body.id_categoria,
+        descripcion: req.body.descripcion,
+        precio: req.body.precio,
+        imagen: req.file.filename,
+        anio: req.body.anio
       })
-      .catch(error => console.log(error));
+        .then(productoGuardado => {
+          return res.redirect("/")
+        })
+        .catch(error => console.log(error));
+    } else {
+      let pedidoGeneros = db.Generos.findAll()
+
+      let pedidoAutores = db.Autores.findAll()
+
+      let pedidoCategorias = db.Categorias.findAll()
+
+      Promise.all([pedidoAutores, pedidoGeneros, pedidoCategorias])
+        .then(function ([autores, generos, categorias]) {
+          res.render("products/crearProducto", { autores, generos, categorias, errors: resultValidation.mapped(), oldData: req.body })
+        })
+        .catch(error => console.log(error));
+    }
   },
   editar: (req, res) => {
     db.Productos
-      .findOne(
-        {
-          were: {
-            id: req.params.id
-          }
-        }
-      )
-      .then(product => {
-        const pedidoGeneros = db.Generos.findAll()
+      .findByPk(req.params.id)
+      .then(producto => {
+        let pedidoGeneros = db.Generos.findAll()
 
-        const pedidoAutores = db.Autores.findAll()
+        let pedidoAutores = db.Autores.findAll()
 
-        const pedidoCategorias = db.Categorias.findAll()
+        let pedidoCategorias = db.Categorias.findAll()
 
         Promise.all([pedidoAutores, pedidoGeneros, pedidoCategorias])
           .then(function ([autores, generos, categorias]) {
-            res.render("products/editarProducto", { autores, generos, categorias, product })
+            res.render("products/editarProducto", { autores, generos, categorias, producto })
           })
           .catch(error => console.log(error));
       })
       .catch(error => console.log)
-
-    // const productsJson = readJsonFile(productsFilePath);
-    // const products = productsJson.find(product => product.id == req.params.id)
-    // res.render("products/editarProducto", { products });
   },
   update: (req, res) => {
-    const products = readJsonFile(productsFilePath)
-    for (let i = 0; i < products.length; i++) {
-      if (products[i].id == req.params.id) {
-        products[i] = {
-          ...products[i],
-          titulo: req.body.titulo,
-          autor: req.body.autor,
-          genero: req.body.genero,
-          categoria: req.body.categoria,
-          descripcion: req.body.descripcion,
-          precio: req.body.precio
+    const resultValidation = validationResult(req);
+    const idProducto = req.params.id
+    if (!resultValidation.isEmpty()) {
+      db.Productos
+        .findByPk(idProducto)
+        .then(producto => {
+          let pedidoGeneros = db.Generos.findAll()
+
+          let pedidoAutores = db.Autores.findAll()
+
+          let pedidoCategorias = db.Categorias.findAll()
+
+          Promise.all([pedidoAutores, pedidoGeneros, pedidoCategorias])
+            .then(function ([autores, generos, categorias]) {
+              res.render("products/editarProducto", { autores, generos, categorias, producto, errors: resultValidation.mapped(), oldData: req.body })
+            })
+            .catch(error => console.log(error));
+        })
+    } else {
+      db.Productos.update({
+        titulo: req.body.titulo,
+        id_autor: req.body.id_autor,
+        id_genero: req.body.id_genero,
+        id_categoria: req.body.id_categoria,
+        descripcion: req.body.descripcion,
+        precio: req.body.precio,
+        imagen: req.file.filename,
+        anio: req.body.anio
+      }, {
+        were: {
+          id: idProducto
         }
-      }
-    };
-    fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
-    return res.redirect("/");
+      })
+        .then(productoGuardado => {
+          return res.redirect("products/detalleProducto")
+        })
+        .catch(error => console.log(error));
+    }
+
+    // const products = readJsonFile(productsFilePath)
+    // for (let i = 0; i < products.length; i++) {
+    //   if (products[i].id == req.params.id) {
+    //     products[i] = {
+    //       ...products[i],
+    //       titulo: req.body.titulo,
+    //       autor: req.body.autor,
+    //       genero: req.body.genero,
+    //       categoria: req.body.categoria,
+    //       descripcion: req.body.descripcion,
+    //       precio: req.body.precio
+    //     }
+    //   }
+    // };
+    // fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
+    // return res.redirect("/");
   },
   destroy: (req, res) => {
     const products = readJsonFile(productsFilePath);

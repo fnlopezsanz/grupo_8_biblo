@@ -9,22 +9,30 @@
         <section>
           <div class="container-producto">
             <div class="box-producto">
-              <img src="/img/products/<%= detail.imagen %>" "alt=" <%=detail.titulo %>"">
+              <img src="/img/products/<%= producto.imagen %>" "alt=" <%=producto.titulo %>"">
               <div class="info-y-link">
                 <div class="informacion-producto">
                   <h3 class="titulo">
-                    <%= detail.titulo %>
+                    <%= producto.titulo %>
                   </h3>
                   <p class="desc">
-                    <%= detail.descripcion %>
+                    <%= producto.descripcion %>
                   </p>
                   <p class="price">
-                    <%= detail.precio %>
+                    $ <%= producto.precio %>
                   </p>
-                  <p class="data-prod">Autor: <%= autor.fullname %>
-                  </p>
-                  <p class="data-prod">Género: <%= genero.genero %>
-                  </p>
+                  <% autores.forEach(autor=> {%>
+                    <% if(autor.id==producto.id_autor){ %>
+                      <p class="data-prod">Autor: <%= autor.fullname %>
+                      </p>
+                      <% } %>
+                    <% }) %>
+                  <% generos.forEach(genero=> {%>
+                    <% if(genero.id==producto.id_genero){ %>
+                      <p class="data-prod">Género: <%= genero.genero %>
+                      </p>
+                    <% } %>
+                  <% }) %>
                 </div>
                 <div id="otros-libros">
                   <a href="#" class="ver-otros">Ver otros libros de este autor</a>
@@ -32,9 +40,9 @@
               </div>
               <div class="butt-container">
                 <a href="#" class="buy-now-button">Comprar</a>
-                <% if (locals.userLogged.id_rol==2) { %>
-                  <a href="/products/edit/<%= detail.id %>" class="action-button edit">Editar Producto</a>
-                  <form action="/products/<%= detail.id %>?_method=DELETE" method="POST" style="display: inline-flex">
+                <% if (locals.userLogged && locals.userLogged.id_rol==2) { %>
+                  <a href="/products/edit/<%= producto.id %>" class="action-button edit">Editar Producto</a>
+                  <form action="/products/<%= producto.id %>?_method=DELETE" method="POST" style="display: inline-flex">
                     <button type="submit" class="action-button delete">Eliminar</button>
                   </form>
                   <% } %>
