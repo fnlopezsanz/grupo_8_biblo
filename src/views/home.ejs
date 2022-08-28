@@ -5,18 +5,17 @@
 
   <body>
     <%- include("./parcials/header"); %>
-      <%- include("./parcials/roulette"); %>
         <main>
           <div class="top">
           <section id="destacado">
-            <h4>DESTACADO</h4>
+            <h4>D E S T A C A D O</h4>
             <article>
               <% for(let i=0; i < productos.length; i++){ %>
                 <% if(productos[i].id_categoria == 4 ){ %>
                   <div class="destacado">
                     <a href="/products/<%= productos[i].id %>"><img src="/img/products/<%= productos[i].imagen %>"
                         alt="<%= productos[i].titulo %>"></a>
-                    <p class="title">
+                    <p class="title-destacado">
                       <%= productos[i].titulo %>
                     </p>
                     <p class="price">
@@ -32,7 +31,7 @@
           </section>
           <section class="box-top">
             <div class="top-section">
-              <h3><a href="#">BESTSELLERS</a></h3>
+              <h3><a href="#">Bestsellers</a></h3>
               <% for(let i=0; i < bestseller.length; i++){ %>
                   <article>
                     <a href="/products/<%= bestseller[i].id %>"><img src="/img/products/<%= bestseller[i].imagen %>"
@@ -55,7 +54,7 @@
         </div>
           <section class="box-bottom">
             <div class="bottom-section">
-              <h3><a href="#">NUEVOS LANZAMIENTOS</a></h3>
+              <h3><a href="#">Nuevos Lanzamientos</a></h3>
               <% for(let i=0; i < nuevosLanzamientos.length; i++){ %>
                 <% if(nuevosLanzamientos[i].id_categoria == 3 ){ %>
                   <article>
@@ -78,10 +77,10 @@
             </div>
           </section>
         </main>
-        <hr>
+        <%- include("./parcials/roulette"); %>
         <section class="news">
           <form action="" method="">
-            <label for="name" class="novedades">NOVEDADES</label>
+            <label for="name" class="novedades">Novedades</label>
             <div class="send-email">
               <input type="text" placeholder="Nombre" id="name" class="name">
               <input type="email" placeholder="Escribi tu email" class="email">
@@ -89,7 +88,6 @@
             </div>
           </form>
         </section>
-        <hr>
         <%- include("./parcials/footer"); %>
   </body>
 
