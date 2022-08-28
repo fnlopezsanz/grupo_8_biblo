@@ -128,7 +128,7 @@ const usersController = {
         })
         .catch(error => console.log(error));
     } else {
-      db.Usuarios.findByPk(idEditado)
+/*       db.Usuarios.findByPk(idEditado)
         .then((encontrado) => {
           db.Usuarios.update({
             nombre: req.body.nombre,
@@ -150,7 +150,28 @@ const usersController = {
           })
           .catch(error => console.log(error));
         })
-        .catch((error) => res.send(error));        
+        .catch((error) => res.send(error));  */       
+      db.Usuarios.findByPk(idEditado)
+        .then((encontrado) => {
+          db.Usuarios.update({
+            nombre: req.body.nombre,
+            apellido: req.body.apellido,
+            email: req.body.email,
+          },
+          {
+            where: {
+              id: encontrado.id
+            },
+          })
+        })
+        .then(() => {
+            db.Usuarios.findByPk(idEditado)
+              .then((editado) => {
+                req.session.userLogged = editado;
+                res.redirect('/users/perfil/' + idEditado)
+              })
+        })
+        .catch(error => console.log(error));        
       }
   },
 

@@ -11,11 +11,11 @@ router.get("/create/",admMiddleware, productsController.crear);
 
 router.get("/:id", productsController.detalle);
 
+router.post("/store", fileUploadProductos.single('imagen'), admMiddleware, crearYEditarProductoMidd, productsController.store);
+
 router.get("/edit/:id",admMiddleware, productsController.editar);
 
-router.post("/store",admMiddleware, crearYEditarProductoMidd, fileUploadProductos.single('imagen'), productsController.store);
-
-router.put("/:id",admMiddleware, crearYEditarProductoMidd, fileUploadProductos.single('imagen'), productsController.update);
+router.put("/:id", fileUploadProductos.single('imagen'), admMiddleware, crearYEditarProductoMidd,  productsController.update);
 
 router.delete('/:id',admMiddleware, productsController.destroy);
 

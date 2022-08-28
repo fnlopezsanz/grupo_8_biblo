@@ -43,6 +43,7 @@ const productsController = {
       .catch(error => console.log(error));
 
   },
+
   store: (req, res) => {
     const resultValidation = validationResult(req);
     if (resultValidation.isEmpty()) {
@@ -53,7 +54,7 @@ const productsController = {
         id_categoria: req.body.id_categoria,
         descripcion: req.body.descripcion,
         precio: req.body.precio,
-        imagen: req.file.filename,
+        imagen: req.file?.filename,
         anio: req.body.anio
       })
         .then(productoGuardado => {
@@ -69,11 +70,13 @@ const productsController = {
 
       Promise.all([pedidoAutores, pedidoGeneros, pedidoCategorias])
         .then(function ([autores, generos, categorias]) {
+          console.log(resultValidation)
           res.render("products/crearProducto", { autores, generos, categorias, errors: resultValidation.mapped(), oldData: req.body })
         })
         .catch(error => console.log(error));
     }
   },
+
   editar: (req, res) => {
     db.Productos
       .findByPk(req.params.id)
@@ -122,12 +125,12 @@ const productsController = {
         imagen: req.file.filename,
         anio: req.body.anio
       }, {
-        were: {
-          idProducto
+        where: {
+          id: idProducto
         }
       })
         .then(productoGuardado => {
-          return res.redirect("products/detalleProducto")
+          return res.redirect("/products/" + idProducto)
         })
         .catch(error => console.log(error));
     }
