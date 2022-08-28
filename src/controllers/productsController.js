@@ -123,7 +123,7 @@ const productsController = {
         anio: req.body.anio
       }, {
         were: {
-          id: idProducto
+          idProducto
         }
       })
         .then(productoGuardado => {
@@ -150,11 +150,23 @@ const productsController = {
     // return res.redirect("/");
   },
   destroy: (req, res) => {
-    const products = readJsonFile(productsFilePath);
-    const productosFiltrados = products.filter(product => product.id != req.params.id);
+    const id = req.params.id;
+        db.Productos
+        .destroy(
+          { where: {
+             id 
+            }
+        })
+        .then(function(){
+            return res.redirect("/");
+        })
 
-    fs.writeFileSync(productsFilePath, JSON.stringify(productosFiltrados, null, 2));
-    return res.redirect("/");
+
+    // const products = readJsonFile(productsFilePath);
+    // const productosFiltrados = products.filter(product => product.id != req.params.id);
+
+    // fs.writeFileSync(productsFilePath, JSON.stringify(productosFiltrados, null, 2));
+    // return res.redirect("/");
   }
 };
 

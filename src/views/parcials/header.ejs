@@ -11,13 +11,6 @@
           <button type="submit"><i class="fas fa-search"></i></button>
         </form>
       </div>
-      <nav class="top-nav">
-        <ul>
-          <li><a href="#">Novedades</a></li>
-          <li><a href="#">Más vendidos</a></li>
-          <li><a href="#">Editoriales</a></li>
-        </ul>
-      </nav>
       <a href="/"><img src="/img/vistas/logo.jpg" alt="logo" class="logo"></a>
     </div>
     <div class="bottom-header">
@@ -30,12 +23,12 @@
       <nav class="bottom-nav">
         <ul>
           <% if(locals.isLogged) { %>
-            <li><a href="/users/perfil/<%= locals.userLogged.id %>" class="profile-box"><img class='profile' src="/img/users/<%= locals.userLogged.avatar %>" alt=""><p style="font-size: 15px;"><%= locals.userLogged.nombre %></p></a></li>
+            <li><a href="/users/perfil/<%= locals.userLogged.id %>" class="profile-box"><img class='profile' src="/img/users/<%= locals.userLogged.avatar %>" alt=""><%= locals.userLogged.nombre %></a></li>
             <% } else { %>
               <li><a href="/users/register">Creá tu cuenta</a></li>
               <li><a href="/users/login">Iniciar sesión</a></li>
               <% } %>
-              <li><i class="fas fa-book"></i><a href="/users/carrito">MI CARRITO</a></li>
+              <li><i class="fas fa-shopping-cart"></i><a href="/users/carrito">Ebooks</a></li>
             <% if (locals.isLogged) { %>
               <li>
                 <form action="/users/logout" method="get">

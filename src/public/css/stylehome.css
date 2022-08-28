@@ -60,34 +60,6 @@ html {
     margin: 2px 10px;
 }
 
-.top-nav {
-    display: none;
-}
-
-.top-nav ul {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-}
-
-.top-nav ul {
-    list-style-type: none;
-    display: flex;
-}
-
-.top-nav li {
-    margin: 0 5px;
-}
-
-.top-nav a {
-    color: white;
-    font-size: 12px;
-    font-weight: bold;
-    text-decoration: none;
-}
-
 .logo {
     max-width: 150px;
     max-height: 150px;
@@ -95,11 +67,12 @@ html {
 
 .search-bottom {
     display: none;
+    background-color: #e6eaed;
 }
 
 .bottom-nav {
     padding: 5px;
-    background-color: #8399a7;
+    background-color: #e6eaed;
 }
 
 .bottom-nav ul {
@@ -117,42 +90,44 @@ html {
 }
 
 .bottom-nav ul li a {
-    color: white;
+    color: #08344f;
     font-size: 12px;
     text-decoration: none;
 }
 
 .bottom-nav ul li a:hover {
-    color: black;
-    transition-duration: 800ms;
+    color: #748c9b;
+    font-size: 14px;
+    transition-duration: 1000ms;
 }
 
-
-.bottom-nav ul li i {
-    margin-left: 5px;
-}
-
-.fa-book {
+.fa-shopping-cart {
     color: #204860;
+    font-size: 14px;
     margin-right: 5px;
 }
 
 .fa-sign-out-alt {
-    font-size: 20px;
+    margin-top: 4px;
+    font-size: 16px;
     color: #204860;
-    margin-right: 5px;
 }
 
 .logout {
     background-color: none;
     border: none;
-    background-color: #8399a7;
+    background-color: #e6eaed;
+}
+
+.fa-sign-out-alt:hover {
+    color: lightblue;
+    font-size: 20px;
+    transition-duration: 800ms;
 }
 
 .profile {
     width: 50px;
     height: 50px;
-    border: 3px solid #204860;
     border-radius: 50%;
     margin-right: 10px;
 }
@@ -161,6 +136,7 @@ html {
     display: flex;
     align-items: center;
     font-size: 14px;
+    margin-top: 3px;
 }
 
 /*SECTION Y ARTICLES*/
@@ -193,7 +169,7 @@ html {
 #destacado {
     padding: 10px 0;
     margin-bottom: 10px;
-    background-color: #cdd6db;
+    background-color: #dce2e6;
 }
 
 h4 {
@@ -439,15 +415,11 @@ footer {
         display: none;
     }
 
-    .top-nav {
-        display: block;
-    }
-
     .bottom-header {
         display: flex;
         flex-wrap: wrap;
         align-items: baseline;
-        background-color: #8399a7;
+        background-color: #e6eaed;
     }
 
     .bottom-nav {
@@ -472,8 +444,8 @@ footer {
     }
 
     .search-bottom form {
-        align-items: center;
         width: 65%;
+        margin-top: 1px;
     }
 
     .search-bottom form input {
@@ -482,10 +454,11 @@ footer {
         border: none;
         border-radius: 5px;
         padding: 5px 0 5px 10px;
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .search-bottom form button {
+        font-size: 95%;
         position: absolute;
         right: 27%;
         bottom: 10%;

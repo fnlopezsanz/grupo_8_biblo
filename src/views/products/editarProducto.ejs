@@ -7,7 +7,7 @@
 
     <%- include("../parcials/headerAdmin.ejs"); %>
 
-      <form action="/products/<%= producto.id %>?_method=PUT" method="POST" class="form">
+      <form action="/products/<%= producto.id %>?_method=PUT" method="POST" class="form" enctype="multipart/form-data">
         <div>
           <h4>EDITAR PRODUCTO</h4>
         </div>
@@ -86,15 +86,15 @@
                   </div>
                    <% } %>
                 <div class="div-foto">
-                  <label for="" class="nombre-reg">Cambiar imagen del producto:</label>
+                  <label for="image" class="nombre-reg">Cambiar imagen del producto</label>
                   <img src="/img/products/<%= producto.imagen %>"" alt=" <%=producto.titulo %>"" class="libro-edit">
-                  <input type="file" name="imagen" id="imagen" accept=".jpg, .png">
+                  <input type="file" name="imagen" id="imagen" value="<%= producto.imagen %>" >
+                  <% if (locals.errors && errors.imagen) { %>
+                    <div class="invalid-feedback">
+                     <%= errors.imagen.msg %>
+                    </div>
+                     <% } %>
                 </div>
-                <% if (locals.errors && errors.imagen) { %>
-                  <div class="invalid-feedback">
-                   <%= errors.imagen.msg %>
-                  </div>
-                   <% } %>
                 <div class="div-bot">
                   <input type="submit" value="Editar producto" class="but-submit botones">
                 </div>

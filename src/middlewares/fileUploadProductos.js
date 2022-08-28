@@ -2,16 +2,16 @@ const multer = require('multer');
 const path = require('path');
 
 const multerDiskStorage = multer.diskStorage({
-    destination: (req, file, cb) => {
-      let folder = path.join(__dirname, '../public/img/products');
-      cb(null, folder);
-    },
-    filename: (req, file, cb) => {
-      let imageName = 'user-' + Date.now() + path.extname(file.originalname);
-      cb(null, imageName);
-      }
-  });
-  
- const fileUploadProductos = multer({ storage: multerDiskStorage });
+  destination: (req, file, cb) => {
+    let folder = path.join(__dirname, '../public/img/products');
+    cb(null, folder);
+  },
+  filename: (req, file, cb) => {
+    let imageName = file.fieldname + 'product-' + Date.now() + path.extname(file.originalname);
+    cb(null, imageName);
+  }
+});
 
- module.exports = fileUploadProductos;
+const fileUploadProductos = multer({ storage: multerDiskStorage });
+ 
+ module.exports = fileUploadProductos

@@ -7,11 +7,12 @@ const multerDiskStorage = multer.diskStorage({
       cb(null, folder);
     },
     filename: (req, file, cb) => {
-      let imageName = 'user-' + Date.now() + path.extname(file.originalname);
+      let imageName = file.fieldname + 'user-' + Date.now() + path.extname(file.originalname);
       cb(null, imageName);
       }
   });
   
  const fileUpload = multer({ storage: multerDiskStorage });
+ 
 
  module.exports = fileUpload;
