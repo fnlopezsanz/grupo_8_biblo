@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include("../parcials/head.ejs", {stylesheet: ["stylehome", "style_login" ]}); %>
+<%- include("../parcials/head.ejs", {stylesheet: ["stylehome", "style_login"]}); %>
 
   <body>
     <%- include("../parcials/header.ejs"); %>
@@ -43,14 +43,23 @@
                 <input type="submit" name="" value="Login">
               </div>
               <div class="links">
-                <p><a href="#">Recuperar Contraseña</a></p>
+                <p><a href="#">Recuperá tu contraseña</a></p>
                 <p><a href="/users/register">¿No tenés cuenta? Crea tu cuenta</a></p>
               </div>
             </div>
           </form>
         </section>
       </main>
-      <hr class="hr-r-l">
+      <section class="news">
+        <form action="" method="">
+          <label for="name" class="novedades">Novedades</label>
+          <div class="send-email">
+            <input type="text" placeholder="Nombre" id="name" class="name">
+            <input type="email" placeholder="Escribi tu email" class="email">
+            <button type="submit"><i class="fas fa-arrow-right"></i></button>
+          </div>
+        </form>
+      </section>
       <%- include("../parcials/footer.ejs"); %>
   </body>
 

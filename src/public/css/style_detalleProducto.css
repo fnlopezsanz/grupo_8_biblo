@@ -1,14 +1,6 @@
 * {
   box-sizing: border-box;
-  font-family: 'Epilogue', sans-serif;
-}
-
-p {
-  margin: 0;
-}
-
-.hr-rou {
-  margin-bottom: 0px;
+  font-family: 'Roboto', sans-serif;
 }
 
 main {
@@ -31,19 +23,18 @@ main section {
 }
 
 .container-producto {
-  width: 90%;
+  width: 95%;
   padding: 10px 0;
   margin: 15px auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #8399a7;
-  border-radius: 15px;
+  background: var(--bggrey);
   flex-wrap: wrap;
 }
 
 .container-producto img {
-  width: 40%;
+  width: 60%;
   margin: 20px 0px;
 }
 
@@ -55,50 +46,47 @@ main section {
 }
 
 .informacion-producto {
-  width: 98%;
+  width: 90%;
   display: flex;
   flex-wrap: wrap;
-  padding: 15px 15px;
-  background-color: #08344fac;
-  border-radius: 10px;
-  color: #e6eaed;
+  padding: 30px 15px;
+  background-color: white;
+  border-radius: 20px 0 20px 0;
+  color: var(--fontcolor);
 }
 
 .titulo {
   width: 100%;
   text-align: center;
-  font-size: 22px;
+  font-size: 16px;
   margin: 0;
-  padding-bottom: 15px;
-  font-weight: 900;
-  font-family: 'Titillium Web', sans-serif;
+  padding-bottom: 10px;
+  font-family: 'Yeseva One', cursive;
 }
 
 .desc {
   text-align: center;
   padding: 0 10px;
-  font-size: 14px;
-  font-weight: 600;
-  font-family: 'Titillium Web', sans-serif;
+  font-size: 12px;
+  font-weight: 200;
+  font-family: 'Roboto', sans-serif;
 }
 
 .data-prod {
   width: 100%;
   font-size: 12px;
-  font-weight: 600;
-  padding-bottom: 8px;
+  font-weight: 200;
   padding-left: 10px;
   text-align: center;
-  font-family: 'Titillium Web', sans-serif;
+  font-family: 'Yeseva One', cursive;
 }
 
 .price {
   width: 100%;
   padding: 10px;
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 14px;
+  font-weight: 900;
   text-align: center;
-  font-family: 'Titillium Web', sans-serif;
 }
 
 #otros-libros {
@@ -117,12 +105,12 @@ main section {
   width: 200px;
   margin-bottom: 10px;
   text-align: center;
+  font-size: 14px;
+  font-weight: 200;
 }
 
 .buy-now-button {
-  background-color: #204860;
-  font-size: 16px;
-  font-weight: bold;
+  background-color: var(--bgdark);
   color: #e6eaed;
   padding: 10px;
   border-radius: 8px;
@@ -132,7 +120,6 @@ main section {
 .action-button {
   border: none;
   border-radius: 8px;
-  font-size: 16px;
   color: #ffffff;
   padding: 10px 20px;
 }
@@ -143,45 +130,62 @@ main section {
 }
 
 .action-button.delete {
+  font-size: 12px;
   background-color: rgb(233, 98, 74);
+}
+
+.action-button.edit:hover,
+.buy-now-button:hover,
+.action-button.delete:hover {
+  font-size: 13px;
+  background-color: var(--hovercolor);
+  font-weight: 700;
 }
 
 .ver-otros {
   text-decoration: none;
-  font-size: 14px;
-  color: #e6eaed;
+  font-size: 13px;
+  color: var(--fontcolor);
   cursor: pointer;
   border-radius: 20px;
+  border: solid 1px var(--fontcolor);
   padding: 7px 10px;
   text-align: center;
-  background-color: #08344fac;
+  background-color: white;
   margin: 50px 0px;
   transition: all 350ms;
-  font-weight: 600;
-  font-family: 'Titillium Web', sans-serif;
+  font-weight: 200;
 }
 
 .ver-otros:hover {
-  background-color: #e6eaed;
-  color: #08344fac;
+  font-size: 14px;
+  background-color: var(--hovercolor);
+  font-weight: 700;
+  color: white;
 }
 
 @media (min-width: 481px) {
   .box-producto {
     justify-content: space-between;
+    width: 80%;
   }
 
-  .info-y-link {
-    width: 60%;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    margin-top: 20px;
+  .container-producto {
+    width: 85%;
   }
 
   .container-producto img {
-    max-width: 180px;
+    width: 30%;
+    max-width: 250px;
     max-height: 300px;
     align-self: flex-start;
+  }
+
+  .info-y-link {
+    width: 70%;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    margin-top: 15px;
   }
 
   .butt-container {
@@ -198,44 +202,12 @@ main section {
   }
 
   .price {
-    font-size: 20px;
+    font-size: 16px;
     text-align: end;
   }
   
   .data-prod {
-    font-size: 14px;
+    font-size: 12px;
     text-align: start;
   }
 }
-
-/*
-@media (max-width: 400px) {
-    .container-producto {
-    flex-direction: column;
-    flex-wrap: nowrap;
-    width: 100%;
-    height: 1200px;
-    border: 1px solid;
-    margin: 10px auto 0px auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    }
-
-    img {
-        width: 300px;
-        height: 300px;
-    }
-    
-    .informacion-producto {
-        width: 100%;
-        height: 600px;
-      
-        padding: 0px 10px;
-        margin: 30px 0px;
-        border-radius: 0px;
-        
-    
-    }
-}
-*/

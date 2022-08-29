@@ -61,8 +61,18 @@
             </section>
           </div>
         </main>
-        <hr>
-<%- include("../parcials/footer"); %>
+        <%- include("./parcials/roulette"); %>
+        <section class="news">
+          <form action="" method="">
+            <label for="name" class="novedades">Novedades</label>
+            <div class="send-email">
+              <input type="text" placeholder="Nombre" id="name" class="name">
+              <input type="email" placeholder="Escribi tu email" class="email">
+              <button type="submit"><i class="fas fa-arrow-right"></i></button>
+            </div>
+          </form>
+        </section>   
+       <%- include("../parcials/footer"); %>
   </body>
 
 </html>

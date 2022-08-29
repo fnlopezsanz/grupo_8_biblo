@@ -1,101 +1,121 @@
 * {
-    font-family: 'Epilogue', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+
+:root {
+    --bgdark: #08344F;
+    --icon: #204860;
+    --bgicons: #d7d5d580;
+    --bggrey: #e6eaed;
+    --destacado: #e6eaed;
+    --fontcolor: #5d676e;
+    --fontcolordark: #204860;
+    --bgmain: white;
+    --bgroulette: #e6eaed;
+    --hovercolor: #b0bec5;
+    --title: black;
+    --footerfont: #204860;
+    --footerbg: #e6eaed;
 }
 
 h5 {
-    font-family: 'Oswald', sans-serif;
-    font-size: 24px;
-    font-weight: bold;
+    font-family: 'Staatliches', cursive;
+    font-size: 34px;
     margin: auto;
-    text-align: center;
-    padding: 10px;
-}
-
-p, input, label {
-    font-size: 14px;
-}
-
-.hr-r-l {
-    margin: 0;
-    padding: 0; 
+    color: var(--fontcolor);
+    padding: 15px;
 }
 
 .login {
-    margin: 0;
-    background-color: #cdd6db80;
-    padding: 100px 20px;
+    background-color: white;
+    padding: 25px 20px 65px 20px;
 }
 
 .form-login {
     width: 90%;
-    background-color: white;
+    background-color: var(--destacado);
     margin: auto;
 }
 
 .box-form {
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.226);
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.143);
     border-radius: 4px;
 }
 
 .completar {
     margin: 10px 0;
-    border: solid 1px black;
+    background-color: white;
+    border: solid 3px var(--fontcolor);
 }
 
 .completar i {
-    padding: 10px;
+    padding: 12px;
+    background-color: white;
+    color: var(--fontcolor);
     margin: 0;
 }
 
 .completar input {
     border: none;
+    font-family: 'Roboto', serif;
+    font-weight: 200;
     margin: 0;
     padding: 10px;
+    font-size: 12px;
 }
 
 .invalid-feedback {
     color: red;
-    font-weight: 700;
-    font-family: 'Oswald', sans-serif;
-    font-size: 12px;
+    font-weight: 200;
+    font-family: 'Roboto', serif;
+    font-size: 11px;
     text-align: center;
   }
 
 .error {
-    font-family: 'Titillium Web', sans-serif;
+    font-family: 'Staatliches', cursive;
 }
 
 .recordame {
     margin: 10px;
-    font-family: 'Titillium Web', sans-serif;
+}
+
+.recordame label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--fontcolor);
 }
 
 .boton input  {
     font-size: 16px;
-    width: 150px;
+    width: 130px;
     padding: 10px;
     background-color: rgba(255, 255, 255, 0.637);
-    border: solid 1px #06293f59;
+    border: solid 1px #06293f3c;
     border-radius: 5px;
-    font-family: 'Titillium Web', sans-serif;
+    font-family: 'Staatliches', cursive;
+    color: var(--fontcolor);
 }
 
 .boton input:hover {
-    transition-duration: 700ms;
+    font-size: 18px;
+    transition-duration: 900ms;
     transform-style: flat;
     color: white;
-    background-color: rgba(6, 41, 63, 0.596)
+    background-color: var(--hovercolor)
 }
 
 .links p {
-    font-size: 12px;
     text-align: center;
-    color: #06293f;
-    font-family: 'Titillium Web', sans-serif;
+}
+
+.links p a {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--fontcolor);
 }
 
 @media (min-width: 481px) {
