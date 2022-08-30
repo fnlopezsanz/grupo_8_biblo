@@ -1,35 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include("../parcials/head.ejs", {stylesheet: ["stylehome", "style_login" ]}); %>
+<%- include("../parcials/head.ejs", {stylesheet: ["stylehome", "style_login" , "profile" ]}); %>
 
   <body>
-    <div class="" id="main-container">
-      <%- include("../parcials/header.ejs"); %>
-
-        
-          <div class="">
-            <div class="">
-              <img src="/img/users/<%= user.avatar %>" class="profile" width="200">
-
+    <%- include("../parcials/header.ejs"); %>
+      <main class="profile-main">
+          <div class="box-perfil">
+            <div class="image-conteiner" >
+              <div class="box-imagen">
+                <div>
+                  <img src="/img/users/<%= user.avatar %>" class="image-profile">
+                </div>
+                <div>
+                  <a href="/users/editarAvatar/<%= user.id %>" class="edit-image"><i class="fas fa-edit"></i>Editar</a>
+                </div>
+              </div>
             </div>
-            <div class="">
-              <h3>Hola <%= `${user.nombre} ${user.apellido}` %>
-              </h3>
-              <p class="font-abel">Tu email es: <a href="mailto:<%= user.email %>" class="mail">
-                  <%= user.email %>
-                </a></p>
-              <p class="font-abel">Tipo de usuario: <%= user.id_rol %>
-              </p>
-              <hr>
-
-              <a href="/users/editarUser/<%= user.id %>" class="mr-3 font-abel"><i class="fa fa-user pr-2" aria-hidden="true"></i>Editar datos de perfil</a>
-              <a href="/users/editarPass/<%= user.id %>" class="mr-3 font-abel"><i class="fa fa-user pr-2" aria-hidden="true"></i>Cambiar contraseña</a>
-              <a href="/users/editarAvatar/<%= user.id %>" class="mr-3 font-abel"><i class="fa fa-picture-o pr-2" aria-hidden="true"></i>Cambiar foto de perfil</a>
+            <div class="data-conteiner">
+              <div class="data-user">
+                <h4 class="user-name"><%= `${user.nombre} ${user.apellido}` %></h4>
+                <p class="user-email">Email: <a href="mailto:<%= user.email %>" class="mail"><%= user.email %></a></p>
+              </div>
+              <div class="edit-list">
+                <ul>
+                  <li>
+                    <a href="/users/editarUser/<%= user.id %>"><i class="fas fa-edit"></i>Editar perfil</a>
+                  </li>
+                  <li>
+                    <a href="/users/editarPass/<%= user.id %>"><i class="fas fa-edit"></i></i>Editar contraseña</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="admin-list">
+                <% if(user.id_rol==2){ %>
+                  <h3>Administrador</h3>
+                  <ul class="edit-adm-list">
+                    <li><a href="#">Listado de usuarios</a></li>
+                    <li><a href="#">Listado de productos</a></li>
+                    <li><a href="#">Crear producto</a></li>
+                  </ul>
+                  <% } %>
+                </div>
             </div>
-            <div class="col-12 col-md-2 py-1 text-center text-md-left"></div>
           </div>
-            <%- include("../parcials/footer.ejs"); %>
-    </div>
+      </main>
+      <%- include("../parcials/footer.ejs"); %>
   </body>
 
 </html>
