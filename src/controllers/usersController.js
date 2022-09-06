@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const db = require('../database/models');
+const Op = db.Sequelize.Op;
 const bcrypt = require('bcryptjs');
 const sequelize = db.sequelize;
 const { check, body, validationResult } = require('express-validator');
@@ -71,6 +72,7 @@ const usersController = {
   store: (req, res) => {
     const resultValidation = validationResult(req);
     if (resultValidation.isEmpty()) {
+      
       db.Usuarios
         .findOne({
           where: {
@@ -150,28 +152,63 @@ const usersController = {
           })
           .catch(error => console.log(error));
         })
-        .catch((error) => res.send(error));  */       
-      db.Usuarios.findByPk(idEditado)
-        .then((encontrado) => {
-          db.Usuarios.update({
-            nombre: req.body.nombre,
-            apellido: req.body.apellido,
-            email: req.body.email,
-          },
-          {
-            where: {
-              id: encontrado.id
-            },
-          })
+        .catch((error) => res.send(error));  */
+      db.Usuarios
+        .findOne({
+          where: {
+            email: req.body.email
+          }
         })
-        .then(() => {
+        .then(userInDb => {
+          if (!userInDb) {
             db.Usuarios.findByPk(idEditado)
-              .then((editado) => {
-                req.session.userLogged = editado;
-                res.redirect('/users/perfil/' + idEditado)
+              .then((encontrado) => {
+                db.Usuarios.update({
+                  nombre: req.body.nombre,
+                  apellido: req.body.apellido,
+                  email: req.body.email,
+                },
+                  {
+                    where: { id: idEditado },
+                  }
+                )
               })
-        })
-        .catch(error => console.log(error));        
+              .then((userUpdated) => {
+                db.Usuarios.findByPk(idEditado)
+                  .then((editado) => {
+                    req.session.userLogged = editado;
+                    return res.redirect('/users/perfil/' + idEditado)
+                  })
+              })
+          } else if (req.body.email == userInDb.email && idEditado != userInDb.id) {
+            db.Usuarios.findByPk(req.params.id)
+              .then(function (user) {
+                let mensajeError = "Este email ya se encuentra registrado"
+                return res.render("users/editarUser", { mensajeError, oldData: req.body, user })
+              })      
+          } else {
+            db.Usuarios.findByPk(idEditado)
+              .then((encontrado) => {
+                db.Usuarios.update({
+                  nombre: req.body.nombre,
+                  apellido: req.body.apellido,
+                  email: req.body.email,
+                },
+                  {
+                    where: { id: idEditado },
+                  }
+                )
+              })
+              .then((userUpdated) => {
+                db.Usuarios.findByPk(idEditado)
+                  .then((editado) => {
+                    req.session.userLogged = editado;
+                    return res.redirect('/users/perfil/' + idEditado)
+                  })
+              })
+          }
+        })    
+          .catch(error => console.log(error));        
       }
   },
 

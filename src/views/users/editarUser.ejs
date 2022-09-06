@@ -39,6 +39,11 @@
                       <%= errors.email.msg %>
                     </div>
                     <% } %>
+                  <% if (locals.mensajeError) { %>
+                    <div class="invalid-feedback">
+                      <%= mensajeError %>
+                    </div>
+                    <% } %>
                 </div>
             <div class="box-form-3">
               <div>
