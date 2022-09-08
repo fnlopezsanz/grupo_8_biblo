@@ -7,6 +7,13 @@ const admMiddleware = require("../middlewares/admMiddleware");
 const crearYEditarProductoMidd = require("../middlewares/crearYEditarProductoMidd");
 
 
+
+router.get("/bestsellers", productsController.bestsellers)
+
+router.get("/nuevos-lanzamientos", productsController.lanzamientos)
+
+router.get("/del-autor", productsController.delautor)
+
 router.get("/create/",admMiddleware, productsController.crear);
 
 router.get("/:id", productsController.detalle);

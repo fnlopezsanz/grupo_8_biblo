@@ -1,14 +1,8 @@
-const fs = require("fs");
 const path = require("path");
 const db = require('../database/models');
 const { validationResult } = require('express-validator');
 const sequelize = db.sequelize;
 const moment = require('moment');
-
-const productsFilePath = path.join(__dirname, '../db/productsDataBase.json');
-const readJsonFile = (path) => {
-  return JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-}
 
 const productsController = {
   detalle: (req, res) => {
@@ -95,6 +89,7 @@ const productsController = {
       })
       .catch(error => console.log)
   },
+
   update: (req, res) => {
     const resultValidation = validationResult(req);
     const idProducto = req.params.id
@@ -134,24 +129,8 @@ const productsController = {
         })
         .catch(error => console.log(error));
     }
-
-    // const products = readJsonFile(productsFilePath)
-    // for (let i = 0; i < products.length; i++) {
-    //   if (products[i].id == req.params.id) {
-    //     products[i] = {
-    //       ...products[i],
-    //       titulo: req.body.titulo,
-    //       autor: req.body.autor,
-    //       genero: req.body.genero,
-    //       categoria: req.body.categoria,
-    //       descripcion: req.body.descripcion,
-    //       precio: req.body.precio
-    //     }
-    //   }
-    // };
-    // fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
-    // return res.redirect("/");
   },
+
   destroy: (req, res) => {
     const id = req.params.id;
         db.Productos
@@ -163,14 +142,36 @@ const productsController = {
         .then(function(){
             return res.redirect("/");
         })
+  },
 
+  bestsellers: (req,res) => {
+    db.Productos
+        .findAll()
+        .then(productos => {
+            const bestseller = productos.filter(product => product.id_categoria == 1)
+            return res.render("products/bestsellers", { bestseller });
+        })
+        .catch(error => console.log(error));
+},
 
-    // const products = readJsonFile(productsFilePath);
-    // const productosFiltrados = products.filter(product => product.id != req.params.id);
+lanzamientos: (req,res) => {
+    db.Productos
+        .findAll()
+        .then(productos => {
+          const nuevosLanzamientos = productos.filter(product => product.id_categoria == 3);
+            return res.render("products/nuevos-lanzamientos", { nuevosLanzamientos });
+        })
+        .catch(error => console.log(error));
+},
 
-    // fs.writeFileSync(productsFilePath, JSON.stringify(productosFiltrados, null, 2));
-    // return res.redirect("/");
-  }
+delautor: (req,res) => {
+  db.Productos
+        .findAll()
+        .then(productos => {
+          
+        })
+        .catch(error => console.log(error));
+}
 };
 
 module.exports = productsController;

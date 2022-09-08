@@ -11,7 +11,7 @@ const userLogMiddleware = require("./middlewares/userLogMiddleware");
 
 app.use(methodOverride('_method'));
 app.use(express.json());
-app.use(session({secret: '¡sh!', resave: false, saveUninitialized: false}));
+app.use(session({ secret: '¡sh!', resave: false, saveUninitialized: false }));
 
 app.use(cookieParser());
 
@@ -38,6 +38,11 @@ app.set("views", path.join(__dirname, "/views"));
 app.use("/", mainRoutes);
 app.use("/users", usersRoutes);
 app.use("/products", productsRoutes);
+
+
+app.use((req, res, next) => {
+    res.status(404).render('not-found')
+})
 
 app.listen(PORT, () => {
     console.log(`Servidor funcionando en puerto ${PORT}`)

@@ -31,7 +31,7 @@
           </section>
           <section class="box-top">
             <div class="top-section">
-              <h3><a href="#">Bestsellers</a></h3>
+              <h3><a href="/products/bestsellers">Bestsellers</a></h3>
               <% for(let i=0; i < bestseller.length; i++){ %>
                   <article>
                     <a href="/products/<%= bestseller[i].id %>"><img src="/img/products/<%= bestseller[i].imagen %>"
@@ -54,7 +54,7 @@
         </div>
           <section class="box-bottom">
             <div class="bottom-section">
-              <h3><a href="#">Nuevos Lanzamientos</a></h3>
+              <h3><a href="/products/nuevos-lanzamientos">Nuevos Lanzamientos</a></h3>
               <% for(let i=0; i < nuevosLanzamientos.length; i++){ %>
                 <% if(nuevosLanzamientos[i].id_categoria == 3 ){ %>
                   <article>

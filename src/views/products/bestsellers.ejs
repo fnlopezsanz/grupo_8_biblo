@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("../parcials/head", {stylesheet: ["stylehome"]}) %>
+
+    <body>
+        <%- include("../parcials/header"); %>
+        <main>
+            <h3><a href="#">Bestsellers</a></h3>
+            <div class="top-section">
+                <% for(let i=0; i < bestseller.length; i++){ %>
+                    <article>
+                      <a href="/products/<%= bestseller[i].id %>"><img src="/img/products/<%= bestseller[i].imagen %>"
+                          alt="<%= bestseller[i].titulo %>"></a>
+                      <div class="box-book">
+                        <p class="title">
+                          <%= bestseller[i].titulo %>
+                        </p>
+                        <p class="price">
+                         $ <%= bestseller[i].precio %>
+                        </p>
+                        <p class="book-description">
+                          <%= bestseller[i].descripcion %>
+                        </p>
+                      </div>
+                    </article>
+                    <% } %>
+              </div>
+        </main>
+            <%- include("../parcials/footer"); %>
+    </body>
+
+</html>

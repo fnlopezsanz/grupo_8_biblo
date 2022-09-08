@@ -1,16 +1,9 @@
-const fs = require("fs");
 const path = require("path");
 const db = require('../database/models');
 const Op = db.Sequelize.Op;
 const bcrypt = require('bcryptjs');
 const sequelize = db.sequelize;
 const { check, body, validationResult } = require('express-validator');
-
-
-const usersFilePath = path.join(__dirname, '../db/users.json');
-const readJsonFile = (path) => {
-  return JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
-}
 
 const usersController = {
   login: (req, res) => {
@@ -106,7 +99,7 @@ const usersController = {
   },
 
   carrito: (req, res) => {
-    res.render("carrito")
+    res.render("users/carrito")
   },
 
   edit: function (req, res) {
@@ -130,29 +123,6 @@ const usersController = {
         })
         .catch(error => console.log(error));
     } else {
-/*       db.Usuarios.findByPk(idEditado)
-        .then((encontrado) => {
-          db.Usuarios.update({
-            nombre: req.body.nombre,
-            apellido: req.body.apellido,
-            email: req.body.email,
-          },
-          {
-            where: {
-              id: encontrado.id
-            },
-          })
-          .then(() => {
-            db.Usuarios.findByPk(idEditado)
-              .then((editado) => {
-                req.session.userLogged = editado;
-                res.redirect('/users/perfil/' + idEditado)
-              })
-              .catch((error) => res.send(error));
-          })
-          .catch(error => console.log(error));
-        })
-        .catch((error) => res.send(error));  */
       db.Usuarios
         .findOne({
           where: {
@@ -291,6 +261,13 @@ const usersController = {
     res.clearCookie('recordame');
     req.session.destroy();
     res.redirect('/')
+  },
+
+  userlist: (req, res) => {
+    db.Usuarios.findAll()
+      .then(function (users) {
+        res.render('users/users-list', { users });
+      })
   }
 
 };

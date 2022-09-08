@@ -14,6 +14,7 @@ const editUserMiddleware = require("../middlewares/editUserMiddleware");
 const validationEditPassword = require("../middlewares/validationEditPassword");
 const validationUpdateUser = require("../middlewares/validationUpdateUser");
 const validationUpdateAvatar = require("../middlewares/validationUpdateAvatar");
+const admMiddleware = require("../middlewares/admMiddleware");
 
 
 router.get("/login", guestMiddleware, usersController.login);
@@ -27,6 +28,9 @@ router.post("/store", fileUpload.single('imagen'), validationRegister, usersCont
 router.get("/carrito", usersController.carrito);
 
 router.get('/perfil/:id', authMiddleware, usersController.perfil);
+
+/*Lista de usuarios*/
+router.get("/users-list", admMiddleware, usersController.userlist)
 
 /* EDIT USUARIO */
 router.get('/editarUser/:id', editUserMiddleware, usersController.edit);
