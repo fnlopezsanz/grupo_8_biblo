@@ -5,15 +5,17 @@
 
   <body>
     <%- include("../parcials/header.ejs"); %>
+    <!-- <script src="/js/validateRegisterFront.js"></script> -->
       <main class="main-register">
         <section class="form-register">
-          <form action="/users/store" method="post" class="register" enctype="multipart/form-data">
+          <form action="/users/store" method="post" class="register" id="form" enctype="multipart/form-data">
             <div class="contenedor">
               <div class="box-form-1">
                 <h5>CREA TU CUENTA</h5>
                 <div class="box">
                 <p class="textos">Nombre</p>
-                  <input class="completar" type="text" name="nombre" value="<%= locals.oldData ? oldData.nombre : null %>">
+                  <input class="completar" type="text" name="nombre" id="nombre" value="<%= locals.oldData ? oldData.nombre : null %>">
+                  <div id="nombreError" class="invalid-feedback"></div>
                   <% if (locals.errors && errors.nombre) { %>
                      <div class="invalid-feedback">
                       <%= errors.nombre.msg %>
@@ -22,7 +24,8 @@
                 </div>
                 <div class="box">
                 <p class="textos">Apellido</p>
-                  <input class="completar" type="text" name="apellido" value="<%= locals.oldData ? oldData.apellido : null %>">
+                  <input class="completar" type="text" name="apellido" id="apellido" value="<%= locals.oldData ? oldData.apellido : null %>">
+                  <div id="apellidoError" class="invalid-feedback"></div>
                   <% if (locals.errors && errors.apellido) { %>
                     <div class="invalid-feedback">
                       <%= errors.apellido.msg %>
@@ -31,7 +34,8 @@
                 </div>
                 <div class="box">
                 <p class="textos">Email</p>
-                  <input class="completar" type="text" name="email" value="<%= locals.oldData ? oldData.email : null %>" placeholder="ejemplo@ejemplo.com">
+                  <input class="completar" type="text" name="email" id="email" value="<%= locals.oldData ? oldData.email : null %>" placeholder="ejemplo@ejemplo.com">
+                  <div id="emailError" class="invalid-feedback"></div>
                   <% if (locals.errors && errors.email) { %>
                     <div class="invalid-feedback">
                       <%= errors.email.msg %>
@@ -45,7 +49,8 @@
                 </div>
                 <div class="box">
                 <p class="textos">Contraseña</p>
-                  <input class="completar" type="password" name="password" value="" placeholder="Mínimo 8 caracteres">
+                  <input class="completar" type="password" name="password" id="password" value="" placeholder="Mínimo 8 caracteres">
+                  <div id="passwordError" class="invalid-feedback"></div>
                   <% if (locals.errors && errors.password) { %>
                     <div class="invalid-feedback">
                       <%= errors.password.msg %>
@@ -88,6 +93,7 @@
         </form>
       </section>
       <%- include("../parcials/footer.ejs"); %>
+      <script src="/js/validateRegisterFront.js"></script>
   </body>
 
 </html>
