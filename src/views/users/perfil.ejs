@@ -24,20 +24,20 @@
               <div class="edit-list">
                 <ul>
                   <li>
-                    <a href="/users/editarUser/<%= user.id %>"><i class="fas fa-edit"></i>Editar perfil</a>
+                    <a href="/users/editarUser/<%= user.id %>"><i class="fas fa-edit"></i> Editar perfil</a>
                   </li>
                   <li>
-                    <a href="/users/editarPass/<%= user.id %>"><i class="fas fa-edit"></i></i>Editar contraseña</a>
+                    <a href="/users/editarPass/<%= user.id %>"><i class="fas fa-edit"></i></i> Editar contraseña</a>
                   </li>
                 </ul>
               </div>
               <div class="admin-list">
                 <% if(user.id_rol==2){ %>
-                  <h3>Administrador</h3>
+                  <p class="text-adm">Administrador</p>
                   <ul class="edit-adm-list">
-                    <li><a href="/users/users-list/">Listado de usuarios</a></li>
-                    <li><a href="#">Listado de productos</a></li>
-                    <li><a href="/products/create">Crear producto</a></li>
+                    <li class="list-adm"><a href="/users/users-list/">Listado de usuarios</a></li>
+                    <li class="list-adm"><a href="#">Listado de productos</a></li>
+                    <li class="list-adm"><a href="/products/create">Crear producto</a></li>
                   </ul>
                   <% } %>
                 </div>

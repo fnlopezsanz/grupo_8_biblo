@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include("../parcials/head", {stylesheet: ["stylehome"]}) %>
+<%- include("../parcials/head", {stylesheet: ["stylehome", "nl-b"]}) %>
 
     <body>
         <%- include("../parcials/header"); %>
         <main>
-            <div class="bottom-section">
-                <h3><a href="#">Nuevos Lanzamientos</a></h3>
+          <h1 class="title-h1">Nuevos Lanzamientos</h1>
+            <div class="box-ebooks">
                 <% for(let i=0; i < nuevosLanzamientos.length; i++){ %>
                     <article>
-                      <a href="/products/<%= nuevosLanzamientos[i].id %>"><img src="/img/products/<%= nuevosLanzamientos[i].imagen %>"
-                          alt="<%= nuevosLanzamientos[i].titulo %>" width="150px"></a>
-                      <div class="box-book">
-                        <p class="title">
-                          <%= nuevosLanzamientos[i].titulo %>
+                      <div class="ebook">
+                        <a href="/products/<%= nuevosLanzamientos[i].id %>"><img src="/img/products/<%= nuevosLanzamientos[i].imagen %>"
+                            alt="<%= nuevosLanzamientos[i].titulo %>" class="imagen-ebook"></a>
+                        <p class="ebook-title">
+                            <%= nuevosLanzamientos[i].titulo %>
                         </p>
                       </div>
                     </article>

@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include("../parcials/head", {stylesheet: ["stylehome"]}) %>
+<%- include("../parcials/head", {stylesheet: ["stylehome", "nl-b"]}) %>
 
     <body>
         <%- include("../parcials/header"); %>
         <main>
-            <h3><a href="#">Bestsellers</a></h3>
-            <div class="top-section">
+          <h1 class="title-h1">Bestsellers</h1>
+            <div class="box-ebooks">
                 <% for(let i=0; i < bestseller.length; i++){ %>
                     <article>
-                      <a href="/products/<%= bestseller[i].id %>"><img src="/img/products/<%= bestseller[i].imagen %>"
-                          alt="<%= bestseller[i].titulo %>" width="150px"></a>
-                      <div class="box-book">
-                        <p class="title">
+                      <div class="ebook">
+                       <a href="/products/<%= bestseller[i].id %>"><img src="/img/products/<%= bestseller[i].imagen %>"
+                          alt="<%= bestseller[i].titulo %>" class="imagen-ebook"></a>
+                       <p class="ebook-title">
                           <%= bestseller[i].titulo %>
-                        </p>
-                      </div>
+                       </p>
+                    </div>
                     </article>
                 <% } %>
               </div>

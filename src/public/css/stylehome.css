@@ -44,15 +44,39 @@ main {
 
 .burger {
     width: 10%;
-    text-align: center;
 }
 
-.burger button,
-.burger i {
-    font-size: 24px;
-    color: white;
-    border: none;
-    background-color: var(--bgdark);
+.button-burger {
+    display: flex;
+    flex-direction: column;
+    width: 2rem;
+    height: 2rem;
+    border: 0;
+    margin-top: 11px;
+    margin-left: 11px;
+    background: transparent;
+    gap: .40rem;
+}
+
+.button-burger div {
+    height: 2px;
+    width: 100%;
+    background: white;
+    border-radius: 5px;
+    transition: all .5s;
+    transform-origin: left;
+}
+
+.button-burger:hover div:first-child {
+    transform: rotate(45deg);
+}
+
+.button-burger:hover div:nth-child(2) {
+    opacity: 0;
+}
+
+.button-burger:hover div:last-child {
+    transform: rotate(-45deg);
 }
 
 .search-top {
@@ -278,7 +302,7 @@ h3 {
 
 h3 a {
     font-family: 'Roboto', serif;
-    font-size: 35px;
+    font-size: 30px;
     text-decoration: none;
     font-weight: bold;
     color: var(--fontcolor);
@@ -542,6 +566,11 @@ footer {
 
     .f-left p {
         padding: 0;
+        font-size: 14px;
+    }
+
+    .f-left ul a i {
+        margin: 8px 5px;
     }
 
     .f-right {
@@ -717,8 +746,6 @@ footer {
             animation-timing-function: ease-out;
         }
     }
-
-
 
     .top {
         display: flex;

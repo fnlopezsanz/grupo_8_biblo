@@ -8,6 +8,7 @@
     --aroimage: rgba(186, 196, 203, 0.62);
     --iconedit: rgba(0, 0, 0, 0.556);
     --dataconteinerbg: white;
+    --listadm: #5d9ec7d4;
 }
 
 .profile-main {
@@ -97,13 +98,33 @@ a {
     color: var(--iconedit);
 }
 
-.adm-list,
 .user-name {
     color: black;
+}
+
+.text-adm {
+    margin: 0;
+    font-size: 24px;
+    font-family: 'Staatliches', cursive;
+}
+
+.list-adm {
+    text-align: center;
+}
+
+.list-adm a {
+    color: var(--listadm);
 }
 
 @media (min-width: 480px) {
     .edit-adm-list {
         text-align: start;
     }
+
+    .admin-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
 }
