@@ -41,7 +41,7 @@ app.use("/products", productsRoutes);
 
 
 app.use((req, res, next) => {
-    res.status(404).render('not-found')
+    res.status(404).redirect("/")
 })
 
 app.listen(PORT, () => {

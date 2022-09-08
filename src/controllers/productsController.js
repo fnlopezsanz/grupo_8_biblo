@@ -165,12 +165,17 @@ lanzamientos: (req,res) => {
 },
 
 delautor: (req,res) => {
-  db.Productos
-        .findAll()
-        .then(productos => {
-          
-        })
-        .catch(error => console.log(error));
+  db.Productos.findAll()
+  .then(productos => {
+    let idAutor = req.params.id
+    const autor = db.Autores.findByPk(idAutor)
+    const ebooksAutor = productos.filter(product => product.id_autor == idAutor);
+    Promise.all([autor])
+            .then(function ([autor]) {
+              return res.render("products/del-autor", { ebooksAutor, autor })
+            })
+            .catch(error => console.log(error));
+  })
 }
 };
 

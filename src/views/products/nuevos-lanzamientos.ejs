@@ -9,24 +9,16 @@
             <div class="bottom-section">
                 <h3><a href="#">Nuevos Lanzamientos</a></h3>
                 <% for(let i=0; i < nuevosLanzamientos.length; i++){ %>
-                  <% if(nuevosLanzamientos[i].id_categoria == 3 ){ %>
                     <article>
                       <a href="/products/<%= nuevosLanzamientos[i].id %>"><img src="/img/products/<%= nuevosLanzamientos[i].imagen %>"
-                          alt="<%= nuevosLanzamientos[i].titulo %>"></a>
+                          alt="<%= nuevosLanzamientos[i].titulo %>" width="150px"></a>
                       <div class="box-book">
                         <p class="title">
                           <%= nuevosLanzamientos[i].titulo %>
                         </p>
-                        <p class="price">
-                          $ <%= nuevosLanzamientos[i].precio %>
-                        </p>
-                        <p class="book-description">
-                          <%= nuevosLanzamientos[i].descripcion %>
-                        </p>
                       </div>
                     </article>
                     <% } %>
-                      <% } %>
               </div>
         </main>
             <%- include("../parcials/footer"); %>

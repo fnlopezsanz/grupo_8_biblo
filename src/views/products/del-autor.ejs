@@ -6,7 +6,14 @@
     <body>
         <%- include("../parcials/header"); %>
         <main>
-        <p>for por libros de autor</p>
+            <div>
+                <h3><%= autor.fullname %></h3>
+                <ul>
+                    <% for(let i=0; i < ebooksAutor.length; i++){ %>
+                        <li><a href="products/<%= ebooksAutor[i].id %>"><img src="/img/products/<%= ebooksAutor[i].imagen %>" alt="<%= ebooksAutor[i].titulo %>" width="150px"></a><%= ebooksAutor[i].titulo %></li>
+                    <% } %>
+                </ul>
+            </div>
         </main>
             <%- include("../parcials/footer"); %>
     </body>

@@ -12,7 +12,7 @@ router.get("/bestsellers", productsController.bestsellers)
 
 router.get("/nuevos-lanzamientos", productsController.lanzamientos)
 
-router.get("/del-autor", productsController.delautor)
+router.get("/del-autor/:id", productsController.delautor)
 
 router.get("/create/",admMiddleware, productsController.crear);
 
