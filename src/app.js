@@ -29,6 +29,9 @@ const mainController = require("./controllers/mainController");
 const usersController = require("./controllers/usersController");
 const productsController = require("./controllers/productsController");
 
+const apiProductsRoutes = require('./routes/api/apiProductsRoute');
+const apiUsersRoutes = require('./routes/api/apiUsersRoute');
+
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views"));
@@ -38,6 +41,8 @@ app.set("views", path.join(__dirname, "/views"));
 app.use("/", mainRoutes);
 app.use("/users", usersRoutes);
 app.use("/products", productsRoutes);
+app.use("/api/products", apiProductsRoutes);
+app.use("/api/users", apiUsersRoutes);
 
 
 app.use((req, res, next) => {

@@ -14,16 +14,26 @@ window.addEventListener('load', function() {
   const passwordError = document.querySelector('#passwordError');
   const imageError = document.querySelector('#imageError');
 
+  const campos = {
+    nombre: false,
+    apellido: false,
+    email: false,
+    password: false,
+    image: true,
+  }
+
 // Funciones
 // Mínimo 2 caracteres para Nombre y Apellido
   function validateLength(valueInput, divInput, divError) {
     if (valueInput.length < 2) {
       showError(divInput, divError);
+      campos[divInput] = false;
     } else {
       hideError(divInput, divError);
+      campos[divInput] = true;
     }
   }
-
+  
   // Muestra borde rojo del input y div con texto de error para Nombre y Apellido
   function showError(divInput, divError) {
     divInput.style.border = "1px solid coral";
@@ -43,27 +53,32 @@ window.addEventListener('load', function() {
     if(regExpEmail.test(valueInput)) {
       divInput.style.border = "";
       emailError.innerHTML = "";
+      campos[divInput] = true;
+      console.log(campos[divInput], campos)
     } else {
       divInput.style.border = "1px solid coral";
       emailError.innerHTML = "Debe introducir un formato de correo válido"
+      campos[divInput] = false;
     }
   }
   
   // Valida password a partir de expresiones regulares. Debe contener 1 may, 1 min, 1 número y 1 caracter especial
   function validatePassword(valueInput, divInput) {
     let regExpPassword = /^(?=[\x21-\x7E]*[0-9])(?=[\x21-\x7E]*[A-Z])(?=[\x21-\x7E]*[a-z])(?=[\x21-\x7E]*[\x21-\x2F|\x3A-\x40|\x5B-\x60|\x7B-\x7E])[\x21-\x7E]{8,}$/
-
+    
     if (regExpPassword.test(valueInput)) {
       divInput.style.border = "";
       passwordError.innerHTML = "";
+      campos[divInput] = true;
     } else {
       divInput.style.border = "1px solid coral";
       passwordError.innerHTML = "Debe introducir una contraseña válida"
+      campos[divInput] = false;
     }
   }
 
   function validateImage(valueInput) {
-    let regExpExtension = /[^\\s]+(\\.(jpeg|png|gif|jpg))$/
+    let regExpExtension = /[^\\s]+(\\(.jpeg|.png|.gif|.jpg))$/
     console.log(regExpExtension.test(valueInput), valueInput)
     /* if(!regExpExtension.exec(valueInput)) {
       divInput.style.border = "1px solid coral";
@@ -73,27 +88,53 @@ window.addEventListener('load', function() {
       divInput.style.border = "";
       imageError.innerHTML = "";
     }*/
-  } 
-  validateImage(image.value)
-//Eventos
-  nombre.addEventListener('blur', function() {
+  }
+//Eventos Blur
+nombre.addEventListener('blur', function() {
+  validateLength(nombre.value, nombre, nombreError);
+})
+
+apellido.addEventListener('blur', function() {
+  validateLength(apellido.value, apellido, apellidoError);
+})
+
+email.addEventListener('blur', function() {
+  validateEmail(email.value, email)
+})
+
+password.addEventListener('blur', function() {
+  validatePassword(password.value, password)
+})
+
+//Eventos Keyup
+  nombre.addEventListener('keyup', function() {
     validateLength(nombre.value, nombre, nombreError);
   })
   
-  apellido.addEventListener('blur', function() {
+  apellido.addEventListener('keyup', function() {
     validateLength(apellido.value, apellido, apellidoError);
   })
   
-  email.addEventListener('blur', function() {
+  email.addEventListener('keyup', function() {
     validateEmail(email.value, email)
   })
   
-  password.addEventListener('blur', function() {
+  password.addEventListener('keyup', function() {
     validatePassword(password.value, password)
   })
   
   image.addEventListener('change', function() {
     validateImage(image.value)
   })
- 
+
+  formulario.addEventListener('submit', e => {
+    if (campos.nombre && campos.apellido && campos.email && campos.password && campos.image) {
+      formulario.reset()
+      console.log(campos)
+    } else {
+      e.preventDefault();
+      console.log(campos)
+    }
+  })
+
 })

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include("../parcials/head.ejs", {stylesheet: ["stylehome", "style_login"]}); %>
+<%- include("../parcials/head.ejs", {stylesheet: ["stylehome", "style_login" ]}); %>
 
   <body>
     <%- include("../parcials/header.ejs"); %>
@@ -13,39 +13,44 @@
               <div class="box-login">
                 <div class="completar">
                   <i class="fas fa-user-circle"></i>
-                  <input type="text" name="email" value="<%= locals.oldData ? oldData.email : null %>" placeholder="Email">
+                  <input type="text" name="email" id="email" value="<%= locals.oldData ? oldData.email : null %>"
+                    placeholder="Email">
                 </div>
+                <div id="emailError" class="invalid-feedback"></div>
                 <% if (locals.errors && errors.email) { %>
                   <div class="invalid-feedback">
                     <%= errors.email.msg %>
                   </div>
                   <% } %>
-                <div class="completar">
-                  <i class="fas fa-lock"></i>
-                  <input type="password" name="password" value="" placeholder="Contraseña">
-                </div>
-                <% if (locals.errors && errors.password) { %>
-                  <div class="invalid-feedback">
-                    <%= errors.password.msg %>
-                  </div>
-                  <% } %>
+                    <div class="completar">
+                      <i class="fas fa-lock"></i>
+                      <input type="password" name="password" value="" id="password" placeholder="Contraseña">
+                    </div>
+                    <div id="passwordError" class="invalid-feedback"></div>
+                    <% if (locals.errors && errors.password) { %>
+                      <div class="invalid-feedback">
+                        <%= errors.password.msg %>
+                      </div>
+                      <% } %>
               </div>
               <% if (locals.mensajeError) { %>
                 <div class="invalid-feedback">
-                  <p class="error"><%= mensajeError %></p>
+                  <p class="error">
+                    <%= mensajeError %>
+                  </p>
                 </div>
                 <% } %>
-              <div class="recordame">
-                <input type="checkbox" name="recordame">
-                <label for="">Recordame</label>
-              </div>
-              <div class="boton">
-                <input type="submit" name="" value="Login">
-              </div>
-              <div class="links">
-                <p><a href="#">Recuperá tu contraseña</a></p>
-                <p><a href="/users/register">¿No tenés cuenta? Crea tu cuenta</a></p>
-              </div>
+                  <div class="recordame">
+                    <input type="checkbox" name="recordame">
+                    <label for="">Recordame</label>
+                  </div>
+                  <div class="boton">
+                    <input type="submit" name="" value="Login">
+                  </div>
+                  <div class="links">
+                    <p><a href="#">Recuperá tu contraseña</a></p>
+                    <p><a href="/users/register">¿No tenés cuenta? Crea tu cuenta</a></p>
+                  </div>
             </div>
           </form>
         </section>
@@ -61,6 +66,7 @@
         </form>
       </section>
       <%- include("../parcials/footer.ejs"); %>
+        <script src="/js/validateLoginFront.js"></script>
   </body>
 
 </html>
