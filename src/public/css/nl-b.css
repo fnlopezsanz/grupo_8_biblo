@@ -1,3 +1,8 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
 .title-h1 {
     color: rgba(224, 91, 91, 0.769);
     font-family: 'Staatliches', cursive;
@@ -31,9 +36,12 @@
     }
 
     .box-ebooks {
+        width: 100%;
         display: flex;
+        flex-wrap: wrap;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: flex-start;
         align-items: baseline;
+        padding: 30px;
     }
 }

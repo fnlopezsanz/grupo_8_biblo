@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("../parcials/head", { stylesheet: ["stylehome","nl-b"] }) %>
+
+    <body>
+        <%- include("../parcials/header"); %>
+        <main>
+            <h1 class="title-h1">¡Todos nuestros libros!</h1>
+            <div class="box-ebooks">
+                <% for(let i=0; i < productos.length; i++){ %>
+                    <article>
+                      <div class="ebook">
+                       <a href="/products/<%= productos[i].id %>"><img src="/img/products/<%= productos[i].imagen %>"
+                          alt="<%= productos[i].titulo %>" class="imagen-ebook"></a>
+                       <p class="ebook-title">
+                          <%= productos[i].titulo %>
+                       </p>
+                    </div>
+                    </article>
+                <% } %>
+              </div>
+        </main>
+            <%- include("../parcials/footer"); %>
+    </body>
+
+</html>

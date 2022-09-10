@@ -5,6 +5,17 @@ const sequelize = db.sequelize;
 const moment = require('moment');
 
 const productsController = {
+  list: (req, res) => {
+    db.Productos.findAll({
+      order: [
+        ['anio', 'DESC']
+      ]
+    })
+    .then(productos => {
+      return res.render('products/allbooks', { productos })
+    })
+  },
+
   detalle: (req, res) => {
     db.Productos
       .findByPk(req.params.id)

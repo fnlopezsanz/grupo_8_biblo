@@ -1,9 +1,14 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
 .autor-fullname {
     font-size: 38px;
     font-family: 'Staatliches', cursive;
     color: rgba(224, 91, 91, 0.769);
     text-align: center;
-
+    margin: 20px 0;
 }
 
 .box-list {
@@ -33,10 +38,13 @@
     }
 
     .forEach-ebook {
+        width: 100%;
         display: flex;
+        flex-wrap: wrap;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: flex-start;
         align-items: baseline;
+        padding: 30px;
     }
 
 }
