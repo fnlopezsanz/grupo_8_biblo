@@ -12,26 +12,25 @@ const apiUsersController = {
               id: user.id,
               nombre: user.nombre,
               apellido: user.apellido,
-              detail: req.protocol + '://' + req.get('host') + req.originalUrl  + user.id
+              detail: req.protocol + '://' + req.get('host') + req.originalUrl + user.id
             }
             return data
           })
-          })
         })
-        .catch(error => console.log(error))
-    },
+      })
+      .catch(error => console.log(error))
+  },
 
   'detail': (req, res) => {
     db.Usuarios.findByPk(req.params.id, {
       attributes: { exclude: ['password', 'id_rol'] }
     })
-    .then(user => {
-      let url =  { urlAvatar: req.protocol + '://' + req.get('host') + req.originalUrl  + user.avatar } 
-      return res.json({
-      })
-    })
-    .catch(error => console.log(error))
-    }
+      .then(userDetail => {
+        userDetail.dataValues.urlAvatar = req.protocol + '://' + req.get('host') + req.originalUrl  + userDetail.avatar
+        return res.json({userDetail})
+  })
+      .catch(error => console.log(error))
+}
 }
 
 
