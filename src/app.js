@@ -4,7 +4,7 @@ const path = require("path")
 const methodOverride = require("method-override");
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 4000
 
 const userLogMiddleware = require("./middlewares/userLogMiddleware");
 
