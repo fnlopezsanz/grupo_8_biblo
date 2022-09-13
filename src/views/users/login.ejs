@@ -6,10 +6,12 @@
   <body>
     <%- include("../parcials/header.ejs"); %>
       <main class="login">
+        
         <section class="form-login">
-          <form action="/users/login" method="post">
+          <form action="/users/login" method="post" id="formulario">
             <div class="box-form">
               <h5>INICIAR SESIÓN</h5>
+              <div id="error" class="invalid-feedback"></div>
               <div class="box-login">
                 <div class="completar">
                   <i class="fas fa-user-circle"></i>

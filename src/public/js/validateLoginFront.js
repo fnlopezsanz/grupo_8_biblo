@@ -3,6 +3,12 @@ window.addEventListener('load', function () {
   const password = document.querySelector('#password');
   const emailError = document.querySelector('#emailError');
   const passwordError = document.querySelector('#passwordError');
+  const error = document.querySelector('#error');
+
+  const campos = {
+    email: false,
+    password: false,
+  }
 
   // Valida formato válido de email a partir de expresiones regulares
   function validateEmail(valueInput, divInput) {
@@ -11,9 +17,12 @@ window.addEventListener('load', function () {
     if (regExpEmail.test(valueInput)) {
       divInput.style.border = "";
       emailError.innerHTML = "";
+      campos[divInput.name] = true;
+      console.log(campos[divInput], campos)
     } else {
       divInput.style.border = "1px solid coral";
       emailError.innerHTML = "Debe introducir un formato de correo válido"
+      campos[divInput.name] = false;
     }
   }
 
@@ -24,9 +33,11 @@ window.addEventListener('load', function () {
     if (regExpPassword.test(valueInput)) {
       divInput.style.border = "";
       passwordError.innerHTML = "";
+      campos[divInput.name] = true;
     } else {
       divInput.style.border = "1px solid coral";
       passwordError.innerHTML = "Debe introducir una contraseña válida"
+      campos[divInput.name] = false;
     }
   }
 
@@ -37,5 +48,27 @@ window.addEventListener('load', function () {
   password.addEventListener('blur', function () {
     validatePassword(password.value, password)
   })
+
+  email.addEventListener('keyup', function () {
+    validateEmail(email.value, email)
+  })
+
+  password.addEventListener('keyup', function () {
+    validatePassword(password.value, password)
+  })
   
+
+  formulario.addEventListener('submit', e => {
+    if (campos.email && campos.password) {
+      console.log(campos)
+    } else {
+      e.preventDefault();
+      error.innerHTML = "Usuario y/o contraseña inválidos";
+      error.style.marginLeft = "50px";
+      error.style.fontSize = "20px";
+      error.style.fontWeight = "bold";
+
+      console.log(campos)
+    }
+  })
 })
