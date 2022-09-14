@@ -11,10 +11,12 @@
         <div>
           <h4>CREAR PRODUCTO</h4>
         </div>
+        <div id="error" class="invalid-feedback"></div>
         <div>
           <input type="text" name="titulo" id="titulo" placeholder="Nombre producto" minlength="1"
             class="input-text">
         </div>
+        <div id="tituloError" class="invalid-feedback"></div>
         <% if (locals.errors && errors.titulo) { %>
           <div class="invalid-feedback">
            <%= errors.titulo.msg %>
@@ -44,6 +46,7 @@
         <div>
           <textarea name="descripcion" id="descripcion" cols="100" rows="6"></textarea>
         </div>
+        <div id="descripcionError" class="invalid-feedback"></div>
         <% if (locals.errors && errors.descripcion) { %>
           <div class="invalid-feedback">
            <%= errors.descripcion.msg %>
@@ -79,8 +82,9 @@
            <% } %>
         <div class="div-foto">
           <label for="" class="nombre-reg">Ingresá una imagen del producto:</label>
-          <input type="file" name="imagen" id="imagen" accept=".jpg, .png">
+          <input type="file" name="imagen" id="imagen">
         </div>
+        <div id="imagenError" class="invalid-feedback"></div>
         <% if (locals.errors && errors.imagen) { %>
           <div class="invalid-feedback">
            <%= errors.imagen.msg %>
@@ -91,6 +95,7 @@
         </div>
       </form>
       <%- include("../parcials/footerAdmin.ejs"); %>
+    <script src="/js/validateProductFront.js"></script>
   </body>
 
 </html>

@@ -1,6 +1,8 @@
 window.addEventListener('load', function () {
   const email = document.querySelector('#email');
   const password = document.querySelector('#password');
+  const formulario = document.querySelector('#formulario');
+  
   const emailError = document.querySelector('#emailError');
   const passwordError = document.querySelector('#passwordError');
   const error = document.querySelector('#error');
@@ -18,7 +20,7 @@ window.addEventListener('load', function () {
       divInput.style.border = "";
       emailError.innerHTML = "";
       campos[divInput.name] = true;
-      console.log(campos[divInput], campos)
+      console.log(campos[divInput.name], campos)
     } else {
       divInput.style.border = "1px solid coral";
       emailError.innerHTML = "Debe introducir un formato de correo válido"
