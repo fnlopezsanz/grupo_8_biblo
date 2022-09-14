@@ -7,14 +7,16 @@
 
     <%- include("../parcials/headerAdmin.ejs"); %>
 
-      <form action="/products/<%= producto.id %>?_method=PUT" method="POST" class="form" enctype="multipart/form-data">
+      <form action="/products/<%= producto.id %>?_method=PUT" method="POST" class="form" id="formulario" enctype="multipart/form-data">
         <div>
           <h4>EDITAR PRODUCTO</h4>
         </div>
+        <div id="error" class="invalid-feedback"></div>
         <div>
-          <input type="text" name="titulo" id="nombre" placeholder="Nombre del producto" minlength="3"
+          <input type="text" name="titulo" id="nombre" placeholder="Nombre del producto"
             class="input-text" value="<%= producto.titulo %>">
         </div>
+        <div id="tituloError" class="invalid-feedback"></div>
         <% if (locals.errors && errors.titulo) { %>
           <div class="invalid-feedback">
            <%= errors.titulo.msg %>
@@ -71,6 +73,7 @@
                   <textarea name="descripcion" id="descripcion" cols="100"
                     rows="5"><%= producto.descripcion %></textarea>
                 </div>
+                <div id="descripcionError" class="invalid-feedback"></div>
                 <% if (locals.errors && errors.descripcion) { %>
                   <div class="invalid-feedback">
                    <%= errors.descripcion.msg %>
@@ -89,6 +92,7 @@
                   <label for="image" class="nombre-reg">Cambiar imagen del producto</label>
                   <img src="/img/products/<%= producto.imagen %>"" alt=" <%=producto.titulo %>"" class="libro-edit">
                   <input type="file" name="imagen" id="imagen" value="<%= producto.imagen %>" >
+                  <div id="imagenError" class="invalid-feedback"></div>
                   <% if (locals.errors && errors.imagen) { %>
                     <div class="invalid-feedback">
                      <%= errors.imagen.msg %>
@@ -100,6 +104,7 @@
                 </div>
       </form>
       <%- include("../parcials/footerAdmin.ejs"); %>
-  </body>
+    <script src="/js/validateEditProductFront.js"></script>
+    </body>
 
 </html>
