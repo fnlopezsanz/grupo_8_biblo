@@ -3,19 +3,16 @@ const sequelize = db.sequelize;
 
 const apiUsersController = {
   'list': (req, res) => {
-    db.Usuarios.findAll()
+    db.Usuarios.findAll({
+      attributes: ['id', 'nombre', 'apellido']
+    })
       .then(users => {
+        users.forEach(user => {
+          user.dataValues.detail = req.protocol + '://' + req.get('host') + req.originalUrl + user.id
+        })
         return res.json({
           count: users.length,
-          users: users.map(user => {
-            data = {
-              id: user.id,
-              nombre: user.nombre,
-              apellido: user.apellido,
-              detail: req.protocol + '://' + req.get('host') + req.originalUrl + user.id
-            }
-            return data
-          })
+          users: users
         })
       })
       .catch(error => console.log(error))
@@ -26,11 +23,11 @@ const apiUsersController = {
       attributes: { exclude: ['password', 'id_rol'] }
     })
       .then(userDetail => {
-        userDetail.dataValues.urlAvatar = req.protocol + '://' + req.get('host') + req.originalUrl  + userDetail.avatar
-        return res.json({userDetail})
-  })
+        userDetail.dataValues.urlAvatar = req.protocol + '://' + req.get('host') + req.originalUrl + userDetail.avatar
+        return res.json({ userDetail })
+      })
       .catch(error => console.log(error))
-}
+  }
 }
 
 
