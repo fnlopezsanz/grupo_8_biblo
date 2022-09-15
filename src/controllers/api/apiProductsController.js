@@ -17,7 +17,7 @@ const apiProductsController = {
       })
 
       productos.forEach(product => {
-      product.dataValues.detail = req.protocol + '://' + req.get('host') + req.originalUrl + product.id
+      product.dataValues.detail = req.protocol + '://' + req.get('host') + req.originalUrl + '/' + product.id
       })
       return productos
     })
@@ -36,7 +36,7 @@ const apiProductsController = {
       attributes: { exclude: ['id_autor', 'id_genero', 'id_categoria'] }
     })
       .then(productDetail => {
-        productDetail.dataValues.urlImagen = req.protocol + '://' + req.get('host') + req.originalUrl + productDetail.imagen
+        productDetail.dataValues.urlImagen = req.protocol + '://' + req.get('host') + req.originalUrl + '/' + productDetail.imagen
         return res.json({ productDetail })
       })
       .catch(error => console.log(error))

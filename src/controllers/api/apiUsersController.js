@@ -8,7 +8,7 @@ const apiUsersController = {
     })
       .then(users => {
         users.forEach(user => {
-          user.dataValues.detail = req.protocol + '://' + req.get('host') + req.originalUrl + user.id
+          user.dataValues.detail = req.protocol + '://' + req.get('host') + req.originalUrl + '/' + user.id
         })
         return res.json({
           count: users.length,

@@ -1,22 +1,22 @@
 import React from "react";
 import LastMovie from '../../../../Assets/images/mandalorian.jpg';
-import GenresInDB from "../../../GenresInDB/GenresInDB";
+import CategoriasInDB from "../../../GenresInDB/CategoriasInDB";
 import ContentRowMovies from "./ContentRowMovies";
 
 function ContentRowTop(props) {
 
-  const { usuarios = {} } = props;
+  const { usuarios = {}, libros  = [], categorias = [], ultimoProd = {} } = props;
 
 	let infoTarjetas = [
 		{
-			title: "Movies in Data Base",
+			title: "Total de Libros en Base de Datos",
 			color: "border-left-primary",
-			value: 21
+			value: libros.length
 		},
 		{
-			title: "Total awards",
+			title: "Total de Categorías",
 			color: "border-left-success",
-			value: 79
+			value: categorias.length
 		},
 		{
 			title: "Cantidad de Usuarios",
@@ -25,7 +25,6 @@ function ContentRowTop(props) {
 			value: usuarios.count
 		}
 	]
-
 
     return(
         <div className="container-fluid">
@@ -50,29 +49,22 @@ function ContentRowTop(props) {
 						<div className="col-lg-6 mb-4">
 							<div className="card shadow mb-4">
 								<div className="card-header py-3">
-									<h5 className="m-0 font-weight-bold text-gray-800">Last movie in Data Base</h5>
+									<h5 className="m-0 font-weight-bold text-gray-800">Último libro agregado al catálogo</h5>
 								</div>
 								<div className="card-body">
+                <h5 className="m-0 font-weight-bold text-gray-800">{ultimoProd.titulo}</h5>
 									<div className="text-center">
 										<img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={ {width: "40rem"} } src={LastMovie} alt=" Star Wars - Mandalorian " />
 									</div>
-									<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, consequatur explicabo officia inventore libero veritatis iure voluptate reiciendis a magnam, vitae, aperiam voluptatum non corporis quae dolorem culpa citationem ratione aperiam voluptatum non corporis ratione aperiam voluptatum quae dolorem culpa ratione aperiam voluptatum?</p>
+									<p>{ultimoProd.descripcion}</p>
 									<a className="btn btn-danger" target="_blank" rel="nofollow" href="/">View movie detail</a>
 								</div>
 							</div>
 						</div>
 						{/* <!-- End content row last movie in Data Base --> */}
 
-
-
-
-
-						{/* <!-- Genres in DB --> */}
-						<GenresInDB />
-
-
-
-
+						{/* <!-- Categorias in DB --> */}
+						<CategoriasInDB />
 
 					</div>
 				</div>
