@@ -5,6 +5,7 @@ const methodOverride = require("method-override");
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const PORT = process.env.PORT || 4000
+const cors = require('cors');
 
 const userLogMiddleware = require("./middlewares/userLogMiddleware");
 
@@ -18,6 +19,8 @@ app.use(cookieParser());
 app.use(userLogMiddleware);
 
 app.use(express.urlencoded({ extended: false }));
+
+app.use(cors());
 
 app.use(express.static(path.join(__dirname, "./public")));
 

@@ -3,26 +3,26 @@ import LastMovie from '../../../../Assets/images/mandalorian.jpg';
 import GenresInDB from "../../../GenresInDB/GenresInDB";
 import ContentRowMovies from "./ContentRowMovies";
 
-function ContentRowTop() {
+function ContentRowTop(props) {
+
+  const { usuarios = {} } = props;
 
 	let infoTarjetas = [
 		{
 			title: "Movies in Data Base",
 			color: "border-left-primary",
-			icon: "fas fa-film",
 			value: 21
 		},
 		{
 			title: "Total awards",
 			color: "border-left-success",
-			icon: "fas fa-award",
 			value: 79
 		},
 		{
-			title: "Actors quantity",
+			title: "Cantidad de Usuarios",
 			color: "border-left-warning",
 			icon: "fas fa-user",
-			value: 49
+			value: usuarios.count
 		}
 	]
 
@@ -30,7 +30,7 @@ function ContentRowTop() {
     return(
         <div className="container-fluid">
 					<div className="d-sm-flex align-items-center justify-content-between mb-4">
-						<h1 className="h3 mb-0 text-gray-800">App Dashboard</h1>
+						<h1 className="h3 mb-0 text-gray-800">Biblo Dashboard</h1>
 					</div>
 				
 					{/* <!-- Content Row Movies--> */}

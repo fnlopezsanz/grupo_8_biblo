@@ -10,16 +10,22 @@ class ContentWrapper extends React.Component {
 		super();
 		this.state = {
 			movies: [],
-			columnTables: []
+			columnTables: [],
+      usuarios: []
 		}
 	}
 
 	async componentDidMount() {
-		const response = await fetch("http://localhost:3001/api/movies");
+    const response = await fetch("http://localhost:3001/api/movies");
 		const data = await response.json();
 		console.log(data.data)
 		let columnas = [ "genre", "length", "title", "rating", "awards"];
-		this.setState({ movies: data.data, columnTables: columnas })
+    
+    const responseUsers = await fetch("http://localhost:4000/api/users");
+    const dataUsers = await responseUsers.json();
+    console.log(dataUsers)
+
+		this.setState({ movies: data.data, columnTables: columnas, usuarios: dataUsers })
 	}
 
 	render() {
@@ -35,7 +41,7 @@ class ContentWrapper extends React.Component {
 					{/* <!-- End of Topbar --> */}
 	
 					{/* <!-- Content Row Top --> */}
-					<ContentRowTop />
+					<ContentRowTop usuarios= { this.state.usuarios } />
 					{/* <!--End Content Row Top--> */}
 				</div>
 				{/* <!-- End of MainContent --> */}
