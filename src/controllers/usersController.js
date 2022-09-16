@@ -264,10 +264,13 @@ const usersController = {
   },
 
   userlist: (req, res) => {
-    db.Usuarios.findAll()
+    db.Usuarios.findAll({
+      include: ['rol']
+    })
       .then(function (users) {
         res.render('users/users-list', { users });
       })
+      .catch(error => console.log(error));
   }
 
 };

@@ -10,7 +10,7 @@
   }
   
   h4 {
-    font-size: 20px;
+    font-size: 24px;
     color: black;
   }
   
@@ -27,7 +27,7 @@
     font-size: 14px;
   }
   
-  form div {
+  form .c-e-div {
     padding: 7px;
     width: 100%;
     display: flex;

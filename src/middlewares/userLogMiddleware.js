@@ -14,7 +14,6 @@ async function userLogMiddleware(req, res, next) {
         //console.log(usuarioLogueado);
       })
       .catch((error) => res.send(error));
-    console.log(usuarioLogueado);
     req.session.userLogged = usuarioLogueado
   }
 

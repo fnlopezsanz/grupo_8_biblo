@@ -1,13 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include("../parcials/head", {stylesheet: ["stylehome"]}) %>
+<%- include("../parcials/head", {stylesheet: ["stylehome", "users-list"]}) %>
 
     <body>
         <%- include("../parcials/header"); %>
-        <main>
-            <P>hacer un for para ver todos los usuarios</P>
-        </main>
+            <main class="main-userlist">
+                <h4>LISTA DE USUARIOS</h4>
+                <div class="search-user">
+                    <form action="" method="">
+                        <div class="s-u-box">
+                            <input type="text" placeholder="Buscar usuario...">
+                            <button type="submit"><i class="fas fa-search"></i></button>
+                        </div>
+                    </form>
+                  </div>
+                <br>
+                <% for(let i=0; i < users.length; i++){ %>
+                <div class="big-box-user">
+                    <div class="div-data">
+                        <div class="div-nombre">
+                            <h3 id="user">Usuario:  <%= users[i].apellido %>, <%= users[i].nombre %></h3>
+                            <p id="text"> <%= users[i].rol.rol %></p>
+                        </div>
+                        <div class="div-email">
+                            <p id="text"><%= users[i].email %></p>
+                        </div>
+                    </div>
+                    <div class="div-e-d">
+                        <div>
+                            <div>
+                                <a href="/users/users-list/<%= users.id %>"><i class="fas fa-user-edit"></i></a>
+                            </div>
+                            <div>
+                                <form action="/users/users-list/<%= users.id %>?_method=DELETE" method="POST"> 
+                                    <button type="submit" class="delete"><i class="far fa-trash-alt"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+            </main>
             <%- include("../parcials/footer"); %>
     </body>
 

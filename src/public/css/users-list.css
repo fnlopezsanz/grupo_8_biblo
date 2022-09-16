@@ -1,0 +1,104 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+.main-userlist {
+    margin: 30px 0;
+}
+
+.search-user {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-user form input {
+    padding: 5px 0 5px 10px;
+    font-size: 12px;
+    font-weight: 200;
+    font-family: 'Roboto', serif;
+    border-radius: 5px;
+    border: solid 1px var(--icon);
+    color: var(--fontcolordark);
+}
+
+.s-u-box {
+    display: flex;
+    position: relative;
+}
+
+.search-user form button {
+    position: absolute;
+    top: 2px;
+    right: 5px;
+    color: var(--icon);
+    background-color: white;
+    border: none;
+}
+
+.big-box-user {
+    width: 100%;
+    margin: 10px 0;
+    padding: 15px;
+    border: solid 1px black;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.div-data {
+    width: 80%;
+}
+
+#user,
+#text {
+    font-family: 'Epilogue', sans-serif;
+}
+
+#user {
+    text-align: start;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+#text {
+    font-weight: 200;
+    font-size: 14px;
+}
+
+.div-e-d {
+    align-self: flex-end;
+    display: flex;
+    width: 10%;
+}
+
+.div-e-d div {
+    display: flex;
+    margin: 5px;
+    align-items: baseline;
+}
+
+.fa-user-edit {
+    color: black;
+}
+
+.delete {
+    background-color: transparent;
+    border: none;
+}
+
+@media (min-width: 480px) {
+    .search-user {
+        justify-content: flex-end;
+    }
+
+    .div-data {
+        width: 90%;
+    }
+
+    .div-e-d {
+        width: 10%;
+    }
+}

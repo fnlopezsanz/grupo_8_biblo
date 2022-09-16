@@ -12,7 +12,7 @@
           <h4>EDITAR PRODUCTO</h4>
         </div>
         <div id="error" class="invalid-feedback"></div>
-        <div>
+        <div class="c-e-div">
           <input type="text" name="titulo" id="nombre" placeholder="Nombre del producto"
             class="input-text" value="<%= producto.titulo %>">
         </div>
@@ -22,7 +22,7 @@
            <%= errors.titulo.msg %>
           </div>
            <% } %>
-        <div>
+        <div class="c-e-div">
           <input type="text" name="anio" id="anio" placeholder="Año" minlength="4" class="input-text" value="<%= producto.anio %>">
         </div>
         <% if (locals.errors && errors.anio) { %>
@@ -30,7 +30,7 @@
            <%= errors.anio.msg %>
           </div>
            <% } %>
-        <div class="categoria">
+        <div class="categoria c-e-div">
             <label for="autor">Autor</label>
               <select name="id_autor" id="autor">
                 <% autores.forEach(autor=> {%>
@@ -42,7 +42,7 @@
                 <% }); %>
               </select>
           </div>
-                <div class="categoria">
+                <div class="categoria c-e-div">
                   <label for="genero">Género</label>
                   <select name="id_genero" id="genero">
                     <% generos.forEach(genero=> {%>
@@ -54,7 +54,7 @@
                       <% }); %>
                   </select>
                 </div>
-                <div class="categoria">
+                <div class="categoria c-e-div">
                   <label for="categoria">Categoria</label>
                   <select name="id_categoria" id="categoria">
                     <% categorias.forEach(categoria=> {%>
@@ -66,10 +66,10 @@
                       <% }); %>
                   </select>
                 </div>
-                <div class="descripcion">
+                <div class="descripcion c-e-div">
                   <label for="descripcion">Descripción</label>
                 </div>
-                <div>
+                <div class="c-e-div">
                   <textarea name="descripcion" id="descripcion" cols="100"
                     rows="5"><%= producto.descripcion %></textarea>
                 </div>
@@ -79,7 +79,7 @@
                    <%= errors.descripcion.msg %>
                   </div>
                    <% } %>
-                <div>
+                <div class="c-e-div">
                   <input type="text" name="precio" id="precio" placeholder="$ Precio" class="input-text" required
                     value="<%= producto.precio %>">
                 </div>
@@ -88,7 +88,7 @@
                    <%= errors.precio.msg %>
                   </div>
                    <% } %>
-                <div class="div-foto">
+                <div class="div-foto c-e-div">
                   <label for="image" class="nombre-reg">Cambiar imagen del producto</label>
                   <img src="/img/products/<%= producto.imagen %>"" alt=" <%=producto.titulo %>"" class="libro-edit">
                   <input type="file" name="imagen" id="imagen" value="<%= producto.imagen %>" >
@@ -99,7 +99,7 @@
                     </div>
                      <% } %>
                 </div>
-                <div class="div-bot">
+                <div class="div-bot c-e-div">
                   <input type="submit" value="Editar producto" class="but-submit botones">
                 </div>
       </form>
