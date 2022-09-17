@@ -30,7 +30,7 @@
            <%= errors.anio.msg %>
           </div>
            <% } %>
-        <div class="categoria c-e-div">
+         <div class="categoria c-e-div">
             <label for="autor">Autor</label>
               <select name="id_autor" id="autor">
                 <% autores.forEach(autor=> {%>
@@ -73,12 +73,13 @@
                   <textarea name="descripcion" id="descripcion" cols="100"
                     rows="5"><%= producto.descripcion %></textarea>
                 </div>
-                <div id="descripcionError" class="invalid-feedback"></div>
+              <div id="descripcionError" class="invalid-feedback">
                 <% if (locals.errors && errors.descripcion) { %>
                   <div class="invalid-feedback">
                    <%= errors.descripcion.msg %>
                   </div>
                    <% } %>
+              </div>
                 <div class="c-e-div">
                   <input type="text" name="precio" id="precio" placeholder="$ Precio" class="input-text" required
                     value="<%= producto.precio %>">
@@ -90,14 +91,8 @@
                    <% } %>
                 <div class="div-foto c-e-div">
                   <label for="image" class="nombre-reg">Cambiar imagen del producto</label>
-                  <img src="/img/products/<%= producto.imagen %>"" alt=" <%=producto.titulo %>"" class="libro-edit">
-                  <input type="file" name="imagen" id="imagen" value="<%= producto.imagen %>" >
-                  <div id="imagenError" class="invalid-feedback"></div>
-                  <% if (locals.errors && errors.imagen) { %>
-                    <div class="invalid-feedback">
-                     <%= errors.imagen.msg %>
-                    </div>
-                     <% } %>
+                  <img src="/img/products/<%= producto.imagen %>" alt=" <%=producto.titulo %>" class="libro-edit">
+                  <a href="/products/editarImgProd/<%= producto.id %>"><i class="fas fa-edit"></i>Editar</a>
                 </div>
                 <div class="div-bot c-e-div">
                   <input type="submit" value="Editar producto" class="but-submit botones">

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("../parcials/head.ejs", {stylesheet: ["stylehome", "style_crear_editarProducto" , "style_login" ]}); %>
+
+  <body>
+    <%- include("../parcials/headerAdmin.ejs"); %>
+      <form action="/products/editarImgProd/<%= producto.id %>" method="POST" class="form" id="formulario" enctype="multipart/form-data">
+        <div>
+          <h4>EDITAR IMAGEN DEL PRODUCTO</h4>
+        </div>
+        <div id="error" class="invalid-feedback"></div>
+        <div class="c-e-div">
+                <div class="div-foto c-e-div">
+                  <img src="/img/products/<%= producto.imagen %>" alt=" <%=producto.titulo %>" class="libro-edit">
+                  <input type="file" name="imagen" id="imagen">
+                  <div id="imagenError" class="invalid-feedback"></div>
+                  <% if (locals.errors && errors.imagen) { %>
+                    <div class="invalid-feedback">
+                     <%= errors.imagen.msg %>
+                    </div>
+                     <% } %>
+                </div>
+                <div class="div-bot c-e-div">
+                  <input type="submit" value="Editar imagen" class="but-submit botones">
+                </div>
+        </div>
+      </form>
+      <%- include("../parcials/footerAdmin.ejs"); %>
+      <script src="/js/validateEditProductFront.js"></script>
+    </body>
+
+</html>

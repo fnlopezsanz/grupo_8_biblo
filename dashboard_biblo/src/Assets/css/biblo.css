@@ -1,0 +1,36 @@
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14px;
+}
+
+.mb-0,
+.my-0 {
+    margin-top: 20px;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.card {
+    border-radius: 30px;
+}
+
+.table td,
+.table th {
+    padding: 1.75rem;
+}
+
+.btn-danger {
+    color: #fff;
+    background-color: #3b5ee7;
+    border-color: #3b3ee7;
+}
+
+.bg-dark {
+    background-color: #5d9ec7d4;
+}
+
+.border-left-primary,
+.border-left-success,
+.border-left-warning {
+    border-left: .55rem solid #df4edd91 !important;
+}

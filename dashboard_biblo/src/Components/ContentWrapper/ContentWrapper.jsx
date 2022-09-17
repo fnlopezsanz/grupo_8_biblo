@@ -36,9 +36,9 @@ class ContentWrapper extends React.Component {
 				{/* <!-- Main Content --> */}
 				<div id="content">
 
-				{/* <!-- Content Row Top --> */}
-				    <ContentRowTop usuarios={this.state.usuarios} libros={this.state.libros} categorias={this.state.categorias} ultimoProd={this.state.ultimoProd} />
-				{/* <!--End Content Row Top--> */}
+					{/* <!-- Content Row Top --> */}
+					<ContentRowTop usuarios={this.state.usuarios} libros={this.state.libros} categorias={this.state.categorias} ultimoProd={this.state.ultimoProd} />
+					{/* <!--End Content Row Top--> */}
 
 				</div>
 				{/* <!-- End of MainContent --> */}
@@ -48,7 +48,6 @@ class ContentWrapper extends React.Component {
 				{/* <!-- Footer --> */}
 				<Footer />
 				{/* <!-- End of Footer --> */}
-
 			</div>
 		)
 	}

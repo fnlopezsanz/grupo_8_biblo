@@ -4,7 +4,9 @@ const router = express.Router();
 const productsController = require("../controllers/productsController.js");
 const fileUploadProductos = require("../middlewares/fileUploadProductos");
 const admMiddleware = require("../middlewares/admMiddleware");
-const crearYEditarProductoMidd = require("../middlewares/crearYEditarProductoMidd");
+const crearProductoMidd = require("../middlewares/crearProductoMidd");
+const editarProductoMidd = require("../middlewares/editarProductoMidd");
+const editarImgProdMidd = require("../middlewares/editarImgProdMidd.js");
 
 
 router.get("/allbooks", productsController.list)
@@ -19,11 +21,15 @@ router.get("/create/",admMiddleware, productsController.crear);
 
 router.get("/:id", productsController.detalle);
 
-router.post("/store", fileUploadProductos.single('imagen'), admMiddleware, crearYEditarProductoMidd, productsController.store);
+router.post("/store", fileUploadProductos.single('imagen'), admMiddleware, crearProductoMidd, productsController.store);
 
 router.get("/edit/:id",admMiddleware, productsController.editar);
 
-router.put("/:id", fileUploadProductos.single('imagen'), admMiddleware, crearYEditarProductoMidd,  productsController.update);
+router.put("/:id", admMiddleware, editarProductoMidd, productsController.update);
+
+router.get('/editarImgProd/:id', admMiddleware, productsController.editarImgProd);
+
+router.post('/editarImgProd/:id', fileUploadProductos.single('imagen'), admMiddleware, editarImgProdMidd, productsController.updateImgProd);
 
 router.delete('/:id',admMiddleware, productsController.destroy);
 

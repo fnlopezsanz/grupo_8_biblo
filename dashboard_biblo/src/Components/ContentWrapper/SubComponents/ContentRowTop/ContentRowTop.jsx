@@ -1,5 +1,4 @@
 import React from "react";
-import imagenUP from '../../../../Assets/images/lastbook.jpg';
 import CategoriasInDB from "../../../GenresInDB/CategoriasInDB";
 import ContentRowBooks from "./ContentRowBooks/ContentRowBooks";
 
@@ -11,11 +10,13 @@ function ContentRowTop(props) {
 		{
 			title: "Total de Libros en Base de Datos",
 			color: "border-left-primary",
+			icon: "fas fa-book",
 			value: libros.length
 		},
 		{
 			title: "Total de Categorías",
 			color: "border-left-success",
+			icon: "fas fa-typewriter",
 			value: categorias.length
 		},
 		{
@@ -29,7 +30,7 @@ function ContentRowTop(props) {
     return(
         <div className="container-fluid">
 					<div className="d-sm-flex align-items-center justify-content-between mb-4">
-						<h1 className="h3 mb-0 text-gray-800">Biblo Dashboard</h1>
+						<h1 className="h3 mb-0 text-gray-800">BIBLO Dashboard</h1>
 					</div>
 				
 					{/* <!-- Content Row Books--> */}
@@ -49,13 +50,11 @@ function ContentRowTop(props) {
 						<div className="col-lg-6 mb-4">
 							<div className="card shadow mb-4">
 								<div className="card-header py-3">
-									<h5 className="m-0 font-weight-bold text-gray-800">Último producto agregado al catálogo</h5>
+									<h5 className="m-0 font-weight-bold text-gray-800">Último producto agregado</h5>
 								</div>
 								<div className="card-body">
                                     <h5 className="m-0 font-weight-bold text-gray-800">{ultimoProd.titulo}</h5>
-									<div className="text-center">
-										<img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={ {width: "40rem"} } src={imagenUP} alt="" />
-									</div>
+									<hr />
 									<p>{ultimoProd.descripcion}</p>
 									<a className="btn btn-danger" target="_blank" rel="nofollow" href="/">Ver detalle del producto</a>
 								</div>

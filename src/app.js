@@ -49,7 +49,7 @@ app.use("/api/users", apiUsersRoutes);
 
 
 app.use((req, res, next) => {
-    res.status(404).redirect("/")
+    res.status(404).send("ERROR")
 })
 
 app.listen(PORT, () => {

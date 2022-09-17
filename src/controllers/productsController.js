@@ -11,9 +11,9 @@ const productsController = {
         ['anio', 'DESC']
       ]
     })
-    .then(productos => {
-      return res.render('products/allbooks', { productos })
-    })
+      .then(productos => {
+        return res.render('products/allbooks', { productos })
+      })
   },
 
   detalle: (req, res) => {
@@ -120,6 +120,7 @@ const productsController = {
             })
             .catch(error => console.log(error));
         })
+        .catch(error => console.log(error));
     } else {
       db.Productos.update({
         titulo: req.body.titulo,
@@ -128,7 +129,6 @@ const productsController = {
         id_categoria: req.body.id_categoria,
         descripcion: req.body.descripcion,
         precio: req.body.precio,
-        imagen: req.file.filename,
         anio: req.body.anio
       }, {
         where: {
@@ -142,52 +142,87 @@ const productsController = {
     }
   },
 
-  destroy: (req, res) => {
-    const id = req.params.id;
-        db.Productos
-        .destroy(
-          { where: {
-             id 
-            }
-        })
-        .then(function(){
-            return res.redirect("/");
-        })
+  editarImgProd: (req, res) => {
+    db.Productos
+      .findByPk(req.params.id)
+      .then(producto => {
+        return res.render("products/editarImgProd", { producto })
+      })
+      .catch(error => console.log)
   },
 
-  bestsellers: (req,res) => {
-    db.Productos
-        .findAll()
-        .then(productos => {
-            const bestseller = productos.filter(product => product.id_categoria == 1)
-            return res.render("products/bestsellers", { bestseller });
+  updateImgProd: (req, res) => {
+    const resultValidation = validationResult(req);
+    const idP = req.params.id
+    if (!resultValidation.isEmpty()) {
+      db.Productos
+        .findByPk(idP)
+        .then(producto => {
+          return res.render("products/editarImgProd", { producto, errors: resultValidation.mapped(), oldData: req.body })
         })
-        .catch(error => console.log(error));
-},
-
-lanzamientos: (req,res) => {
-    db.Productos
-        .findAll()
-        .then(productos => {
-          const nuevosLanzamientos = productos.filter(product => product.id_categoria == 3);
-            return res.render("products/nuevos-lanzamientos", { nuevosLanzamientos });
+    } else {
+      db.Productos.update({
+        imagen: req.file?.filename
+      },
+        {
+          where: {
+            id: idP
+          }
         })
-        .catch(error => console.log(error));
-},
+        .then(imagenGuardada => {
+          return res.redirect("/products/" + idP)
+        })
+        .catch(error => console.log(error))
+    }
+  },
 
-delautor: (req,res) => {
-  db.Productos.findAll()
-  .then(productos => {
-    let idAutor = req.params.id
-    const autor = db.Autores.findByPk(idAutor)
-    const ebooksAutor = productos.filter(product => product.id_autor == idAutor);
-    Promise.all([autor])
-            .then(function ([autor]) {
-              return res.render("products/del-autor", { ebooksAutor, autor })
-            })
-            .catch(error => console.log(error));
-  })
-}
+  destroy: (req, res) => {
+    const id = req.params.id;
+    db.Productos
+      .destroy(
+        {
+          where: {
+            id
+          }
+        })
+      .then(function () {
+        return res.redirect("/");
+      })
+  },
+
+  bestsellers: (req, res) => {
+    db.Productos
+      .findAll()
+      .then(productos => {
+        const bestseller = productos.filter(product => product.id_categoria == 1)
+        return res.render("products/bestsellers", { bestseller });
+      })
+      .catch(error => console.log(error));
+  },
+
+  lanzamientos: (req, res) => {
+    db.Productos
+      .findAll()
+      .then(productos => {
+        const nuevosLanzamientos = productos.filter(product => product.id_categoria == 3);
+        return res.render("products/nuevos-lanzamientos", { nuevosLanzamientos });
+      })
+      .catch(error => console.log(error));
+  },
+
+  delautor: (req, res) => {
+    db.Productos.findAll()
+      .then(productos => {
+        let idAutor = req.params.id
+        const autor = db.Autores.findByPk(idAutor)
+        const ebooksAutor = productos.filter(product => product.id_autor == idAutor);
+        Promise.all([autor])
+          .then(function ([autor]) {
+            return res.render("products/del-autor", { ebooksAutor, autor })
+          })
+          .catch(error => console.log(error));
+      })
+  }
 };
 
 module.exports = productsController;
