@@ -1,6 +1,6 @@
 import './Assets/css/app.css';
 import ContentWrapper from './Components/ContentWrapper/ContentWrapper';
-/* import SideBar from './Components/SideBar/SideBar'; */
+import SideBar from './Components/SideBar/SideBar'; 
 
 function App() {
   
@@ -8,7 +8,7 @@ function App() {
     <div id="wrapper">
 
 		{/* <!-- Sidebar --> */}
-		{/* <SideBar /> */}
+	    <SideBar />
 		{/* <!-- End of Sidebar --> */}
 
 		{/* <!-- Content Wrapper --> */}

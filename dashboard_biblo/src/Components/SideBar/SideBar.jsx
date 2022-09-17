@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from '../../Assets/images/logo-DH.png';
+import Logo from '../../Assets/images/ebook.jpeg';
 
 function SideBar() {
 
@@ -9,7 +9,7 @@ function SideBar() {
 			{/* <!-- Sidebar - Brand --> */}
 			<a className="sidebar-brand d-flex align-items-center justify-content-center" href="/">
 				<div className="sidebar-brand-icon">
-					<img className="w-100" src={Logo} alt="Digital House" />
+					<img className="w-100" src={Logo} alt="BIBLO" />
 				</div>
 			</a>
 
@@ -20,7 +20,7 @@ function SideBar() {
 			<li className="nav-item active">
 				<a className="nav-link" href="/">
 					<i className="fas fa-fw fa-tachometer-alt"></i>
-					<span>Dashboard - DH movies</span></a>
+					<span>Dashboard - BIBLO </span></a>
 			</li>
 
 			{/* <!-- Divider --> */}
@@ -33,22 +33,22 @@ function SideBar() {
 			<li className="nav-item">
 				<a className="nav-link collapsed" href="/">
 					<i className="fas fa-fw fa-folder"></i>
-					<span>Pages</span>
+					<span>Más vendidos</span>
 				</a>
 			</li>
 
-			{/* <!-- Nav Item - Charts --> */}
+			{/* <!-- Nav Item  --> */}
 			<li className="nav-item">
 				<a className="nav-link" href="/">
 					<i className="fas fa-fw fa-chart-area"></i>
-					<span>Charts</span></a>
+					<span>Crear producto</span></a>
 			</li>
 
-			{/* <!-- Nav Item - Tables --> */}
+			{/* <!-- Nav Item  --> */}
 			<li className="nav-item">
 				<a className="nav-link" href="/">
 					<i className="fas fa-fw fa-table"></i>
-					<span>Tables</span></a>
+					<span>Editar productos</span></a>
 			</li>
 
 			{/* <!-- Divider --> */}

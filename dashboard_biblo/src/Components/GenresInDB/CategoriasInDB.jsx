@@ -26,12 +26,13 @@ class CategoriasInDB extends Component {
         let h5 = document.querySelector("h5.card-body");
         h5.classList.add("bg-secondary  ")
     } */
+
     render() {
         return (
             <div className="col-lg-6 mb-4">
                 <div className="card shadow mb-4">
                     <div className="card-header py-3">
-                        <h5 className="m-0 font-weight-bold text-gray-800" onMouseOver={ (e) => e.target.parentNode.nextElementSibling.classList.add("bg-secondary") } >Libros por Categoría</h5>
+                        <h5 className="m-0 font-weight-bold text-gray-800" onMouseOver={ (e) => e.target.parentNode.nextElementSibling.classList.add("bg-secondary")} >Libros por Categoría</h5>
                     </div>
                     <div className="card-body">
                         <div className="row">
@@ -43,7 +44,6 @@ class CategoriasInDB extends Component {
                               this.state.categorias.map(categoria => <Categoria key={categoria[0]} name={categoria[0]} cant={categoria[1]} />)
                             }
                             
-
                         </div>
                     </div>
                 </div>
