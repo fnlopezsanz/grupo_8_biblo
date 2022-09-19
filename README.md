@@ -9,11 +9,7 @@ El público objetivo es todo aquel lector que consuma libros en formato eléctro
 
 - Emiliana Abril Baglioni: Tengo 24 años. Actualmente vivo en Córdoba Capital pero soy de Concordia - Entre Ríos.
 
-- Matías Ferramondo: Tengo 23 años. Vivo en GBA. Actualente estoy retomando la carrera de ingenieria Mecanica. Soy nuevo en el mundo de la programacion web.
-
 - Facundo López Sanz: Tengo 35 años. Vivo en CABA. Soy técnico de sonido y padre de Jade.
-
-- Ezequiel Salomón: Tengo 27 años, soy de Córdoba Capital. No tengo conocimientos previos en programación.
 
 
 *Listado de los 5 sitios que tomamos como referencia:

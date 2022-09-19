@@ -44,3 +44,25 @@ Retrospectiva Sprint 6:
 3. Continuar haciendo: El tiempo de dedicación que le damos al proyecto desde esta entrega es el que pensamos va a ser acorde para finalizarlo en tiempo y forma, y debemos mantenero hasta el final.
 
 4 y 5. Hacer menos y Dejar de hacer: En cuanto a hacer menos y dejar de hacer, consideramos que no tenemos conductas negativas que haga falta modificar.
+
+
+Retrospectiva Sprint 7:
+
+1. Comenzar a hacer: Organizar temas faltantes de este sprint para terminar a tiempo el siguiente.
+
+2. Hacer más: Dedicarle un poco mas de tiempo al siguiente sprint para terminar a tiempo y finalizar con lo adeudado del anterior.
+
+3. Continuar haciendo: Seguir manteniendo la buena comunicacion como el primer dia, seguir dividiendonos tareas.
+
+4 y 5. Hacer menos y Dejar de hacer: En cuanto a hacer menos y dejar de hacer, consideramos que no tenemos conductas negativas que haga falta modificar. Podemos resolver sin problemas los conflictos en cuanto a organizacion. 
+
+
+Retrospectiva Sprint 8:
+
+1. Comenzar a hacer: Llevar a cabo modificaciones/nuevas ideas en cuanto a vistas, base de datos e interacciones del proyecto.
+
+2. Hacer más: Revisar detalles.
+
+3. Continuar haciendo: Seguir manteniendo la buena comunicacion como el primer dia y poder darle esos detalles extra al curso que queremos realizar en el proyecto.
+
+4 y 5. Hacer menos y Dejar de hacer: Consideramos que no tenemos conductas negativas que haga falta modificar. 

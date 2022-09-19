@@ -4,6 +4,7 @@
 }
 
 .main-userlist {
+    min-height: 45vh;
     margin: 30px 0;
 }
 
