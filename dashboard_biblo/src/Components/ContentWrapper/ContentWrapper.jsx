@@ -18,7 +18,7 @@ class ContentWrapper extends React.Component {
 		const response = await fetch("http://localhost:4000/api/products");
 		const data = await response.json();
 		const categs = Object.entries(data.countByCategory);
-		const ultimoProd = data.productos.pop();
+		const ultimoProd = data.productos[data.productos.length -1]
 		console.log(ultimoProd)
 		let columnas = ["titulo", "categoria", "detail", "descripcion"];
 
