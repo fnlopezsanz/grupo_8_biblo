@@ -176,7 +176,7 @@ main section {
 
   .container-producto img {
     width: 30%;
-    max-width: 250px;
+    max-width: 190px;
     max-height: 300px;
     align-self: flex-start;
   }

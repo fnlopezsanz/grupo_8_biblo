@@ -5,7 +5,7 @@ USE biblo_db;
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-09-2022 a las 14:11:19
+-- Tiempo de generación: 19-09-2022 a las 04:24:36
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -94,8 +94,8 @@ INSERT INTO `generos` (`id`, `genero`) VALUES
 (6, 'Narrativa'),
 (7, 'Infantil'),
 (8, 'Teatro'),
-(9, 'Arte'),
-(10, 'Música'),
+(9, 'Arte');
+(10, 'Música');
 (11, 'Poesía');
 
 -- --------------------------------------------------------
@@ -129,11 +129,7 @@ INSERT INTO `productos` (`id`, `id_autor`, `id_genero`, `id_categoria`, `titulo`
 (20, 1, 1, 1, 'A Novel Of Zelda Fitzgerald', 'When beautiful, reckless Southern belle Zelda Sayre meets F. Scott Fitzgerald at a country club dance in 1918, she is seventeen years old and he is a young army lieutenant stationed in Alabama.', '3500.00', 'imagenproduct-1662599171481.jpg', 2014, '2022-09-08 01:06:11', '2022-09-08 01:06:11'),
 (21, 3, 2, 1, 'Rayuela', 'Horacio Oliveira es el protagonista de esta novela que pone en juego la subjetividad del lector y brinda múltiples finales. Comúnmente conocida como antinovela, y señalada por el propio Cortázar como contranovela.\r\nLa novela mantiene un estilo muy variado', '5000.00', 'imagenproduct-1662599295184.jpg', 1963, '2022-09-08 01:08:15', '2022-09-08 01:08:15'),
 (22, 4, 6, 3, 'La Naranja Mecánica', 'Gran Bretaña, en un futuro indeterminado. Alex (Malcolm McDowell) es un joven muy agresivo que tiene dos pasiones: la violencia desaforada y Beethoven. Es el jefe de la banda de los drugos, que dan rienda suelta a sus instintos más salvajes apaleando, vio', '4100.00', 'imagenproduct-1662600471084.jpg', 1971, '2022-09-08 01:10:10', '2022-09-08 01:27:51'),
-(23, 4, 2, 3, 'El Alquimista', 'El alquimista relata las aventuras de Santiago, un joven pastor andaluz que viaja desde su tierra natal hacia el desierto egipcio en busca de un tesoro oculto en las pirámides. La imaginación y el coraje del protagonista le hacen perseguir su \"Leyenda Per', '2600.00', 'imagenproduct-1662599504088.jpg', 1988, '2022-09-08 01:11:19', '2022-09-08 01:11:44'),
-(24, 3, 5, 3, 'El Ajedrez de Torneo', 'Partidas analizadas del Torneo de Candidatos celebrado en Zurich en el año 1953.', '3560.00', 'imagenproduct-1663586617378.jpg', 1953, '2022-09-19 11:23:37', '2022-09-19 11:24:16'),
-(25, 2, 11, 1, 'Guitarra Negra', 'Guitarra negra es un puñado de poemas, es su primer y único libro de poesía. Se articula en siete partes sin título y una octava denominada \"escorias diferenciales del alma de la letra poética\".\r\nUn Spinetta de juventud, donde se funden la poesía y el pro', '2900.00', 'imagenproduct-1663587687873.jpg', 1978, '2022-09-19 11:41:27', '2022-09-19 11:41:27'),
-(26, 6, 2, 1, 'Las garras del niño inútil', 'Novela que se convirtió en un clásico ineludible para abordar el eterno tema del maltrato infantil y para comprender una sensibilidad muy precisa: la que se vivía en un suburbio de Buenos Aires entre las décadas de los 80 y los 90. \r\n “Le grita a la tele,', '4240.00', 'imagenproduct-1663588242153.jpg', 2016, '2022-09-19 11:50:42', '2022-09-19 11:50:42'),
-(27, 9, 10, 3, 'Los 138 discos que nadie te recomendó', 'Para los fanáticos de la música de los últimos 60 años; un listado de 138 incunables discográficos. Una guía imprescindible con los discos que quedaron fuera de las grandes listas; que casi nadie conoce y que no te podés perder.', '3800.00', 'imagenproduct-1663588823588.jpg', 2017, '2022-09-19 12:00:23', '2022-09-19 12:00:23');
+(23, 4, 2, 3, 'El Alquimista', 'El alquimista relata las aventuras de Santiago, un joven pastor andaluz que viaja desde su tierra natal hacia el desierto egipcio en busca de un tesoro oculto en las pirámides. La imaginación y el coraje del protagonista le hacen perseguir su \"Leyenda Per', '2600.00', 'imagenproduct-1662599504088.jpg', 1988, '2022-09-08 01:11:19', '2022-09-08 01:11:44');
 
 -- --------------------------------------------------------
 
@@ -178,9 +174,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `id_rol`, `nombre`, `apellido`, `email`, `password`, `avatar`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Emiliana', 'Baglioni', 'emi@gmail.com', '$2a$10$bddfWHFm0zsv1iqsF2E19e1hFN6PVgEOjA47HZHYqBL9IyTOnpabe', 'user-1661301224772.jpg', '', '2022-08-24 00:33:44', '2022-08-30 05:45:10'),
-(6, 1, 'Emiliana A', 'Bagl', 'abril@gmail.com', '$2a$10$SP1fKtZR/NWfSZOHVgzbNefTJBoXEIJ5lYmlyyaYUjF4EJ13RYInK', 'imagenuser-1663288179177.jpg', '', '2022-09-16 00:29:39', '2022-09-16 02:07:48'),
-(7, 2, 'Facu', 'López', 'facu@facu.com', '$2a$10$icdsMv4R0mOHZ6pHNThMO.52I7sZHYbXF0ntnWcxSiBa.wE9P4itG', 'imagenuser-1663586296996.jpg', '', '2022-09-19 11:18:17', '2022-09-19 11:18:17');
+(1, 2, 'Emiliana', 'Baglioni', 'emi@gmail.com', '$2a$10$bddfWHFm0zsv1iqsF2E19e1hFN6PVgEOjA47HZHYqBL9IyTOnpabe', 'user-1661301224772.jpg', '', '2022-08-24 00:33:44', '2022-08-30 05:45:10'),
+(6, 2, 'Emiliana A', 'Bagl', 'abril@gmail.com', '$2a$10$SP1fKtZR/NWfSZOHVgzbNefTJBoXEIJ5lYmlyyaYUjF4EJ13RYInK', 'imagenuser-1663288179177.jpg', '', '2022-09-16 00:29:39', '2022-09-16 02:07:48');
 
 --
 -- Índices para tablas volcadas
@@ -247,13 +242,13 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de la tabla `generos`
 --
 ALTER TABLE `generos`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
@@ -265,7 +260,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restricciones para tablas volcadas
