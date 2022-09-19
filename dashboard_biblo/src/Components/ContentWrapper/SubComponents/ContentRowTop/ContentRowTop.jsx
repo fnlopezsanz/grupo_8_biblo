@@ -56,7 +56,7 @@ function ContentRowTop(props) {
                                     <h5 className="m-0 font-weight-bold text-gray-800">{ultimoProd.titulo}</h5>
 									<hr />
 									<p>{ultimoProd.descripcion}</p>
-									<a className="btn btn-danger" target="_blank" rel="nofollow" href="/">Ver detalle del producto</a>
+              <a className="btn btn-danger" target="_blank" rel="nofollow" href={`http://localhost:4000/products/${ultimoProd.id}`}>Ver detalle del producto</a>
 								</div>
 							</div>
 						</div>

@@ -11,6 +11,8 @@ const editarImgProdMidd = require("../middlewares/editarImgProdMidd.js");
 
 router.get("/allbooks", productsController.list)
 
+router.post("/find", productsController.find)
+
 router.get("/bestsellers", productsController.bestsellers)
 
 router.get("/nuevos-lanzamientos", productsController.lanzamientos)

@@ -2,6 +2,7 @@ const path = require("path");
 const db = require('../database/models');
 const { validationResult } = require('express-validator');
 const sequelize = db.sequelize;
+const Op = db.Sequelize.Op;
 const moment = require('moment');
 
 const productsController = {
@@ -13,6 +14,17 @@ const productsController = {
     })
       .then(productos => {
         return res.render('products/allbooks', { productos })
+      })
+  },
+
+  find: (req, res) => {
+    const titulo = req.body.buscador
+    db.Productos.findAll({
+      where: {
+        titulo: { [Op.like]: "%" + titulo + "%" }
+      }})
+      .then(productos => {
+        return res.render('products/result', { productos })
       })
   },
 
@@ -33,6 +45,7 @@ const productsController = {
       })
       .catch(error => console.log)
   },
+
   crear: (req, res) => {
 
     let pedidoGeneros = db.Generos.findAll()

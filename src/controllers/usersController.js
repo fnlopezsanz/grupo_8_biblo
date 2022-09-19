@@ -6,6 +6,45 @@ const sequelize = db.sequelize;
 const { check, body, validationResult } = require('express-validator');
 
 const usersController = {
+
+  userlist: (req, res) => {
+    db.Usuarios.findAll({
+      include: ['rol']
+    })
+      .then(function (users) {
+        res.render('users/users-list', { users });
+      })
+      .catch(error => console.log(error));
+  },
+
+  find: (req, res) => {
+    
+    const busqueda = req.body.busq
+    db.Usuarios.findAll({
+      include: ['rol'],
+      where: {
+        /* nombre: { [Op.like]: "%" + busqueda + "%" }, */
+        /* apellido: { [Op.like]: "%" + busqueda + "%" }, */
+        [Op.or]: [
+          {
+            apellido: {
+              [Op.like]: "%" + busqueda + "%"
+            }
+          },
+          {
+            nombre: {
+              [Op.like]: "%" + busqueda + "%"
+            }
+          }
+        ]
+}
+    })
+      .then(function (users) {
+        res.render('users/users-list', { users });
+      })
+      .catch(error => console.log(error));
+  },
+
   login: (req, res) => {
     res.render("users/login");
   },
@@ -123,6 +162,7 @@ const usersController = {
         })
         .catch(error => console.log(error));
     } else {
+      // Busca un usuario que matchee con el email del body
       db.Usuarios
         .findOne({
           where: {
@@ -130,6 +170,7 @@ const usersController = {
           }
         })
         .then(userInDb => {
+          // Si no matchea con ningún mail registrado, se puede actualizar el email
           if (!userInDb) {
             db.Usuarios.findByPk(idEditado)
               .then((encontrado) => {
@@ -144,12 +185,14 @@ const usersController = {
                 )
               })
               .then((userUpdated) => {
+                // Luego de actualizar la info del usuario, guarda esa nueva data en userLogged y redirige al perfil del usuario.
                 db.Usuarios.findByPk(idEditado)
                   .then((editado) => {
                     req.session.userLogged = editado;
                     return res.redirect('/users/perfil/' + idEditado)
                   })
               })
+          // Si el email que se quiere introducir ya existe en la base y el id del usuario a editar no es el mismo del usuario con email en la base, se devuelve un error
           } else if (req.body.email == userInDb.email && idEditado != userInDb.id) {
             db.Usuarios.findByPk(req.params.id)
               .then(function (user) {
@@ -261,16 +304,6 @@ const usersController = {
     res.clearCookie('recordame');
     req.session.destroy();
     res.redirect('/')
-  },
-
-  userlist: (req, res) => {
-    db.Usuarios.findAll({
-      include: ['rol']
-    })
-      .then(function (users) {
-        res.render('users/users-list', { users });
-      })
-      .catch(error => console.log(error));
   }
 
 };

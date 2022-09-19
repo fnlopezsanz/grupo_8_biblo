@@ -19,6 +19,8 @@ const admMiddleware = require("../middlewares/admMiddleware");
 
 router.get("/login", guestMiddleware, usersController.login);
 
+router.post("/find", admMiddleware, usersController.find);
+
 router.post("/login", validationLogin, usersController.processLogin);
 
 router.get("/register", guestMiddleware, usersController.register);

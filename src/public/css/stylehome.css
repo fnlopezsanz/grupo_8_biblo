@@ -49,13 +49,13 @@ main {
 .button-burger {
     display: flex;
     flex-direction: column;
-    width: 2rem;
-    height: 2rem;
+    width: 40px;
+    height: 30px;
     border: 0;
     margin-top: 11px;
     margin-left: 11px;
     background: transparent;
-    gap: .40rem;
+    gap: 8px;
 }
 
 .button-burger .line {

@@ -10,21 +10,21 @@
         </form>
       </div>
       <div class="search-top">
-        <form action="" method="">
-          <input type="text" placeholder="Buscar...">
+        <form action="/products/find" method="post">
+          <input type="text" placeholder="Buscar por título" name="buscador" id="buscador">
           <button type="submit"><i class="fas fa-search"></i></button>
         </form>
-      </div>
-      <a href="/"><img src="/img/vistas/logo.jpg" alt="logo" class="logo"></a>
-    </div>
-    <div class="bottom-header">
-      <div class="search-bottom">
-        <form action="" method="">
-          <input type="text" placeholder="Buscar..." size="15">
-          <button type="submit"><i class="fas fa-search"></i></button>
-        </form>
-      </div>
-      <nav class="bottom-nav">
+        </div>
+        <a href="/"><img src="/img/vistas/logo.jpg" alt="logo" class="logo"></a>
+        </div>
+        <div class="bottom-header">
+          <div class="search-bottom">
+            <form action="/products/find" method="post">
+              <input type="text" placeholder="Buscar por título" size="15" name="buscador" id="buscador">
+              <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+          </div>
+          <nav class="bottom-nav">
         <ul>
           <% if(locals.isLogged){%>
           <li><a href="/products/create">Crear producto</a></li>

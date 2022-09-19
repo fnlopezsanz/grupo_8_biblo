@@ -7,7 +7,7 @@
 
     <%- include("../parcials/headerAdmin.ejs"); %>
 
-      <form action="/products/<%= producto.id %>?_method=PUT" method="POST" class="form" id="formulario" enctype="multipart/form-data">
+      <form action="/products/<%= producto.id %>?_method=PUT" method="POST" class="form" id="formulario">
         <div>
           <h4>EDITAR PRODUCTO</h4>
         </div>
@@ -55,7 +55,7 @@
                   </select>
                 </div>
                 <div class="categoria c-e-div">
-                  <label for="categoria">Categoria</label>
+                  <label for="categoria">Categoría</label>
                   <select name="id_categoria" id="categoria">
                     <% categorias.forEach(categoria=> {%>
                       <option value="<%= categoria.id %>" <% if(categoria.id==producto.id_categoria){ %>
@@ -73,13 +73,12 @@
                   <textarea name="descripcion" id="descripcion" cols="100"
                     rows="5"><%= producto.descripcion %></textarea>
                 </div>
-              <div id="descripcionError" class="invalid-feedback">
+              <div id="descripcionError" class="invalid-feedback"></div>
                 <% if (locals.errors && errors.descripcion) { %>
                   <div class="invalid-feedback">
                    <%= errors.descripcion.msg %>
                   </div>
                    <% } %>
-              </div>
                 <div class="c-e-div">
                   <input type="text" name="precio" id="precio" placeholder="$ Precio" class="input-text" required
                     value="<%= producto.precio %>">

@@ -31,9 +31,11 @@ window.addEventListener('load', function () {
     if (valueInput.length < 20) {
       divError.innerHTML = `Debe introducir una ${divInput.id} de al menos 20 caracteres`;
       campos[divInput.name] = false;
+      console.log("error desc")
     } else {
       hideError(divInput, divError);
       campos[divInput.name] = true;
+      console.log("ok desc")
     }
   }
 
@@ -73,12 +75,12 @@ window.addEventListener('load', function () {
     validateLengthDescripcion(descripcion.value, descripcion, descripcionError);
   })
   
-  imagen.addEventListener('change', function () {
+/*   imagen.addEventListener('change', function () {
     validateImage(imagen.value, imagen, imagenError)
-  })
+  }) */
 
   formulario.addEventListener('submit', e => {
-    if (campos.titulo && campos.descripcion && campos.imagen) {
+    if (campos.titulo && campos.descripcion) {
       console.log(campos)
     } else {
       e.preventDefault();

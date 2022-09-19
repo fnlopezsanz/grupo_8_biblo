@@ -5,7 +5,7 @@ USE biblo_db;
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-08-2022 a las 07:10:39
+-- Tiempo de generación: 19-09-2022 a las 04:24:36
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -121,10 +121,13 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id`, `id_autor`, `id_genero`, `id_categoria`, `titulo`, `descripcion`, `precio`, `imagen`, `anio`, `created_at`, `updated_at`) VALUES
-(11, 4, 7, 1, 'Alicia en el País de las Maravillas', 'Alicia está aburrida. De repente, un conejo blanco, vestido con pantalón y saco, que mira desesperado a su reloj, anuncia preocupado que llegará tarde a alguna parte.', '3500.00', 'aem.jpg', 1865, '2022-08-27 04:55:22', '2022-08-27 04:55:22'),
-(12, 1, 6, 1, 'Don Quijote', 'Don Quijote de la Mancha​ es una novela escrita por el español Miguel de Cervantes Saavedra. Publicada su primera parte con el título de El ingenioso hidalgo don Quijote de la Mancha a comienzos...', '2650.00', 'dq.jpg', 1605, '2022-08-27 04:56:50', '2022-08-27 04:56:50'),
+(11, 4, 7, 3, 'Alicia en el País de las Maravillas', 'Alicia está aburrida. De repente, un conejo blanco, vestido con pantalón y saco, que mira desesperado a su reloj, anuncia preocupado que llegará tarde a alguna parte.', '3500.00', 'imagenproduct-1662593644660.jpg', 1865, '2022-08-27 04:55:22', '2022-09-07 23:34:04'),
 (15, 3, 2, 1, 'El Código de D Vinci', 'El código Da Vinci es una novela de misterio escrita por Dan Brown y publicada por primera vez por Random House en 2003. Se ha convertido en un superventas mundial, con más de 80 millones de ejemplares vendidos y traducido a 44 idiomas.', '2300.00', 'ecd.jpg', 2003, '2022-08-27 05:00:55', '2022-08-27 05:00:55'),
-(19, 8, 2, 3, 'Red Queen', 'La protagonista es Mare, una chica de sangre roja que sobrevive en medio de la pobreza realizando pequeños robos. Cierto día, el azar la lleva a la corte. Allí demuestra tener poderes especiales, los cuales resultan insólitos para alguien del pueblo.', '4200.00', 'rq.jpg', 2015, '2022-08-27 05:04:16', '2022-08-27 05:04:16');
+(19, 8, 2, 4, 'Red Queen', 'La protagonista es Mare, una chica de sangre roja que sobrevive en medio de la pobreza realizando pequeños robos. Cierto día, el azar la lleva a la corte. Allí demuestra tener poderes especiales, los cuales resultan insólitos para alguien del pueblo.', '4200.00', 'rq.jpg', 2015, '2022-08-27 05:04:16', '2022-08-27 05:04:16'),
+(20, 1, 1, 1, 'A Novel Of Zelda Fitzgerald', 'When beautiful, reckless Southern belle Zelda Sayre meets F. Scott Fitzgerald at a country club dance in 1918, she is seventeen years old and he is a young army lieutenant stationed in Alabama.', '3500.00', 'imagenproduct-1662599171481.jpg', 2014, '2022-09-08 01:06:11', '2022-09-08 01:06:11'),
+(21, 3, 2, 1, 'Rayuela', 'Horacio Oliveira es el protagonista de esta novela que pone en juego la subjetividad del lector y brinda múltiples finales. Comúnmente conocida como antinovela, y señalada por el propio Cortázar como contranovela.\r\nLa novela mantiene un estilo muy variado', '5000.00', 'imagenproduct-1662599295184.jpg', 1963, '2022-09-08 01:08:15', '2022-09-08 01:08:15'),
+(22, 4, 6, 3, 'La Naranja Mecánica', 'Gran Bretaña, en un futuro indeterminado. Alex (Malcolm McDowell) es un joven muy agresivo que tiene dos pasiones: la violencia desaforada y Beethoven. Es el jefe de la banda de los drugos, que dan rienda suelta a sus instintos más salvajes apaleando, vio', '4100.00', 'imagenproduct-1662600471084.jpg', 1971, '2022-09-08 01:10:10', '2022-09-08 01:27:51'),
+(23, 4, 2, 3, 'El Alquimista', 'El alquimista relata las aventuras de Santiago, un joven pastor andaluz que viaja desde su tierra natal hacia el desierto egipcio en busca de un tesoro oculto en las pirámides. La imaginación y el coraje del protagonista le hacen perseguir su \"Leyenda Per', '2600.00', 'imagenproduct-1662599504088.jpg', 1988, '2022-09-08 01:11:19', '2022-09-08 01:11:44');
 
 -- --------------------------------------------------------
 
@@ -169,7 +172,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `id_rol`, `nombre`, `apellido`, `email`, `password`, `avatar`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 2, 'Emiliana', 'Bag', 'emi@gmail.com', '$2a$10$bddfWHFm0zsv1iqsF2E19e1hFN6PVgEOjA47HZHYqBL9IyTOnpabe', 'user-1661301224772.jpg', '', '2022-08-24 00:33:44', '2022-08-24 00:33:44');
+(1, 2, 'Emiliana', 'Baglioni', 'emi@gmail.com', '$2a$10$bddfWHFm0zsv1iqsF2E19e1hFN6PVgEOjA47HZHYqBL9IyTOnpabe', 'user-1661301224772.jpg', '', '2022-08-24 00:33:44', '2022-08-30 05:45:10'),
+(6, 2, 'Emiliana A', 'Bagl', 'abril@gmail.com', '$2a$10$SP1fKtZR/NWfSZOHVgzbNefTJBoXEIJ5lYmlyyaYUjF4EJ13RYInK', 'imagenuser-1663288179177.jpg', '', '2022-09-16 00:29:39', '2022-09-16 02:07:48');
 
 --
 -- Índices para tablas volcadas
@@ -242,7 +246,7 @@ ALTER TABLE `generos`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
@@ -254,7 +258,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restricciones para tablas volcadas

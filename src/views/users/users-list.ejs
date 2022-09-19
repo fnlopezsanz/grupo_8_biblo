@@ -8,14 +8,17 @@
             <main class="main-userlist">
                 <h4>LISTA DE USUARIOS</h4>
                 <div class="search-user">
-                    <form action="" method="">
+                    <form action="/users/find" method="post">
                         <div class="s-u-box">
-                            <input type="text" placeholder="Buscar usuario...">
+                            <input type="text" placeholder="Buscar usuario..." name="busq">
                             <button type="submit"><i class="fas fa-search"></i></button>
                         </div>
                     </form>
                   </div>
                 <br>
+              <% if(users.length==0) { %>
+                  <p style="font-size: 24px; font-weight: bold; color:var(--bgdark)">No se encontraron coincidencias</p>
+                  <% } else { %>
                 <% for(let i=0; i < users.length; i++){ %>
                 <div class="big-box-user">
                     <div class="div-data">
@@ -41,6 +44,7 @@
                     </div>
                 </div>
                 <% } %>
+              <% } %>
             </main>
             <%- include("../parcials/footer"); %>
     </body>
